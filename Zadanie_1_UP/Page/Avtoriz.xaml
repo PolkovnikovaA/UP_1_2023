@@ -10,7 +10,7 @@
 
     <Grid Height="800" Width="1400">
         <Label Content="Логин" 
-               FontSize="40"
+               FontSize="50"
                Height="60"
                Width="128"
                Margin="0,179,0,561"
@@ -23,13 +23,14 @@
         <TextBox x:Name="login" 
                  TextWrapping="Wrap"
                  Height="60"
+                 FontFamily="Monotype Corsiva" 
                  Width="520" 
                  Margin="440,244,440,496" 
-                 FontSize="40" 
+                 FontSize="50" 
                  TextAlignment="Left"/>
 
         <Label Content="Пароль" 
-               FontSize="40"
+               FontSize="50"
                Height="60"
                HorizontalAlignment="Center"
                Width="150" 
@@ -41,8 +42,9 @@
                      HorizontalAlignment="Center" 
                      Height="60"
                      Width="520" 
+                     FontFamily="Monotype Corsiva" 
                      Margin="0,374,0,366" 
-                     FontSize="40" />
+                     FontSize="50" />
 
         <TextBlock x:Name="Entre"
                    Text="Вход" 
@@ -53,7 +55,7 @@
                    Width="128"
                    FontWeight="Bold" 
                    Foreground="White"
-                   FontSize="50" Margin="0,457,0,279" 
+                   FontSize="60" Margin="0,457,0,279" 
                    FontFamily="Monotype Corsiva" 
                    Cursor="Hand"
                    MouseLeftButtonDown="Avtoriz_Vxod"/>
@@ -62,10 +64,10 @@
                    TextAlignment="Center"
                    TextWrapping="WrapWithOverflow"
                    HorizontalAlignment="Left"
-                   Width="315"
+                   Width="339"
                    Foreground="White"
-                   FontSize="30" 
-                   Margin="385,648,0,10" 
+                   FontSize="40" 
+                   Margin="351,642,0,106" 
                    FontFamily="Monotype Corsiva"/>
 
         <TextBlock x:Name="Reg"
@@ -74,10 +76,10 @@
                    TextAlignment="Center"
                    TextWrapping="WrapWithOverflow"
                    HorizontalAlignment="Left"
-                   Width="299"
+                   Width="405"
                    FontWeight="Bold" 
                    Foreground="White"
-                   FontSize="30" Margin="705,648,0,10" 
+                   FontSize="40" Margin="671,642,0,106" 
                    FontFamily="Monotype Corsiva" 
                    Cursor="Hand" 
                    MouseLeftButtonDown="Avtoriz_Zareg"/>

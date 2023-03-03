@@ -27,5 +27,10 @@ namespace Zadanie_1_UP
             InitializeComponent();
             frame1 = frame;
         }
+
+        private void Reg_Nazad(object sender, MouseButtonEventArgs e)
+        {
+            frame1.Navigate(new Avtoriz(frame1));
+        }
     }
 }
