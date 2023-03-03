@@ -43,7 +43,8 @@
                    Foreground="White" 
                    FontSize="60" 
                    Margin="0,514,0,120" 
-                   Cursor="Hand" />
+                   Cursor="Hand" 
+                   MouseLeftButtonDown="Reg_Reg"/>
 
         <TextBlock x:Name="back" 
                    Text="Вернуться назад" 

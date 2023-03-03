@@ -32,5 +32,50 @@ namespace Zadanie_1_UP
         {
             frame1.Navigate(new Avtoriz(frame1));
         }
+
+        private void Reg_Reg(object sender, RoutedEventArgs e)
+        {
+            string log = login.Text;
+            string pas = password.Text;
+            string pas1 = password_Copy.Text;
+            if (log != "")
+            {
+                if (pas != "")
+                {
+                    if (pas1 != "")
+                    {
+                        if (pas == pas1)
+                        {
+                            List<Zadanie_1_UP.Users> user = new List<Zadanie_1_UP.Users>() { new Users() };
+                            int count = Entities.GetContext().Users.Count();
+                            user[0].id = count + 1;
+                            user[0].login = log;
+
+                            user[0].password = pas;
+                            Entities.GetContext().Users.Add(user[0]);
+                            Entities.GetContext().SaveChanges();
+                            frame1.Navigate(new Avtoriz(frame1));
+                        }
+                        else
+                        {
+                            MessageBox.Show("Пароли не совпадают");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Повторите пароль");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Введите пароль");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Введите логин");
+            }
+
+        }
     }
 }
