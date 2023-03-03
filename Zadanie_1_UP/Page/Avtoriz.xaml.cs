@@ -29,9 +29,30 @@ namespace Zadanie_1_UP
             InitializeComponent();
         }
 
+        List<Zadanie_1_UP.Users> users = new List<Zadanie_1_UP.Users>();
+
         private void Avtoriz_Vxod(object sender, MouseButtonEventArgs e)
         {
-            frame1.Navigate(new Glavnaya(frame1));
+            string klients = login.Text;
+            string pas = password.Password;
+            int count = Entities.GetContext().Users.Count();
+            users = Entities.GetContext().Users.ToList();
+            for (int i = 0; i < count; i++)
+            {
+                if (users[i].login == klients)
+                {
+                    if (users[i].password == pas)
+                    {
+                        frame1.Navigate(new Glavnaya(frame1));
+                        vx = 1;
+                        break;
+                    }
+                }
+            }
+            if (vx == 0)
+            {
+                MessageBox.Show("Неверный логин или пароль");
+            }
         }
 
     }
