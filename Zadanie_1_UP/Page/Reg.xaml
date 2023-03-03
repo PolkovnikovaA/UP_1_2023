@@ -40,7 +40,7 @@
                    Foreground="White" 
                    FontSize="50" 
                    Margin="0,514,0,120" 
-                   FontFamily="Bahnschrift" 
+                   FontFamily="Monotype Corsiva" 
                    Cursor="Hand" />
 
         <TextBlock x:Name="back" 
@@ -55,7 +55,7 @@
                    Foreground="White" 
                    FontSize="25" 
                    Margin="940,685,0,85" 
-                   FontFamily="Bahnschrift" 
+                   FontFamily="Monotype Corsiva" 
                    Cursor="Hand"/>
 
         <TextBox x:Name="password_Copy" 
@@ -78,7 +78,7 @@
                Foreground="White" 
                FontWeight="Normal" 
                FontStyle="Normal" 
-               FontFamily="Bahnschrift"/>
+               FontFamily="Monotype Corsiva"/>
 
         <Label Content="Пароль" 
                HorizontalAlignment="Center" 
@@ -90,7 +90,7 @@
                Foreground="White" 
                FontWeight="Normal" 
                FontStyle="Normal" 
-               FontFamily="Bahnschrift"/>
+               FontFamily="Monotype Corsiva"/>
 
         <Label Content="Повторите пароль" 
                HorizontalAlignment="Center" 
@@ -101,7 +101,7 @@
                Foreground="White" 
                FontWeight="Normal" 
                FontStyle="Normal" 
-               FontFamily="Bahnschrift" 
+               FontFamily="Monotype Corsiva" 
                Margin="0,351,0,0"/>
     </Grid>
 </Page>

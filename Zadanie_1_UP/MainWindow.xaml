@@ -10,7 +10,6 @@
     <Grid>
         <Frame Name="FrameName" 
                NavigationUIVisibility='Hidden' 
-               Background="#9eacc9" 
-               Opacity="0.8"/>
+               Background="#9eacc9"/>
     </Grid>
 </Window>

@@ -18,7 +18,7 @@
                Foreground="White" 
                FontWeight="Normal" 
                FontStyle="Normal" 
-               FontFamily="Bahnschrift"/>
+               FontFamily="Monotype Corsiva"/>
 
         <TextBox x:Name="login" 
                  TextWrapping="Wrap"
@@ -35,7 +35,7 @@
                Width="150" 
                Margin="0,314,0,426"
                Foreground="White" 
-               FontFamily="Bahnschrift"/>
+               FontFamily="Monotype Corsiva"/>
 
         <PasswordBox x:Name="password" 
                      HorizontalAlignment="Center" 
@@ -54,7 +54,7 @@
                    FontWeight="Bold" 
                    Foreground="White"
                    FontSize="50" Margin="0,457,0,279" 
-                   FontFamily="Bahnschrift" 
+                   FontFamily="Monotype Corsiva" 
                    Cursor="Hand"
                    MouseLeftButtonDown="Avtoriz_Vxod"/>
 
@@ -66,7 +66,7 @@
                    Foreground="White"
                    FontSize="30" 
                    Margin="385,648,0,10" 
-                   FontFamily="Bahnschrift"/>
+                   FontFamily="Monotype Corsiva"/>
 
         <TextBlock x:Name="Reg"
                    Text="Зарегистрироваться"
@@ -78,7 +78,7 @@
                    FontWeight="Bold" 
                    Foreground="White"
                    FontSize="30" Margin="705,648,0,10" 
-                   FontFamily="Bahnschrift" 
+                   FontFamily="Monotype Corsiva" 
                    Cursor="Hand" 
                    MouseLeftButtonDown="Avtoriz_Zareg"/>
     </Grid>
