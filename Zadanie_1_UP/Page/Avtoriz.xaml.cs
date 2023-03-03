@@ -16,14 +16,17 @@ using System.Windows.Shapes;
 namespace Zadanie_1_UP
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Avtoriz.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Avtoriz : Page
     {
-        public MainWindow()
+        public Frame frame1;
+        public int vx = 0;
+
+        public Avtoriz(Frame frame)
         {
+            frame1 = frame;
             InitializeComponent();
-            FrameName.Navigate(new Avtoriz(FrameName));
         }
     }
 }
