@@ -1,0 +1,107 @@
+﻿<Page x:Class="Zadanie_1_UP.Reg"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Zadanie_1_UP"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1400"
+      Title="Reg">
+
+    <Grid Height="800" Width="1400">
+        <TextBox x:Name="login" 
+                 HorizontalAlignment="Center" 
+                 Margin="0,157,0,0" 
+                 TextWrapping="Wrap" 
+                 Height="60" 
+                 Width="520" 
+                 FontSize="40" 
+                 VerticalAlignment="Top" 
+                 TextAlignment="Center" />
+
+        <TextBox x:Name="password" 
+                 HorizontalAlignment="Center" 
+                 FontSize="40" 
+                 Margin="0,287,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Height="60" 
+                 Width="520" 
+                 TextAlignment="Center" />
+
+        <TextBlock x:Name="registration" 
+                   Text="Зарегистрироваться" 
+                   TextDecorations="Underline" 
+                   TextAlignment="Center" 
+                   TextWrapping="WrapWithOverflow" 
+                   HorizontalAlignment="Center" 
+                   Width="500" 
+                   FontWeight="Bold" 
+                   Foreground="White" 
+                   FontSize="50" 
+                   Margin="0,514,0,120" 
+                   FontFamily="Bahnschrift" 
+                   Cursor="Hand" />
+
+        <TextBlock x:Name="back" 
+                   Text="Вернуться назад" 
+                   TextDecorations="Underline" 
+                   TextAlignment="Center" 
+                   TextWrapping="WrapWithOverflow" 
+                   HorizontalAlignment="Left" 
+                   Width="250" 
+                   Height="30" 
+                   FontWeight="Bold" 
+                   Foreground="White" 
+                   FontSize="25" 
+                   Margin="940,685,0,85" 
+                   FontFamily="Bahnschrift" 
+                   Cursor="Hand"/>
+
+        <TextBox x:Name="password_Copy" 
+                 HorizontalAlignment="Center" 
+                 FontSize="40" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Height="60" 
+                 Width="520" 
+                 Margin="0,411,0,0" 
+                 TextAlignment="Center"/>
+
+        <Label Content="Логин" 
+               Margin="0,97,0,0" 
+               VerticalAlignment="Top" 
+               FontSize="40" 
+               Height="60" 
+               Width="128" 
+               HorizontalAlignment="Center" 
+               Foreground="White" 
+               FontWeight="Normal" 
+               FontStyle="Normal" 
+               FontFamily="Bahnschrift"/>
+
+        <Label Content="Пароль" 
+               HorizontalAlignment="Center" 
+               Margin="0,222,0,0" 
+               VerticalAlignment="Top" 
+               FontSize="40" 
+               Height="60" 
+               Width="150" 
+               Foreground="White" 
+               FontWeight="Normal" 
+               FontStyle="Normal" 
+               FontFamily="Bahnschrift"/>
+
+        <Label Content="Повторите пароль" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Top" 
+               FontSize="40" 
+               Height="60" 
+               Width="350" 
+               Foreground="White" 
+               FontWeight="Normal" 
+               FontStyle="Normal" 
+               FontFamily="Bahnschrift" 
+               Margin="0,351,0,0"/>
+    </Grid>
+</Page>

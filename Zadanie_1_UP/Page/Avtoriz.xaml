@@ -79,6 +79,7 @@
                    Foreground="White"
                    FontSize="30" Margin="705,648,0,10" 
                    FontFamily="Bahnschrift" 
-                   Cursor="Hand" />
+                   Cursor="Hand" 
+                   MouseLeftButtonDown="Avtoriz_Zareg"/>
     </Grid>
 </Page>

@@ -55,5 +55,10 @@ namespace Zadanie_1_UP
             }
         }
 
+        private void Avtoriz_Zareg(object sender, MouseButtonEventArgs e)
+        {
+            frame1.Navigate(new Reg(frame1));
+        }
+
     }
 }
