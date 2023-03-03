@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zadanie_1_UP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1400"
+        Title="Медицинская лаборатория №20" Height="800" Width="1400"
+        MinHeight="800" MinWidth="1400"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Frame Name="FrameName" 
