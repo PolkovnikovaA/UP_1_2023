@@ -13,7 +13,7 @@
                FontSize="40"
                Height="60"
                Width="128"
-               Margin="0,111,0,529"
+               Margin="0,179,0,561"
                HorizontalAlignment="Center"
                Foreground="White" 
                FontWeight="Normal" 
@@ -24,7 +24,7 @@
                  TextWrapping="Wrap"
                  Height="60"
                  Width="520" 
-                 Margin="340,176,340,464" 
+                 Margin="440,244,440,496" 
                  FontSize="40" 
                  TextAlignment="Left"/>
 
@@ -33,7 +33,7 @@
                Height="60"
                HorizontalAlignment="Center"
                Width="150" 
-               Margin="0,296,0,444"
+               Margin="0,314,0,426"
                Foreground="White" 
                FontFamily="Bahnschrift"/>
 
@@ -41,7 +41,7 @@
                      HorizontalAlignment="Center" 
                      Height="60"
                      Width="520" 
-                     Margin="0,356,0,384" 
+                     Margin="0,374,0,366" 
                      FontSize="40" />
 
         <TextBlock x:Name="Entre"
@@ -53,9 +53,10 @@
                    Width="128"
                    FontWeight="Bold" 
                    Foreground="White"
-                   FontSize="50" Margin="0,439,0,297" 
+                   FontSize="50" Margin="0,457,0,279" 
                    FontFamily="Bahnschrift" 
-                   Cursor="Hand"/>
+                   Cursor="Hand"
+                   MouseLeftButtonDown="Avtoriz_Vxod"/>
 
         <TextBlock Text="Впервые? Вы можете" 
                    TextAlignment="Center"
@@ -64,7 +65,7 @@
                    Width="315"
                    Foreground="White"
                    FontSize="30" 
-                   Margin="385,576,0,82" 
+                   Margin="385,648,0,10" 
                    FontFamily="Bahnschrift"/>
 
         <TextBlock x:Name="Reg"
@@ -76,7 +77,7 @@
                    Width="299"
                    FontWeight="Bold" 
                    Foreground="White"
-                   FontSize="30" Margin="705,576,0,82" 
+                   FontSize="30" Margin="705,648,0,10" 
                    FontFamily="Bahnschrift" 
                    Cursor="Hand" />
     </Grid>

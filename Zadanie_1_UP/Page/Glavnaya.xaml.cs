@@ -16,23 +16,16 @@ using System.Windows.Shapes;
 namespace Zadanie_1_UP
 {
     /// <summary>
-    /// Логика взаимодействия для Avtoriz.xaml
+    /// Логика взаимодействия для Glavnaya.xaml
     /// </summary>
-    public partial class Avtoriz : Page
+    public partial class Glavnaya : Page
     {
         public Frame frame1;
-        public int vx = 0;
 
-        public Avtoriz(Frame frame)
+        public Glavnaya(Frame frame)
         {
-            frame1 = frame;
             InitializeComponent();
+            frame1 = frame;
         }
-
-        private void Avtoriz_Vxod(object sender, MouseButtonEventArgs e)
-        {
-            frame1.Navigate(new Glavnaya(frame1));
-        }
-
     }
 }
