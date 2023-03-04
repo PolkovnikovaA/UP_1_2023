@@ -31,6 +31,7 @@ namespace Zadanie_1_UP
         }
 
         List<Zadanie_1_UP.Users> users = new List<Zadanie_1_UP.Users>();
+        List<Zadanie_1_UP.Workers> workers = new List<Zadanie_1_UP.Workers>();
 
         private void Avtoriz_Vxod(object sender, MouseButtonEventArgs e)
         {
@@ -45,6 +46,21 @@ namespace Zadanie_1_UP
                     if (users[i].password == pas)
                     {
                         frame1.Navigate(new Glavnaya(frame1));
+                        vx = 1;
+                        captcha = 0;
+                        break;
+                    }
+                }
+            }
+            int count2 = Entities.GetContext().Workers.Count();
+            workers = Entities.GetContext().Workers.ToList();
+            for (int i = 0; i < count2; i++)
+            {
+                if (workers[i].login == klients)
+                {
+                    if (workers[i].password == pas)
+                    {
+                        frame1.Navigate(new GlavnayaL(frame1));
                         vx = 1;
                         captcha = 0;
                         break;
