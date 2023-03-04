@@ -22,6 +22,7 @@ namespace Zadanie_1_UP
     {
         public Frame frame1;
         public int vx = 0;
+        int captcha = 0;
 
         public Avtoriz(Frame frame)
         {
@@ -52,6 +53,12 @@ namespace Zadanie_1_UP
             if (vx == 0)
             {
                 MessageBox.Show("Неверный логин или пароль");
+                captcha++;
+            }
+            if (captcha > 3)
+            {
+                Captcha captcha = new Captcha();
+                captcha.Show();
             }
         }
 

@@ -31,7 +31,7 @@ namespace Zadanie_1_UP
             InitializeComponent();
             DateTime dateTime = DateTime.Now;
             FrameName.Navigate(new Avtoriz(FrameName));
-            TickCounter = 1;
+            TickCounter = 150;
             _timer = new DispatcherTimer();
             _timer.Interval = TimeSpan.FromMinutes(1d);
             _timer.Tick += new EventHandler(Timer_Tick);

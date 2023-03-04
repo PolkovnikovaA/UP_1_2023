@@ -1,0 +1,45 @@
+﻿<Window x:Class="Zadanie_1_UP.Captcha"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadanie_1_UP"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Медицинская лаборатория №20" Height="400" Width="400">
+
+    <Grid Background="#9eacc9" Height="400">
+        <TextBlock x:Name="captha1" 
+                   TextWrapping="Wrap"
+                   Background="White"
+                   Height="60"
+                   FontFamily="Monotype Corsiva" 
+                   Width="370" 
+                   Margin="15,55,15,285" 
+                   FontSize="50" 
+                   TextAlignment="Left"/>
+
+        <TextBox x:Name="captha2" 
+                 TextWrapping="Wrap"
+                 FontFamily="Monotype Corsiva" 
+                 Width="370" 
+                 Height="60"
+                 Margin="15,171,15,169" 
+                 FontSize="50" 
+                 TextAlignment="Left"/>
+
+        <TextBlock x:Name="Entre2"
+                   Text="Проверить" 
+                   TextDecorations="Underline" 
+                   TextAlignment="Center"
+                   TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Center"
+                   Width="296"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   FontSize="60"
+                   FontFamily="Monotype Corsiva" 
+                   Cursor="Hand"
+                   Margin="0,264,0,70"/>
+    </Grid>
+</Window>
