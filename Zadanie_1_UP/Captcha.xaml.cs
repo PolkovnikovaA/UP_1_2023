@@ -23,6 +23,7 @@ namespace Zadanie_1_UP
         {
             InitializeComponent();
 
+            //капча
             String allowchar = " ";
             allowchar = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
             allowchar += "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,y,z";
@@ -40,11 +41,11 @@ namespace Zadanie_1_UP
             captha1.Text = pwd;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Captcha_Captcha(object sender, RoutedEventArgs e)
         {
-            string cap = captha1.Text;
-            string cap1 = captha2.Text;
-            if (cap1 == cap)
+            string cap1 = captha1.Text;
+            string cap2 = captha2.Text;
+            if (cap2 == cap1)
             {
                 this.Close();
             }

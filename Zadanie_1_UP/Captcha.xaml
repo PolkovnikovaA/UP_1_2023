@@ -40,6 +40,7 @@
                    FontSize="60"
                    FontFamily="Monotype Corsiva" 
                    Cursor="Hand"
-                   Margin="0,264,0,70"/>
+                   Margin="0,264,0,70"
+                   MouseLeftButtonDown="Captcha_Captcha"/>
     </Grid>
 </Window>
