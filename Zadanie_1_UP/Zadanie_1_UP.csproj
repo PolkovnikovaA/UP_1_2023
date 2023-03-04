@@ -185,6 +185,8 @@
     <Resource Include="Image\Resultat.png" />
     <Resource Include="Image\zagl.jpg" />
     <Resource Include="Image\Up.png" />
+    <Resource Include="Image\glaz_o.png" />
+    <Resource Include="Image\glaz_z.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

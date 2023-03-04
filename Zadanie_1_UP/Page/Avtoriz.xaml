@@ -46,6 +46,28 @@
                      Margin="0,374,0,366" 
                      FontSize="50" />
 
+        <TextBox x:Name="password1" 
+                 HorizontalAlignment="Center" 
+                 Height="60"
+                 Visibility="Hidden"
+                 Width="520" 
+                 FontFamily="Monotype Corsiva" 
+                 Margin="0,374,0,366" 
+                 FontSize="50" />
+
+        <Image Source="/Image/glaz_z.png" 
+               x:Name="glaz_z"
+               Height="46" Width="82"
+               Margin="876,381,442,373"
+               MouseLeftButtonDown="Avtoriz_Glaz_z"/>
+
+        <Image Source="/Image/glaz_o.png" 
+               x:Name="glaz_o"
+               Height="46" Width="82"
+               Margin="876,381,442,373"
+               Visibility="Hidden"
+               MouseLeftButtonDown="Avtoriz_Glaz_o"/>
+
         <TextBlock x:Name="Entre"
                    Text="Вход" 
                    TextDecorations="Underline" 

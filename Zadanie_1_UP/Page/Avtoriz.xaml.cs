@@ -68,5 +68,23 @@ namespace Zadanie_1_UP
             frame1.Navigate(new Reg(frame1));
         }
 
+        private void Avtoriz_Glaz_z(object sender, MouseButtonEventArgs e)
+        {
+            password.Visibility = Visibility.Hidden;
+            password1.Visibility = Visibility.Visible;
+            glaz_z.Visibility = Visibility.Hidden;
+            glaz_o.Visibility = Visibility.Visible;
+            password1.Text = password.Password;
+        }
+
+        private void Avtoriz_Glaz_o(object sender, MouseButtonEventArgs e)
+        {
+            password.Visibility = Visibility.Visible;
+            password1.Visibility = Visibility.Hidden;
+            glaz_z.Visibility = Visibility.Visible;
+            glaz_o.Visibility = Visibility.Hidden;
+            password.Password = password1.Text;
+        }
+
     }
 }
