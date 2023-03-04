@@ -25,12 +25,25 @@ namespace Zadanie_1_UP
         public Glavnaya(Frame frame)
         {
             InitializeComponent();
+            var all = Entities.GetContext().Service.ToList();
+
+            all.Insert(0, new Service
+            {
+                service1 = "Все типы"
+            });
+            ComboType.ItemsSource = all;
+            //var all = Entities.GetContext().Service.ToList();
+            // ComboType.ItemsSource = all;
+
+
             frame1 = frame;
+            LViewTours.ItemsSource = all;
         }
 
         private void Glavnaya_Nazad(object sender, MouseButtonEventArgs e)
         {
             frame1.Navigate(new Avtoriz(frame1));
         }
+
     }
 }

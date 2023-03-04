@@ -16,60 +16,126 @@
 
         <WrapPanel Orientation="Horizontal" 
                    HorizontalAlignment="Center" 
-                   Width="1400">
+                   Width="1400" Height="55">
             <StackPanel Orientation="Horizontal">
 
-                <TextBlock Text="Введите название для поиска: " 
-                           Width="350" TextAlignment="Right" 
+                <TextBlock Text="Поиск: " 
+                           Width="94" TextAlignment="Right" 
                            Foreground="White"
                            FontStyle="Normal"
                            FontFamily="Monotype Corsiva"
-                           FontSize="30" Height="36"
-                           Margin="15,15,0,0"/>
+                           FontSize="30" Height="32"
+                           Margin="15,5,0,0"/>
 
-                <TextBox Width="264"
+                <TextBox Width="221"
                          x:Name="TBoxSearch"
                          FontSize="30"
                          FontFamily="Monotype Corsiva"
-                         Margin="10,15,0,0" Height="34"/>
+                         Margin="10,5,0,0" Height="38"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Выберите тип: "
+                <TextBlock Text="Сортировка: "
                            Foreground="White"
-                           Width="192"
-                           Margin="10,15,0,0"
+                           Width="150"
+                           Margin="10,5,0,0"
                            FontFamily="Monotype Corsiva"
                            TextAlignment="Right" FontSize="30" Height="36"/>
 
-                <ComboBox Width="242"
+                <ComboBox Width="207"
                           Name="ComboType"
-                          DisplayMemberPath="Title" Height="38"
-                          Margin="10,15,0,0"/>
-            </StackPanel>
+                          DisplayMemberPath="Title" Height="40"
+                          Margin="10,5,0,0"/>
 
-            <StackPanel Orientation="Horizontal" Width="253">
-                <TextBlock x:Name="AddMaska"
-                           Text="Добавить"
+                <TextBlock Text="Фильтрация: "
+                           Foreground="White"
+                           Width="161"
                            Margin="10,5,0,0"
                            FontFamily="Monotype Corsiva"
-                           FontSize="20" 
-                           FontWeight="Bold" 
-                           TextDecorations="Underline"
-                           Foreground="White" 
-                           Cursor="Hand" />
+                           TextAlignment="Right" FontSize="30" Height="36"/>
+
+                <ComboBox Width="207"
+                          Name="ComboType2"
+                          DisplayMemberPath="Title" Height="40"
+                          Margin="10,5,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Width="284" Height="55">
+                <Image Source="/Image/Analiz.png"
+                       Height="40" Width="40"
+                       Margin="30,5,0,0"/>
+
+                <Image Source="/Image/Resultat.png"
+                       Height="40" Width="40"
+                       Margin="30,5,0,0"/>
+
                 <TextBlock x:Name="Back"
-                           Text="Назад"
+                           Text="Выход"
                            FontFamily="Monotype Corsiva"
                            FontSize="30" 
                            FontWeight="Bold" 
                            TextDecorations="Underline"
                            Foreground="White" 
-                           Margin="80,15,0,0"
+                           Margin="45,5,0,0"
                            Cursor="Hand" Height="32" Width="84"
                            MouseLeftButtonDown="Glavnaya_Nazad"/>
             </StackPanel>
         </WrapPanel>
+
+        <ListView Grid.Row="1"
+                  Name="LViewTours"
+                  HorizontalContentAlignment="Center"
+                  SelectedItem ="{Binding SelectedItem}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"
+                               HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="20"
+                          Width="500">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition Height="310"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Width="350"
+                               Height="350"
+                               Grid.Row="1"
+                               Stretch="Fill"
+                               HorizontalAlignment="Center">
+                            <Image.Source>
+                                <Binding Path="Image">
+                                    <Binding.TargetNullValue>
+                                        <ImageSource>/Image/zagl.jpg</ImageSource>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Text="{Binding service1}" 
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Center"
+                                   Width="500" 
+                                   TextWrapping="Wrap"
+                                   HorizontalAlignment="Center"
+                                   Margin="0 0 0 -10"
+                                   FontSize="16"
+                                   Grid.Row="0">
+
+                        </TextBlock>
+                        <TextBlock Text="{Binding Service.service1}"
+                                   Grid.Row="3"
+                                   FontSize="14"
+                                   HorizontalAlignment="Right">
+
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
     </Grid>
 </Page>
