@@ -19,6 +19,10 @@
                    FontSize="50" 
                    TextAlignment="Left"/>
 
+        <Image Source="/Image/Up.png" 
+               Margin="339,68,26,298"
+               MouseLeftButtonDown="Captcha_Up"/>
+
         <TextBox x:Name="captha2" 
                  TextWrapping="Wrap"
                  FontFamily="Monotype Corsiva" 

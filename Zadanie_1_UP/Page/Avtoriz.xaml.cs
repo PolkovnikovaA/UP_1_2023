@@ -46,6 +46,7 @@ namespace Zadanie_1_UP
                     {
                         frame1.Navigate(new Glavnaya(frame1));
                         vx = 1;
+                        captcha = 0;
                         break;
                     }
                 }

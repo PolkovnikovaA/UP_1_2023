@@ -22,8 +22,11 @@ namespace Zadanie_1_UP
         public Captcha()
         {
             InitializeComponent();
+            Cap();
+        }
 
-            //капча
+        public void Cap()   //капча
+        {
             String allowchar = " ";
             allowchar = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
             allowchar += "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,y,z";
@@ -56,6 +59,11 @@ namespace Zadanie_1_UP
                 capcha.Show();
             }
 
+        }
+
+        private void Captcha_Up(object sender, RoutedEventArgs e)
+        {
+            Cap();
         }
     }
 }
