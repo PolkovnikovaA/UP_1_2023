@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,15 +28,15 @@ namespace Zadanie_1_UP
             InitializeComponent();
             var all = Entities.GetContext().Service.ToList();
 
-            all.Insert(0, new Service
+            /*all.Insert(0, new Service
             {
                 service1 = "Все типы"
-            });
+            });*/
             ComboType.ItemsSource = all;
             //var all = Entities.GetContext().Service.ToList();
             // ComboType.ItemsSource = all;
 
-
+            
             frame1 = frame;
             LViewTours.ItemsSource = all;
         }

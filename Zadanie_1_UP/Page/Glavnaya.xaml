@@ -77,65 +77,66 @@
                            TextDecorations="Underline"
                            Foreground="White" 
                            Margin="45,5,0,0"
-                           Cursor="Hand" Height="32" Width="84"
+                           Cursor="Hand" 
+                           Height="32" Width="84"
                            MouseLeftButtonDown="Glavnaya_Nazad"/>
             </StackPanel>
         </WrapPanel>
 
         <ListView Grid.Row="1"
-                  Name="LViewTours"
-                  HorizontalContentAlignment="Center"
-                  SelectedItem ="{Binding SelectedItem}">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"
-                               HorizontalAlignment="Center"></WrapPanel>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+                  x:Name="LViewTours"
+                  ItemsSource="{Binding Service}" 
+                  Margin="0,0,0,87">
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="20"
-                          Width="500">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="70"></RowDefinition>
-                            <RowDefinition Height="310"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Image Width="350"
-                               Height="350"
-                               Grid.Row="1"
-                               Stretch="Fill"
-                               HorizontalAlignment="Center">
-                            <Image.Source>
-                                <Binding Path="Image">
-                                    <Binding.TargetNullValue>
-                                        <ImageSource>/Image/zagl.jpg</ImageSource>
-                                    </Binding.TargetNullValue>
-                                </Binding>
-                            </Image.Source>
-                        </Image>
-                        <TextBlock Text="{Binding service1}" 
-                                   VerticalAlignment="Center"
-                                   TextAlignment="Center"
-                                   Width="500" 
-                                   TextWrapping="Wrap"
-                                   HorizontalAlignment="Center"
-                                   Margin="0 0 0 -10"
-                                   FontSize="16"
-                                   Grid.Row="0">
+                    <Border BorderThickness="1" 
+                            BorderBrush="Black" 
+                            CornerRadius="5">
 
-                        </TextBlock>
-                        <TextBlock Text="{Binding Service.service1}"
-                                   Grid.Row="3"
-                                   FontSize="14"
-                                   HorizontalAlignment="Right">
+                        <Grid Margin="0" 
+                              HorizontalAlignment="Stretch">
 
-                        </TextBlock>
-                    </Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="1"
+                                        Margin="15"
+                                        Orientation="Horizontal">
+                                <Image Source="/Image/zagl.jpg"
+                                       Height="100" Width="160"
+                                       HorizontalAlignment="Left"/>
+                                <StackPanel Grid.Column="1"
+                                            Margin="0"
+                                            Orientation="Vertical">
+                                    <TextBlock Text="{Binding service1}"
+                                               Name="Ser"
+                                               FontFamily="Monotype Corsiva"
+                                               FontSize="30"/>
+                                    <TextBlock Text="{Binding price}"
+                                               FontFamily="Monotype Corsiva"
+                                               FontSize="30"/>
+                                    <TextBlock Text="{Binding MaterialString}"
+                                               FontFamily="Monotype Corsiva"
+                                               FontSize="30"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        
     </Grid>
 </Page>
