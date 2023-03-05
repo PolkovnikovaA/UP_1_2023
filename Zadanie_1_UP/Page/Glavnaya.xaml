@@ -63,11 +63,26 @@
             <StackPanel Orientation="Horizontal" Width="284" Height="55">
                 <Image Source="/Image/Analiz.png"
                        Height="40" Width="40"
-                       Margin="30,5,0,0"/>
+                       Margin="30,5,0,0"
+                       Cursor="Hand"
+                       MouseLeftButtonDown="Glavnaya_Analiz">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            Анализы
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
 
                 <Image Source="/Image/Resultat.png"
                        Height="40" Width="40"
-                       Margin="30,5,0,0"/>
+                       Cursor="Hand"
+                       Margin="30,5,0,0">
+                    <Image.ToolTip>
+                        <ToolTip>
+                        Результаты
+                    </ToolTip>
+                    </Image.ToolTip>
+                </Image>
 
                 <TextBlock x:Name="Back"
                            Text="Выход"
@@ -86,7 +101,11 @@
         <ListView Grid.Row="1"
                   x:Name="LViewTours"
                   ItemsSource="{Binding Service}" 
-                  Margin="0,0,0,87">
+                  Margin="0,0,0,87"
+                  Visibility="Hidden"
+                  AlternationCount="3" 
+                  Cursor="Hand">
+            
 
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -103,6 +122,11 @@
 
                         <Grid Margin="0" 
                               HorizontalAlignment="Stretch">
+                            <Grid.ToolTip>
+                                <ToolTip>
+                                    Перейти
+                                </ToolTip>
+                            </Grid.ToolTip>
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="10"/>
@@ -130,7 +154,6 @@
                                                FontFamily="Monotype Corsiva"
                                                FontSize="30"/>
                                 </StackPanel>
-
                             </StackPanel>
                         </Grid>
                     </Border>
