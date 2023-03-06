@@ -78,6 +78,7 @@
     <Compile Include="Captcha.xaml.cs">
       <DependentUpon>Captcha.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class\Navig.cs" />
     <Compile Include="Page\GlavnayaL.xaml.cs">
       <DependentUpon>GlavnayaL.xaml</DependentUpon>
     </Compile>
