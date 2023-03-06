@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net;
 
 namespace Zadanie_1_UP
 {
@@ -47,11 +48,19 @@ namespace Zadanie_1_UP
                         if (pas == pas1)
                         {
                             List<Zadanie_1_UP.Users> user = new List<Zadanie_1_UP.Users>() { new Users() };
+                            List<Zadanie_1_UP.Histori> h = new List<Zadanie_1_UP.Histori>() { new Histori() };
                             int count = Entities.GetContext().Users.Count();
+                            int count_h = Entities.GetContext().Histori.Count();
                             user[0].id = count + 1;
                             user[0].login = log;
-
                             user[0].password = pas;
+                            Entities.GetContext().Users.Add(user[0]);
+                            h[0].id = count_h + 1;
+                            h[0].login = log;
+                            h[0].ip = Dns.GetHostName();
+                            h[0].dataZ = DateTime.Now;
+                            h[0].blok = DateTime.Now.AddMinutes(-30);
+                            Entities.GetContext().Histori.Add(h[0]);
                             Entities.GetContext().Users.Add(user[0]);
                             Entities.GetContext().SaveChanges();
                             frame1.Navigate(new Avtoriz(frame1));
