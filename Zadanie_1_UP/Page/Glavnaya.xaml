@@ -79,8 +79,8 @@
                        Margin="30,5,0,0">
                     <Image.ToolTip>
                         <ToolTip>
-                        Результаты
-                    </ToolTip>
+                            Результаты
+                        </ToolTip>
                     </Image.ToolTip>
                 </Image>
 
@@ -104,7 +104,7 @@
                   Margin="0,0,0,87"
                   Visibility="Visible"
                   Cursor="Hand">
-            
+
 
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -160,19 +160,49 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Grid Grid.Row="1" Margin="1149,594,150,87">
+        <Grid Grid.Row="1" Margin="1088,575,10,87" Visibility="Hidden" x:Name="Str">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Name="txtPrev1" Uid="prev1" Text="&lt;&lt;" MouseLeftButtonDown="Glavnaya_GoPage"></TextBlock>
-                <TextBlock Name="txtPrev" Uid="prev" Text=" &lt;" MouseLeftButtonDown="Glavnaya_GoPage"/>
-                <TextBlock Name="txt1" Uid="1" Text="{Binding  Path = NPage[0]}" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}" MouseLeftButtonDown="Glavnaya_GoPage"/>
-                <TextBlock Name="txt2" Uid="2" Text="{Binding  Path = NPage[1]}" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}" MouseLeftButtonDown="Glavnaya_GoPage"/>
-                <TextBlock Name="txt3" Uid="3" Text="{Binding  Path = NPage[2]}" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}" MouseLeftButtonDown="Glavnaya_GoPage"/>
-                <TextBlock Name="txt4" Uid="4" Text="{Binding  Path = NPage[3]}" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}" MouseLeftButtonDown="Glavnaya_GoPage"/>
-                <TextBlock Name="txt5" Uid="5" Text="{Binding  Path = NPage[4]}" Visibility="{Binding Visible[4]}" FontWeight="{Binding Bold[4]}" MouseLeftButtonDown="Glavnaya_GoPage"/>
-                <TextBlock Name="txtNext" Uid="next" Text=" &gt;" MouseLeftButtonDown="Glavnaya_GoPage"/>
-                <TextBlock Name="txtNext1" Uid="next1" Text=" &gt;&gt;" MouseLeftButtonDown="Glavnaya_GoPage"/>
+                <TextBlock Name="txtPrev1" FontFamily="Monotype Corsiva" FontSize="30" Uid="prev1" Text="&lt;&lt;" MouseLeftButtonDown="Glavnaya_GoPage"></TextBlock>
+                <TextBlock Name="txtPrev" FontFamily="Monotype Corsiva" FontSize="30" Uid="prev" Text=" &lt;" MouseLeftButtonDown="Glavnaya_GoPage"/>
+                <TextBlock Name="txt1" FontFamily="Monotype Corsiva" FontSize="30" Uid="1" Text="{Binding  Path = NPage[0]}" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}" MouseLeftButtonDown="Glavnaya_GoPage"/>
+                <TextBlock Name="txt2" FontFamily="Monotype Corsiva" FontSize="30" Uid="2" Text="{Binding  Path = NPage[1]}" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}" MouseLeftButtonDown="Glavnaya_GoPage"/>
+                <TextBlock Name="txt3" FontFamily="Monotype Corsiva" FontSize="30" Uid="3" Text="{Binding  Path = NPage[2]}" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}" MouseLeftButtonDown="Glavnaya_GoPage"/>
+                <TextBlock Name="txt4" FontFamily="Monotype Corsiva" FontSize="30" Uid="4" Text="{Binding  Path = NPage[3]}" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}" MouseLeftButtonDown="Glavnaya_GoPage"/>
+                <TextBlock Name="txt5" FontFamily="Monotype Corsiva" FontSize="30" Uid="5" Text="{Binding  Path = NPage[4]}" Visibility="{Binding Visible[4]}" FontWeight="{Binding Bold[4]}" MouseLeftButtonDown="Glavnaya_GoPage"/>
+                <TextBlock Name="txtNext" FontFamily="Monotype Corsiva" FontSize="30" Uid="next" Text=" &gt;" MouseLeftButtonDown="Glavnaya_GoPage"/>
+                <TextBlock Name="txtNext1" FontFamily="Monotype Corsiva" FontSize="30" Uid="next1" Text=" &gt;&gt;" MouseLeftButtonDown="Glavnaya_GoPage"/>
             </StackPanel>
         </Grid>
-       
+
+
+        <TextBox x:Name="Time" 
+                 Text="{Binding TickCounter,
+                 RelativeSource={RelativeSource FindAncestor,
+                 AncestorType={x:Type local:Glavnaya}}}"
+                 HorizontalAlignment="Left" 
+                 Margin="1127,661,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 FontFamily="Monotype Corsiva"
+                 FontSize="30" 
+                 Foreground="White" 
+                 FontWeight="Bold" 
+                 TextChanged="TextBox_TextChanged"
+                 BorderBrush="{x:Null}"
+                 Background="{x:Null}"
+                 SelectionBrush="{x:Null}" Width="56" Grid.Row="1" IsEnabled="False"/>
+
+        <Label Content="Осталось минут"
+               Margin="1184,659,0,0" 
+               FontFamily="Monotype Corsiva"
+               HorizontalAlignment="Left"  
+               VerticalAlignment="Top"
+               FontSize="30" 
+               Foreground="White"  
+               IsEnabled="False" 
+               BorderBrush="{x:Null}"
+               Background="{x:Null}" Grid.Row="1"/>
+
+
     </Grid>
 </Page>

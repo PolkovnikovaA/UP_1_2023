@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Zadanie_1_UP
 {
@@ -21,15 +22,89 @@ namespace Zadanie_1_UP
     /// </summary>
     public partial class Glavnaya : Page
     {
+        private DispatcherTimer _timer;
+
+        public static readonly DependencyProperty TickCounterProperty = DependencyProperty.Register(
+            "TickCounter", typeof(int), typeof(Glavnaya), new PropertyMetadata(default(int)));
+
         public Frame frame1;
+        string user;
         Navig sp = new Navig();
         List<Service> List_Service = new List<Service>();
+        List<Histori> historys = new List<Histori>();
         int kolvo_zapice = 3;
 
-        public Glavnaya(Frame frame)
+        public Glavnaya(string User, Frame frame)
         {
             InitializeComponent();
             frame1 = frame;
+            user = User;
+            int count_hh = Entities.GetContext().Histori.Count();
+            historys = Entities.GetContext().Histori.ToList();
+            int time = 0;
+            for (int j = count_hh - 1; j >= 0; j--)
+            {
+                if (historys[j].login == user)
+                {
+                    DateTime b = (DateTime)historys[j].blok;
+                    DateTime d = (DateTime)historys[j].dataZ;
+                    int h = b.Hour - d.Hour;
+                    int m = b.Minute - d.Minute;
+                    time = 60 * h + m;
+                    break;
+                }
+            }
+            DataContext = sp;
+            DateTime dateTime = DateTime.Now;
+            TickCounter = time;
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromMinutes(1d);
+            _timer.Tick += new EventHandler(Timer_Tick);
+            _timer.Start();
+        }
+
+        public int TickCounter
+        {
+            get { return (int)GetValue(TickCounterProperty); }
+            set { SetValue(TickCounterProperty, value); }
+        }
+
+        public int soxr = 0;
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+
+            if (--TickCounter <= 0)
+            {
+                var timer = (DispatcherTimer)sender;
+                timer.Stop();
+                if (soxr == 0)
+                {
+                    if (MessageBox.Show("Чтобы закончить работу и закрыть кабинет на кварцевание нажмите да, если хотите продолжить работу на 5 минут нажмите нет", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                    {
+                        TickCounter = 5;
+                        _timer = new DispatcherTimer();
+                        _timer.Interval = TimeSpan.FromMinutes(1d);
+                        _timer.Tick += new EventHandler(Timer_Tick);
+                        _timer.Start();
+                        soxr = 1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Закрытие программы");
+                        Environment.Exit(0);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Закрытие программы");
+                    Environment.Exit(0);
+                }
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
 
         private void Glavnaya_Nazad(object sender, MouseButtonEventArgs e)
@@ -39,16 +114,13 @@ namespace Zadanie_1_UP
 
         private void Glavnaya_Analiz(object sender, MouseButtonEventArgs e)
         {
-            /*var all = Entities.GetContext().Service.ToList();
-            ComboType.ItemsSource = all;
-            LViewTours.ItemsSource = all;*/
-
             var all = Entities.GetContext().Service.ToList();
            
             ComboType.ItemsSource = all;
             LViewTours.ItemsSource = all;
 
             LViewTours.Visibility = Visibility.Visible;
+            Str.Visibility = Visibility.Visible;
 
             List_Service = Entities.GetContext().Service.ToList();
             LViewTours.ItemsSource = Entities.GetContext().Service.ToList();
@@ -67,23 +139,7 @@ namespace Zadanie_1_UP
             sp.CountlistFlower = List_Service.Count;  // присваиваем новое значение свойству, которое в объекте отвечает за общее количество записей
             LViewTours.ItemsSource = List_Service.Skip(0).Take(sp.CountPageFlower).ToList();  // отображаем первые записи в том количестве, которое равно CountPage
             sp.CurrentPage = 1; // текущая страница - это страница 1
-
         }
-
-        /*private void kolvo_zapice_flower_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            try
-            {
-                sp.CountPageFlower = Convert.ToInt32(kolvo_zapice_flower.Text); // если в текстовом поле есnь значение, присваиваем его свойству объекта, которое хранит количество записей на странице
-            }
-            catch
-            {
-                sp.CountPageFlower = List_Service.Count; // если в текстовом поле значения нет, присваиваем свойству объекта, которое хранит количество записей на странице количество элементов в списке
-            }
-            sp.CountlistFlower = List_Service.Count;  // присваиваем новое значение свойству, которое в объекте отвечает за общее количество записей
-            LViewTours.ItemsSource = List_Service.Skip(0).Take(sp.CountPageFlower).ToList();  // отображаем первые записи в том количестве, которое равно CountPage
-            sp.CurrentPage = 1; // текущая страница - это страница 1
-        }*/
 
         private void Glavnaya_GoPage(object sender, MouseButtonEventArgs e)
         {
@@ -114,7 +170,6 @@ namespace Zadanie_1_UP
                         {
                             sp.CurrentPage = a / b + 1;
                         }
-
                     }
                     break;
                 default:
@@ -123,6 +178,5 @@ namespace Zadanie_1_UP
             } 
             LViewTours.ItemsSource = List_Service.Skip(sp.CurrentPage * sp.CountPageFlower - sp.CountPageFlower).Take(sp.CountPageFlower).ToList();
         }
-
     }
 }

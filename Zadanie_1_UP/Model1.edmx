@@ -4,7 +4,18 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище P_Polkovnikova_UP1_2023Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище P_Polkovnikova_UP1_2023Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Histori">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar(max)" />
+          <Property Name="password" Type="nvarchar(max)" />
+          <Property Name="ip" Type="nvarchar(max)" />
+          <Property Name="dataZ" Type="datetime" />
+          <Property Name="blok" Type="datetime" />
+        </EntityType>
         <EntityType Name="Result">
           <Key>
             <PropertyRef Name="id" />
@@ -23,6 +34,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="service" Type="nvarchar(max)" />
           <Property Name="price" Type="float" />
+          <Property Name="image" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -44,6 +56,7 @@
           <Property Name="password" Type="nvarchar(max)" />
           <Property Name="ip" Type="nvarchar(max)" />
           <Property Name="lastenter" Type="date" />
+          <Property Name="id_histori" Type="int" />
         </EntityType>
         <EntityType Name="Workers">
           <Key>
@@ -94,7 +107,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Users_Histori">
+          <End Role="Histori" Type="Self.Histori" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Histori">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_histori" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище P_Polkovnikova_UP1_2023ModelContainer">
+          <EntitySet Name="Histori" EntityType="Self.Histori" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -112,9 +138,12 @@
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Result" EntitySet="Result" />
           </AssociationSet>
+          <AssociationSet Name="FK_Users_Histori" Association="Self.FK_Users_Histori">
+            <End Role="Histori" EntitySet="Histori" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="P_Polkovnikova_UP1_2023Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -140,6 +169,7 @@
           <Property Name="service1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="price" Type="Double" />
           <NavigationProperty Name="Result" Relationship="Self.FK_Result_Service" FromRole="Service" ToRole="Result" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -162,6 +192,8 @@
           <Property Name="ip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="lastenter" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Result" Relationship="Self.FK_Result_Users" FromRole="Users" ToRole="Result" />
+          <Property Name="id_histori" Type="Int32" />
+          <NavigationProperty Name="Histori" Relationship="P_Polkovnikova_UP1_2023Model.FK_Users_Histori" FromRole="Users" ToRole="Histori" />
         </EntityType>
         <EntityType Name="Workers">
           <Key>
@@ -231,7 +263,36 @@
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Result" EntitySet="Result" />
           </AssociationSet>
+          <EntitySet Name="Histori" EntityType="P_Polkovnikova_UP1_2023Model.Histori" />
+          <AssociationSet Name="FK_Users_Histori" Association="P_Polkovnikova_UP1_2023Model.FK_Users_Histori">
+            <End Role="Histori" EntitySet="Histori" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Histori">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dataZ" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Users" Relationship="P_Polkovnikova_UP1_2023Model.FK_Users_Histori" FromRole="Histori" ToRole="Users" />
+          <Property Name="blok" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Users_Histori">
+          <End Type="P_Polkovnikova_UP1_2023Model.Histori" Role="Histori" Multiplicity="0..1" />
+          <End Type="P_Polkovnikova_UP1_2023Model.Users" Role="Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Histori">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_histori" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -253,6 +314,7 @@
           <EntitySetMapping Name="Service">
             <EntityTypeMapping TypeName="P_Polkovnikova_UP1_2023Model.Service">
               <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="service1" ColumnName="service" />
                 <ScalarProperty Name="price" ColumnName="price" />
@@ -273,6 +335,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="P_Polkovnikova_UP1_2023Model.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id_histori" ColumnName="id_histori" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="login" ColumnName="login" />
@@ -293,6 +356,18 @@
                 <ScalarProperty Name="lastenter" ColumnName="lastenter" />
                 <ScalarProperty Name="dolg" ColumnName="dolg" />
                 <ScalarProperty Name="analiz" ColumnName="analiz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Histori">
+            <EntityTypeMapping TypeName="P_Polkovnikova_UP1_2023Model.Histori">
+              <MappingFragment StoreEntitySet="Histori">
+                <ScalarProperty Name="blok" ColumnName="blok" />
+                <ScalarProperty Name="dataZ" ColumnName="dataZ" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

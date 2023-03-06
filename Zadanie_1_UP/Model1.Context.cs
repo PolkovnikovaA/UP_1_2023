@@ -16,11 +16,11 @@ namespace Zadanie_1_UP
     public partial class Entities : DbContext
     {
         private static Entities _instance;
-
         public Entities()
             : base("name=Entities")
         {
         }
+
         public static Entities GetContext()
         {
             if (_instance == null) _instance = new Entities();
@@ -37,5 +37,6 @@ namespace Zadanie_1_UP
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Workers> Workers { get; set; }
+        public virtual DbSet<Histori> Histori { get; set; }
     }
 }

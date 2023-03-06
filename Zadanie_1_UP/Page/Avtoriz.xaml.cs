@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net;
 
 namespace Zadanie_1_UP
 {
@@ -24,60 +25,195 @@ namespace Zadanie_1_UP
         public int vx = 0;
         int captcha = 0;
 
+        DateTime date;
+
         public Avtoriz(Frame frame)
         {
             frame1 = frame;
             InitializeComponent();
+            date = DateTime.Now;
         }
 
-        List<Zadanie_1_UP.Users> users = new List<Zadanie_1_UP.Users>();
-        List<Zadanie_1_UP.Workers> workers = new List<Zadanie_1_UP.Workers>();
-
-        private void Avtoriz_Vxod(object sender, MouseButtonEventArgs e)
+        public void vxod()
         {
-            string klients = login.Text;
+            string user = login.Text;
             string pas = password.Password;
             int count = Entities.GetContext().Users.Count();
-            users = Entities.GetContext().Users.ToList();
-            for (int i = 0; i < count; i++)
+            int count_hh = Entities.GetContext().Histori.Count();
+            int count_w = Entities.GetContext().Workers.Count();
+            worker = Entities.GetContext().Workers.ToList();
+            Users = Entities.GetContext().Users.ToList();
+            historys = Entities.GetContext().Histori.ToList();
+            for (int i = 0; i < count_w; i++)
             {
-                if (users[i].login == klients)
+                if (worker[i].login == user)
                 {
-                    if (users[i].password == pas)
+                    if (worker[i].password == pas)
                     {
-                        frame1.Navigate(new Glavnaya(frame1));
-                        vx = 1;
-                        captcha = 0;
-                        break;
+                        for (int j = count_hh - 1; j >= 0; j--)
+                        {
+                            if (historys[j].login == user)
+                            {
+                                DateTime t = DateTime.Now;
+                                if (historys[j].blok != null)
+                                {
+                                    t = (DateTime)historys[j].blok;
+                                    t = t.AddMinutes(30);
+                                }
+                                if (DateTime.Now < historys[j].blok || t <= DateTime.Now)
+                                {
+                                    vx = 1;
+                                    int count_h = Entities.GetContext().Histori.Count();
+                                    history_login[0].id = count_h + 1;
+                                    history_login[0].login = user;
+                                    history_login[0].dataZ = DateTime.Now;
+                                    history_login[0].ip = Dns.GetHostName();
+                                    if (historys[j].blok < DateTime.Now)
+                                    {
+                                        history_login[0].blok = date.AddHours(2.5);
+                                    }
+                                    else
+                                    {
+                                        history_login[0].blok = historys[j].blok;
+                                    }
+                                    Entities.GetContext().Histori.Add(history_login[0]);
+                                    Entities.GetContext().SaveChanges();
+                                    frame1.Navigate(new Glavnaya(worker[i].login, frame1));
+                                    break;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Перерыв пол часа");
+                                    vx = 1;
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
             }
-            int count2 = Entities.GetContext().Workers.Count();
-            workers = Entities.GetContext().Workers.ToList();
-            for (int i = 0; i < count2; i++)
+            for (int i = 0; i < count; i++)
             {
-                if (workers[i].login == klients)
+                if (Users[i].login == user)
                 {
-                    if (workers[i].password == pas)
+                    if (Users[i].password == pas)
                     {
-                        frame1.Navigate(new GlavnayaL(frame1));
-                        vx = 1;
-                        captcha = 0;
-                        break;
+                        for (int j = count_hh - 1; j >= 0; j--)
+                        {
+                            if (historys[j].login == user)
+                            {
+                                DateTime t = DateTime.Now;
+                                if (historys[j].blok != null)
+                                {
+                                    t = (DateTime)historys[j].blok;
+                                    t = t.AddMinutes(30);
+                                }
+                                if (DateTime.Now < historys[j].blok || t <= DateTime.Now)
+                                {
+                                    vx = 1;
+                                    int count_h = Entities.GetContext().Histori.Count();
+                                    history_login[0].id = count_h + 1;
+                                    history_login[0].login = user;
+                                    history_login[0].dataZ = DateTime.Now;
+                                    history_login[0].ip = Dns.GetHostName();
+                                    if (historys[j].blok < DateTime.Now)
+                                    {
+                                        history_login[0].blok = date.AddHours(2.5);
+                                    }
+                                    else
+                                    {
+                                        history_login[0].blok = historys[j].blok;
+                                    }
+                                    Entities.GetContext().Histori.Add(history_login[0]);
+                                    Entities.GetContext().SaveChanges();
+                                    frame1.Navigate(new Glavnaya(Users[i].login, frame1));
+                                    break;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Перерыв пол часа");
+                                    vx = 1;
+                                    break;
+                                }
+                            }
+
+
+                        }
                     }
                 }
             }
             if (vx == 0)
             {
                 MessageBox.Show("Неверный логин или пароль");
-                captcha++;
-            }
-            if (captcha > 3)
-            {
-                Captcha captcha = new Captcha();
-                captcha.Show();
+                error++;
             }
         }
+
+        List<Zadanie_1_UP.Users> Users = new List<Zadanie_1_UP.Users>();
+        List<Zadanie_1_UP.Workers> worker = new List<Zadanie_1_UP.Workers>();
+        List<Zadanie_1_UP.Histori> history_login = new List<Zadanie_1_UP.Histori> { new Histori() };
+        List<Zadanie_1_UP.Histori> historys = new List<Zadanie_1_UP.Histori>();
+        int error = 0;
+
+        private void Avtoriz_Vxod(object sender, MouseButtonEventArgs e)
+        {
+            Captcha captcha = new Captcha();
+            if (error > 3)
+            {
+                captcha.Show();
+            }
+            else
+            {
+                vx = 0;
+                vxod();
+            }
+
+        }
+
+
+        /*string klients = login.Text;
+        string pas = password.Password;
+        int count = Entities.GetContext().Users.Count();
+        users = Entities.GetContext().Users.ToList();
+        for (int i = 0; i < count; i++)
+        {
+            if (users[i].login == klients)
+            {
+                if (users[i].password == pas)
+                {
+                    frame1.Navigate(new Glavnaya(frame1));
+                    vx = 1;
+                    captcha = 0;
+                    break;
+                }
+            }
+        }
+        int count2 = Entities.GetContext().Workers.Count();
+        workers = Entities.GetContext().Workers.ToList();
+        for (int i = 0; i < count2; i++)
+        {
+            if (workers[i].login == klients)
+            {
+                if (workers[i].password == pas)
+                {
+                    frame1.Navigate(new GlavnayaL(frame1));
+                    vx = 1;
+                    captcha = 0;
+                    break;
+                }
+            }
+        }
+        if (vx == 0)
+        {
+            MessageBox.Show("Неверный логин или пароль");
+            captcha++;
+        }
+        if (captcha > 3)
+        {
+            Captcha captcha = new Captcha();
+            captcha.Show();
+        }*/
+    
 
         private void Avtoriz_Zareg(object sender, MouseButtonEventArgs e)
         {

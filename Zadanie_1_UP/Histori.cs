@@ -12,20 +12,22 @@ namespace Zadanie_1_UP
     using System;
     using System.Collections.Generic;
     
-    public partial class Service
+    public partial class Histori
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Service()
+        public Histori()
         {
-            this.Result = new HashSet<Result>();
+            this.Users = new HashSet<Users>();
         }
     
         public int id { get; set; }
-        public string service1 { get; set; }
-        public Nullable<double> price { get; set; }
-        public string image { get; set; }
+        public string login { get; set; }
+        public string password { get; set; }
+        public string ip { get; set; }
+        public Nullable<System.DateTime> dataZ { get; set; }
+        public Nullable<System.DateTime> blok { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Result> Result { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

@@ -13,32 +13,6 @@
                NavigationUIVisibility='Hidden' 
                Background="#9eacc9"/>
 
-        <TextBox x:Name="Time" 
-                 Text="{Binding TickCounter,
-                 RelativeSource={RelativeSource FindAncestor,
-                 AncestorType={x:Type local:MainWindow}}}"
-                 HorizontalAlignment="Left" 
-                 Margin="1126,725,0,0"
-                 TextWrapping="Wrap" 
-                 VerticalAlignment="Top" 
-                 FontFamily="Monotype Corsiva"
-                 FontSize="30" 
-                 Foreground="White" 
-                 FontWeight="Bold" 
-                 TextChanged="TextBox_TextChanged"
-                 BorderBrush="{x:Null}"
-                 Background="{x:Null}"
-                 SelectionBrush="{x:Null}" Width="56"/>
-
-        <Label Content="Осталось минут"
-               Margin="1176,721,0,0" 
-               FontFamily="Monotype Corsiva"
-               HorizontalAlignment="Left"  
-               VerticalAlignment="Top"
-               FontSize="30" 
-               Foreground="White"  
-               IsEnabled="False" 
-               BorderBrush="{x:Null}"
-               Background="{x:Null}"/>
+        
     </Grid>
 </Window>
