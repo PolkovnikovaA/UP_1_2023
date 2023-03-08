@@ -15,3 +15,5 @@
 ![image](https://user-images.githubusercontent.com/104072166/222164055-850906a6-0127-44ce-9c37-23d8212093ec.png)
 
 ![image](https://user-images.githubusercontent.com/104072166/222164112-879b6e3d-d2f2-4b86-a6e9-f57f0024144a.png)
+
+[День 2.docx](https://github.com/PolkovnikovaA/UP_1_2023/files/10924414/2.docx)
