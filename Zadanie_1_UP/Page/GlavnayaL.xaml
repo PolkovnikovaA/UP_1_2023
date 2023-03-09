@@ -201,6 +201,9 @@
                IsEnabled="False" 
                BorderBrush="{x:Null}"
                Background="{x:Null}" Grid.Row="1"/>
+        <ComboBox
+            x:Name="ComboType_Copy"
+            DisplayMemberPath="Title" Margin="170,10,1023,16"/>
 
 
     </Grid>

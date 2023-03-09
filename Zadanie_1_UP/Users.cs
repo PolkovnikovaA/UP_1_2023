@@ -17,7 +17,7 @@ namespace Zadanie_1_UP
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
-            this.Result = new HashSet<Result>();
+            this.Result1 = new HashSet<Result>();
         }
     
         public int id { get; set; }
@@ -28,8 +28,8 @@ namespace Zadanie_1_UP
         public Nullable<System.DateTime> lastenter { get; set; }
         public Nullable<int> id_histori { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Result> Result { get; set; }
         public virtual Histori Histori { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Result> Result1 { get; set; }
     }
 }

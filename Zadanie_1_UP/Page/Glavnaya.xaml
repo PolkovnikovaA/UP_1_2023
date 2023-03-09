@@ -76,7 +76,8 @@
                 <Image Source="/Image/Resultat.png"
                        Height="40" Width="40"
                        Cursor="Hand"
-                       Margin="30,5,0,0">
+                       Margin="30,5,0,0"
+                       MouseLeftButtonDown="Glavnaya_Rezultat">
                     <Image.ToolTip>
                         <ToolTip>
                             Результаты
@@ -149,9 +150,6 @@
                                     <TextBlock Text="{Binding price}"
                                                FontFamily="Monotype Corsiva"
                                                FontSize="30"/>
-                                    <TextBlock Text="{Binding MaterialString}"
-                                               FontFamily="Monotype Corsiva"
-                                               FontSize="30"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
@@ -173,6 +171,68 @@
                 <TextBlock Name="txtNext1" FontFamily="Monotype Corsiva" FontSize="30" Uid="next1" Text=" &gt;&gt;" MouseLeftButtonDown="Glavnaya_GoPage"/>
             </StackPanel>
         </Grid>
+
+        <ListView Grid.Row="1"
+                  x:Name="LViewResult"
+                  ItemsSource="{Binding Result}" 
+                  Margin="0,0,0,87"
+                  Visibility="Hidden"
+                  Cursor="Hand">
+
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" 
+                            BorderBrush="Black" 
+                            CornerRadius="5">
+
+                        <Grid Margin="0" 
+                              HorizontalAlignment="Stretch">
+                            <Grid.ToolTip>
+                                <ToolTip>
+                                    Перейти
+                                </ToolTip>
+                            </Grid.ToolTip>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="1"
+                                        Margin="15"
+                                        Orientation="Horizontal">
+                                <Image Source="/Image/zagl.jpg"
+                                       Height="100" Width="160"
+                                       HorizontalAlignment="Left"/>
+                                <StackPanel Grid.Column="1"
+                                            Margin="0"
+                                            Orientation="Vertical">
+                                    <TextBlock Text="{Binding id_lad}"
+                                               Name="Ser"
+                                               FontFamily="Monotype Corsiva"
+                                               FontSize="30"/>
+                                    <TextBlock Text="{Binding id_service}"
+                                               FontFamily="Monotype Corsiva"
+                                               FontSize="30"/>
+                                    <TextBlock Text="{Binding result1}"
+                                               FontFamily="Monotype Corsiva"
+                                               FontSize="30"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 
         <TextBox x:Name="Time" 

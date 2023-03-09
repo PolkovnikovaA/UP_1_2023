@@ -11,10 +11,10 @@
         <EntityTypeShape EntityType="P_Polkovnikova_UP1_2023Model.Users" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="P_Polkovnikova_UP1_2023Model.Workers" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
         <AssociationConnector Association="P_Polkovnikova_UP1_2023Model.FK_Result_Service" ManuallyRouted="false" />
-        <AssociationConnector Association="P_Polkovnikova_UP1_2023Model.FK_Result_Users" ManuallyRouted="false" />
         <AssociationConnector Association="P_Polkovnikova_UP1_2023Model.FK_Result_Workers" ManuallyRouted="false" />
         <EntityTypeShape EntityType="P_Polkovnikova_UP1_2023Model.Histori" Width="1.5" PointX="0.75" PointY="13.75" />
         <AssociationConnector Association="P_Polkovnikova_UP1_2023Model.FK_Users_Histori" />
+        <AssociationConnector Association="P_Polkovnikova_UP1_2023Model.FK_Result_Users1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

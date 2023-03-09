@@ -15,14 +15,15 @@ namespace Zadanie_1_UP
     public partial class Result
     {
         public int id { get; set; }
-        public Nullable<int> id_user { get; set; }
         public Nullable<int> id_lad { get; set; }
         public Nullable<int> id_service { get; set; }
         public string result1 { get; set; }
         public Nullable<System.DateTime> data { get; set; }
+        public string login { get; set; }
+        public Nullable<int> id_user1 { get; set; }
     
         public virtual Service Service { get; set; }
-        public virtual Users Users { get; set; }
         public virtual Workers Workers { get; set; }
+        public virtual Users Users1 { get; set; }
     }
 }

@@ -31,6 +31,7 @@ namespace Zadanie_1_UP
         string user;
         Navig sp = new Navig();
         List<Service> List_Service = new List<Service>();
+        List<Users> users = new List<Users>();
         List<Histori> historys = new List<Histori>();
         int kolvo_zapice = 3;
 
@@ -38,6 +39,10 @@ namespace Zadanie_1_UP
         {
             InitializeComponent();
             frame1 = frame;
+
+            
+
+
             user = User;
             int count_hh = Entities.GetContext().Histori.Count();
             historys = Entities.GetContext().Histori.ToList();
@@ -120,6 +125,7 @@ namespace Zadanie_1_UP
             LViewTours.ItemsSource = all;
 
             LViewTours.Visibility = Visibility.Visible;
+            LViewResult.Visibility = Visibility.Hidden;
             Str.Visibility = Visibility.Visible;
 
             List_Service = Entities.GetContext().Service.ToList();
@@ -139,6 +145,27 @@ namespace Zadanie_1_UP
             sp.CountlistFlower = List_Service.Count;  // присваиваем новое значение свойству, которое в объекте отвечает за общее количество записей
             LViewTours.ItemsSource = List_Service.Skip(0).Take(sp.CountPageFlower).ToList();  // отображаем первые записи в том количестве, которое равно CountPage
             sp.CurrentPage = 1; // текущая страница - это страница 1
+        }
+
+        private void Glavnaya_Rezultat(object sender, MouseButtonEventArgs e)
+        {
+            List<Result> result = new List<Result>();
+            List<Users> use = new List<Users>();
+            result = Entities.GetContext().Result.ToList();
+            use = Entities.GetContext().Users.ToList();
+            int counts1 = Entities.GetContext().Result.Count();
+            for (int i = 0; i < counts1; i++)
+            {
+                if (result[i].login != user)
+                {
+                    result.RemoveAt(i);
+                    i--;
+                    counts1--;
+                }
+            }
+            LViewResult.ItemsSource = result;
+            LViewTours.Visibility = Visibility.Hidden;
+            LViewResult.Visibility = Visibility.Visible;
         }
 
         private void Glavnaya_GoPage(object sender, MouseButtonEventArgs e)

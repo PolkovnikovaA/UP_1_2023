@@ -21,11 +21,12 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_user" Type="int" />
+          <Property Name="login" Type="nvarchar(max)" />
           <Property Name="id_lad" Type="int" />
           <Property Name="id_service" Type="int" />
           <Property Name="result" Type="nchar" MaxLength="1" />
           <Property Name="data" Type="date" />
+          <Property Name="id_user" Type="int" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -152,14 +153,15 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_user" Type="Int32" />
           <Property Name="id_lad" Type="Int32" />
           <Property Name="id_service" Type="Int32" />
           <Property Name="result1" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="data" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Service" Relationship="Self.FK_Result_Service" FromRole="Result" ToRole="Service" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Result_Users" FromRole="Result" ToRole="Users" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Result_Workers" FromRole="Result" ToRole="Workers" />
+          <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_user1" Type="Int32" />
+          <NavigationProperty Name="Users1" Relationship="P_Polkovnikova_UP1_2023Model.FK_Result_Users1" FromRole="Result" ToRole="Users" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -191,9 +193,9 @@
           <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="lastenter" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Result" Relationship="Self.FK_Result_Users" FromRole="Users" ToRole="Result" />
           <Property Name="id_histori" Type="Int32" />
           <NavigationProperty Name="Histori" Relationship="P_Polkovnikova_UP1_2023Model.FK_Users_Histori" FromRole="Users" ToRole="Histori" />
+          <NavigationProperty Name="Result1" Relationship="P_Polkovnikova_UP1_2023Model.FK_Result_Users1" FromRole="Users" ToRole="Result" />
         </EntityType>
         <EntityType Name="Workers">
           <Key>
@@ -221,18 +223,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Result_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-          <End Role="Result" Type="Self.Result" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Result">
-              <PropertyRef Name="id_user" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Result_Workers">
           <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
           <End Role="Result" Type="Self.Result" Multiplicity="*" />
@@ -255,10 +245,6 @@
             <End Role="Service" EntitySet="Service" />
             <End Role="Result" EntitySet="Result" />
           </AssociationSet>
-          <AssociationSet Name="FK_Result_Users" Association="Self.FK_Result_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Result" EntitySet="Result" />
-          </AssociationSet>
           <AssociationSet Name="FK_Result_Workers" Association="Self.FK_Result_Workers">
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Result" EntitySet="Result" />
@@ -267,6 +253,10 @@
           <AssociationSet Name="FK_Users_Histori" Association="P_Polkovnikova_UP1_2023Model.FK_Users_Histori">
             <End Role="Histori" EntitySet="Histori" />
             <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Result_Users1" Association="P_Polkovnikova_UP1_2023Model.FK_Result_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Result" EntitySet="Result" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Histori">
@@ -293,6 +283,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Result_Users1">
+          <End Type="P_Polkovnikova_UP1_2023Model.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="P_Polkovnikova_UP1_2023Model.Result" Role="Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Result">
+              <PropertyRef Name="id_user1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -302,8 +304,9 @@
           <EntitySetMapping Name="Result">
             <EntityTypeMapping TypeName="P_Polkovnikova_UP1_2023Model.Result">
               <MappingFragment StoreEntitySet="Result">
+                <ScalarProperty Name="id_user1" ColumnName="id_user" />
+                <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="id_user" ColumnName="id_user" />
                 <ScalarProperty Name="id_lad" ColumnName="id_lad" />
                 <ScalarProperty Name="id_service" ColumnName="id_service" />
                 <ScalarProperty Name="result1" ColumnName="result" />
