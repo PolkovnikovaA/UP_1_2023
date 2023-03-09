@@ -78,7 +78,7 @@ namespace Zadanie_1_UP
                                     }
                                     Entities.GetContext().Histori.Add(history_login[0]);
                                     Entities.GetContext().SaveChanges();
-                                    frame1.Navigate(new GlavnayaL(worker[i].login, frame1));
+                                    frame1.Navigate(new Glavnaya(worker[i].login, frame1));
                                     break;
                                 }
                                 else
