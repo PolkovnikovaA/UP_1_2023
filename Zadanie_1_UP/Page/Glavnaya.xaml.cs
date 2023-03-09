@@ -116,19 +116,22 @@ namespace Zadanie_1_UP
         private void Update()
         {
             var currentService = Entities.GetContext().Service.ToList();
-            if (ComboType.SelectedIndex > 0)
-            {
-                for (int i = 0; i < currentService.Count; i++)
+            
+            currentService = currentService.Where(p => p.service1.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
+            LViewTours.ItemsSource = currentService.ToList();
+
+            var currentResult = Entities.GetContext().Result.ToList();
+
+                for (int i = 0; i < currentResult.Count; i++)
                 {
-                    if (currentService[i].service1 != ComboType.Text)
+                    if (currentResult[i].login != user)
                     {
-                        currentService.RemoveAt(i);
+                        currentResult.RemoveAt(i);
                         i--;
                     }
                 }
-            }
-            currentService = currentService.Where(p => p.service1.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
-            LViewTours.ItemsSource = currentService.ToList();
+            currentResult = currentResult.Where(p => p.result1.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
+            LViewResult.ItemsSource = currentResult.ToList();
         }
 
         private void Search_TextChanged(object sender, TextChangedEventArgs e)
@@ -146,7 +149,7 @@ namespace Zadanie_1_UP
             LViewTours.Visibility = Visibility.Visible;
             LViewResult.Visibility = Visibility.Hidden;
             Str.Visibility = Visibility.Visible;
-
+            TBoxSearch.Text = "";
             List_Service = Entities.GetContext().Service.ToList();
             LViewTours.ItemsSource = Entities.GetContext().Service.ToList();
 
@@ -170,6 +173,7 @@ namespace Zadanie_1_UP
         {
             List<Result> result = new List<Result>();
             List<Users> use = new List<Users>();
+            TBoxSearch.Text = "";
             result = Entities.GetContext().Result.ToList();
             use = Entities.GetContext().Users.ToList();
             int counts1 = Entities.GetContext().Result.Count();
@@ -185,6 +189,7 @@ namespace Zadanie_1_UP
             LViewResult.ItemsSource = result;
             LViewTours.Visibility = Visibility.Hidden;
             LViewResult.Visibility = Visibility.Visible;
+            
         }
 
         private void Glavnaya_GoPage(object sender, MouseButtonEventArgs e)
