@@ -78,7 +78,7 @@ namespace Zadanie_1_UP
                                     }
                                     Entities.GetContext().Histori.Add(history_login[0]);
                                     Entities.GetContext().SaveChanges();
-                                    frame1.Navigate(new Glavnaya(worker[i].login, frame1));
+                                    frame1.Navigate(new GlavnayaL(worker[i].login, frame1));
                                     break;
                                 }
                                 else
@@ -136,8 +136,6 @@ namespace Zadanie_1_UP
                                     break;
                                 }
                             }
-
-
                         }
                     }
                 }
@@ -167,53 +165,7 @@ namespace Zadanie_1_UP
                 vx = 0;
                 vxod();
             }
-
         }
-
-
-        /*string klients = login.Text;
-        string pas = password.Password;
-        int count = Entities.GetContext().Users.Count();
-        users = Entities.GetContext().Users.ToList();
-        for (int i = 0; i < count; i++)
-        {
-            if (users[i].login == klients)
-            {
-                if (users[i].password == pas)
-                {
-                    frame1.Navigate(new Glavnaya(frame1));
-                    vx = 1;
-                    captcha = 0;
-                    break;
-                }
-            }
-        }
-        int count2 = Entities.GetContext().Workers.Count();
-        workers = Entities.GetContext().Workers.ToList();
-        for (int i = 0; i < count2; i++)
-        {
-            if (workers[i].login == klients)
-            {
-                if (workers[i].password == pas)
-                {
-                    frame1.Navigate(new GlavnayaL(frame1));
-                    vx = 1;
-                    captcha = 0;
-                    break;
-                }
-            }
-        }
-        if (vx == 0)
-        {
-            MessageBox.Show("Неверный логин или пароль");
-            captcha++;
-        }
-        if (captcha > 3)
-        {
-            Captcha captcha = new Captcha();
-            captcha.Show();
-        }*/
-    
 
         private void Avtoriz_Zareg(object sender, MouseButtonEventArgs e)
         {
@@ -237,6 +189,5 @@ namespace Zadanie_1_UP
             glaz_o.Visibility = Visibility.Hidden;
             password.Password = password1.Text;
         }
-
     }
 }

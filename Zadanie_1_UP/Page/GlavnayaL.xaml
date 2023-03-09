@@ -5,10 +5,203 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Zadanie_1_UP"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1400"
       Title="GlavnayaL">
 
-    <Grid>
-        
+    <Grid Height="800" Width="1400">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" MinHeight="66"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Orientation="Horizontal" 
+                   HorizontalAlignment="Center" 
+                   Width="1400" Height="55">
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Text="Поиск: " 
+                           Width="94" TextAlignment="Right" 
+                           Foreground="White"
+                           FontStyle="Normal"
+                           FontFamily="Monotype Corsiva"
+                           FontSize="30" Height="32"
+                           Margin="15,5,0,0"/>
+
+                <TextBox Width="221"
+                         x:Name="TBoxSearch"
+                         FontSize="30"
+                         FontFamily="Monotype Corsiva"
+                         Margin="10,5,0,0" Height="38"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Сортировка: "
+                           Foreground="White"
+                           Width="150"
+                           Margin="10,5,0,0"
+                           FontFamily="Monotype Corsiva"
+                           TextAlignment="Right" FontSize="30" Height="36"/>
+
+                <ComboBox Width="207"
+                          Name="ComboType"
+                          DisplayMemberPath="Title" Height="40"
+                          Margin="10,5,0,0"/>
+
+                <TextBlock Text="Фильтрация: "
+                           Foreground="White"
+                           Width="161"
+                           Margin="10,5,0,0"
+                           FontFamily="Monotype Corsiva"
+                           TextAlignment="Right" FontSize="30" Height="36"/>
+
+                <ComboBox Width="207"
+                          Name="ComboType2"
+                          DisplayMemberPath="Title" Height="40"
+                          Margin="10,5,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Width="284" Height="55">
+                <Image Source="/Image/Analiz.png"
+                       Height="40" Width="40"
+                       Margin="30,5,0,0"
+                       Cursor="Hand">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            Анализы
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+
+                <Image Source="/Image/Resultat.png"
+                       Height="40" Width="40"
+                       Cursor="Hand"
+                       Margin="30,5,0,0">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            Результаты
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+
+                <TextBlock x:Name="Back"
+                           Text="Выход"
+                           FontFamily="Monotype Corsiva"
+                           FontSize="30" 
+                           FontWeight="Bold" 
+                           TextDecorations="Underline"
+                           Foreground="White" 
+                           Margin="45,5,0,0"
+                           Cursor="Hand" 
+                           Height="32" Width="84"
+                           MouseLeftButtonDown="Glavnaya_Nazad"/>
+            </StackPanel>
+        </WrapPanel>
+
+        <ListView Grid.Row="1"
+                  x:Name="LViewTours"
+                  ItemsSource="{Binding Service}" 
+                  Margin="0,0,0,87"
+                  Visibility="Visible"
+                  Cursor="Hand">
+
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" 
+                            BorderBrush="Black" 
+                            CornerRadius="5">
+
+                        <Grid Margin="0" 
+                              HorizontalAlignment="Stretch">
+                            <Grid.ToolTip>
+                                <ToolTip>
+                                    Перейти
+                                </ToolTip>
+                            </Grid.ToolTip>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="1"
+                                        Margin="15"
+                                        Orientation="Horizontal">
+                                <Image Source="/Image/zagl.jpg"
+                                       Height="100" Width="160"
+                                       HorizontalAlignment="Left"/>
+                                <StackPanel Grid.Column="1"
+                                            Margin="0"
+                                            Orientation="Vertical">
+                                    <TextBlock Text="{Binding service1}"
+                                               Name="Ser"
+                                               FontFamily="Monotype Corsiva"
+                                               FontSize="30"/>
+                                    <TextBlock Text="{Binding price}"
+                                               FontFamily="Monotype Corsiva"
+                                               FontSize="30"/>
+                                    <TextBlock Text="{Binding MaterialString}"
+                                               FontFamily="Monotype Corsiva"
+                                               FontSize="30"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Row="1" Margin="1088,575,10,87" Visibility="Hidden" x:Name="Str">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Name="txtPrev1" FontFamily="Monotype Corsiva" FontSize="30" Uid="prev1" Text="&lt;&lt;"></TextBlock>
+                <TextBlock Name="txtPrev" FontFamily="Monotype Corsiva" FontSize="30" Uid="prev" Text=" &lt;"/>
+                <TextBlock Name="txt1" FontFamily="Monotype Corsiva" FontSize="30" Uid="1" Text="{Binding  Path = NPage[0]}" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}"/>
+                <TextBlock Name="txt2" FontFamily="Monotype Corsiva" FontSize="30" Uid="2" Text="{Binding  Path = NPage[1]}" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}"/>
+                <TextBlock Name="txt3" FontFamily="Monotype Corsiva" FontSize="30" Uid="3" Text="{Binding  Path = NPage[2]}" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}"/>
+                <TextBlock Name="txt4" FontFamily="Monotype Corsiva" FontSize="30" Uid="4" Text="{Binding  Path = NPage[3]}" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}"/>
+                <TextBlock Name="txt5" FontFamily="Monotype Corsiva" FontSize="30" Uid="5" Text="{Binding  Path = NPage[4]}" Visibility="{Binding Visible[4]}" FontWeight="{Binding Bold[4]}"/>
+                <TextBlock Name="txtNext" FontFamily="Monotype Corsiva" FontSize="30" Uid="next" Text=" &gt;"/>
+                <TextBlock Name="txtNext1" FontFamily="Monotype Corsiva" FontSize="30" Uid="next1" Text=" &gt;&gt;"/>
+            </StackPanel>
+        </Grid>
+
+
+        <TextBox x:Name="Time" 
+                 Text="{Binding TickCounter,
+                 RelativeSource={RelativeSource FindAncestor,
+                 AncestorType={x:Type local:Glavnaya}}}"
+                 HorizontalAlignment="Left" 
+                 Margin="1127,661,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 FontFamily="Monotype Corsiva"
+                 FontSize="30" 
+                 Foreground="White" 
+                 FontWeight="Bold" 
+                 TextChanged="TextBox_TextChanged"
+                 BorderBrush="{x:Null}"
+                 Background="{x:Null}"
+                 SelectionBrush="{x:Null}" Width="56" Grid.Row="1" IsEnabled="False"/>
+
+        <Label Content="Осталось минут"
+               Margin="1184,659,0,0" 
+               FontFamily="Monotype Corsiva"
+               HorizontalAlignment="Left"  
+               VerticalAlignment="Top"
+               FontSize="30" 
+               Foreground="White"  
+               IsEnabled="False" 
+               BorderBrush="{x:Null}"
+               Background="{x:Null}" Grid.Row="1"/>
+
+
     </Grid>
 </Page>
