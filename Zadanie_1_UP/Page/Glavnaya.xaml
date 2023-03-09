@@ -30,6 +30,7 @@
                 <TextBox Width="221"
                          x:Name="TBoxSearch"
                          FontSize="30"
+                         TextChanged="Search_TextChanged"
                          FontFamily="Monotype Corsiva"
                          Margin="10,5,0,0" Height="38"/>
             </StackPanel>

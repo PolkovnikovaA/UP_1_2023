@@ -39,10 +39,6 @@ namespace Zadanie_1_UP
         {
             InitializeComponent();
             frame1 = frame;
-
-            
-
-
             user = User;
             int count_hh = Entities.GetContext().Histori.Count();
             historys = Entities.GetContext().Histori.ToList();
@@ -115,6 +111,29 @@ namespace Zadanie_1_UP
         private void Glavnaya_Nazad(object sender, MouseButtonEventArgs e)
         {
             frame1.Navigate(new Avtoriz(frame1));
+        }
+
+        private void Update()
+        {
+            var currentService = Entities.GetContext().Service.ToList();
+            if (ComboType.SelectedIndex > 0)
+            {
+                for (int i = 0; i < currentService.Count; i++)
+                {
+                    if (currentService[i].service1 != ComboType.Text)
+                    {
+                        currentService.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+            currentService = currentService.Where(p => p.service1.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
+            LViewTours.ItemsSource = currentService.ToList();
+        }
+
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Update();
         }
 
         private void Glavnaya_Analiz(object sender, MouseButtonEventArgs e)
