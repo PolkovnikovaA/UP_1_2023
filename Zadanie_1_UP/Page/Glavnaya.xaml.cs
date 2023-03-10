@@ -72,8 +72,11 @@ namespace Zadanie_1_UP
                 {
                     Image.Visibility= Visibility.Hidden;
                 }
+                if (workers[i].login == user && workers[i].dolg == "Администратор")
+                {
+                    Image.Visibility = Visibility.Hidden;
+                }
             }
-            
         }
 
         public int TickCounter
