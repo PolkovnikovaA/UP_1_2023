@@ -22,5 +22,19 @@
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_pric" 
                    Margin="500,340,500,400"/>
+
+        <TextBlock Height="60" Width="400"
+                   Background="White"
+                   FontSize="50"
+                   FontFamily="Monotype Corsiva"
+                   x:Name="Text_lab" 
+                   Margin="500,477,500,263"/>
+
+        <Button Height="60" Width="400"
+                Content="Удалить"
+                Visibility="Hidden"
+                x:Name="Delete" 
+                Click="Zapis_Delete"
+                Margin="875,668,125,72"/>
     </Grid>
 </Page>

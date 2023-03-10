@@ -70,11 +70,11 @@ namespace Zadanie_1_UP
             {
                 if (workers[i].login == user && workers[i].dolg == "Лаборант")
                 {
-                    Image.Visibility= Visibility.Hidden;
+                    //Image.Visibility= Visibility.Hidden;
                 }
                 if (workers[i].login == user && workers[i].dolg == "Администратор")
                 {
-                    Image.Visibility = Visibility.Hidden;
+                    //Image.Visibility = Visibility.Hidden;
                 }
             }
         }
@@ -131,7 +131,7 @@ namespace Zadanie_1_UP
         private async void GlavnayaService_Click(object sender, MouseButtonEventArgs e)
         {
             object item = LViewTours.SelectedItem;
-            frame1.Navigate(new Zapis(frame1, item));
+            frame1.Navigate(new Zapis(user, frame1, item));
         }
 
         private void Update()

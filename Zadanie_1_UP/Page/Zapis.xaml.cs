@@ -23,15 +23,42 @@ namespace Zadanie_1_UP
     public partial class Zapis : Page
     {
         public Frame frame1;
-        string User;
+        string user;
         object Item;
+        List<Workers> workers = new List<Workers>();
         List<Service> services = new List<Service>();
+        List<Users> users = new List<Users>();
 
-        public Zapis(Frame frame, object item)
+        public Zapis(string User, Frame frame, object item)
         {
             InitializeComponent();
             frame1 = frame;
             Item = item;
+            user = User;
+            
+
+            workers = Entities.GetContext().Workers.ToList();
+            int count = Entities.GetContext().Workers.Count();
+            for (int i = 0; i < count; i++)
+            {
+                if (workers[i].login == user && workers[i].dolg == "Лаборант")
+                {
+                    Details_Service_Lab();
+                }
+                if (workers[i].login == user && workers[i].dolg == "Администратор")
+                {
+                    Details_Service_Admin();
+                }
+                else
+                {
+                    Details_Service_Admin();
+                }
+            }
+
+        }
+
+        public void Details_Service_Lab()
+        {
             services = Entities.GetContext().Service.ToList();
             for (int i = 0; i < services.Count; i++)
             {
@@ -42,8 +69,74 @@ namespace Zadanie_1_UP
                     break;
                 }
             }
-
         }
 
+        public void Details_Service_Admin()
+        {
+            Delete.Visibility = Visibility.Visible;
+
+            services = Entities.GetContext().Service.ToList();
+            for (int i = 0; i < services.Count; i++)
+            {
+                if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
+                {
+                    Text_service1.Text = services[i].service1;
+                    break;
+                }
+            }
+            
+        }
+
+        private void Zapis_Delete(object sender, RoutedEventArgs e)
+        {
+            List<Service> ser = new List<Service> { };
+            ser = Entities.GetContext().Service.ToList();
+
+            try
+            {
+                for (int i = 0; i < ser.Count; i++)
+                {
+                    if (ser[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
+                    {
+                        Entities.GetContext().Service.Remove(ser[i]);
+                        Entities.GetContext().SaveChanges();
+                        break;
+                    }
+                }
+                frame1.Navigate(new Glavnaya(user, frame1));
+            }
+            catch
+            {
+                MessageBox.Show("Вы не можете удалить данный анализ, пока не будет удален результат");
+            }
+
+
+            
+
+
+
+
+
+
+
+
+            /*services = Entities.GetContext().Service.ToList();
+            for (int i = 0; i < services.Count; i++)
+            {
+                if (services[i].id == GetType())
+                {
+                    Entities.GetContext().Service.Remove(services[i]);
+                    Entities.GetContext().SaveChanges();
+                    frame1.Navigate(new Glavnaya(user, frame1));
+                    break;
+                }
+                else
+                {
+                    MessageBox.Show("Произошла ошибка");
+                    break;
+                }
+            }*/
+
+        }
     }
 }
