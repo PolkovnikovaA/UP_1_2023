@@ -77,6 +77,8 @@ namespace Zadanie_1_UP
                     //Image.Visibility = Visibility.Hidden;
                 }
             }
+
+            Vivod_Service();
         }
 
         public int TickCounter
@@ -162,8 +164,13 @@ namespace Zadanie_1_UP
 
         private void Glavnaya_Analiz(object sender, MouseButtonEventArgs e)
         {
+            Vivod_Service();
+        }
+
+        public void Vivod_Service()
+        {
             var all = Entities.GetContext().Service.ToList();
-           
+
             ComboType.ItemsSource = all;
             LViewTours.ItemsSource = all;
 

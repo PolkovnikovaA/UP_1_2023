@@ -285,6 +285,7 @@
         <Button Height="60" Width="400"
                 Content="Добавить сервис"
                 x:Name="Add" 
+                Visibility="Hidden"
                 Margin="89,661,911,13"
                 Click="Add5"
                 Grid.Row="1"/>
