@@ -250,5 +250,10 @@ namespace Zadanie_1_UP
             } 
             LViewTours.ItemsSource = List_Service.Skip(sp.CurrentPage * sp.CountPageFlower - sp.CountPageFlower).Take(sp.CountPageFlower).ToList();
         }
+
+        private void Add5(object sender, RoutedEventArgs e)
+        {
+            frame1.Navigate(new Add(user, frame1));
+        }
     }
 }

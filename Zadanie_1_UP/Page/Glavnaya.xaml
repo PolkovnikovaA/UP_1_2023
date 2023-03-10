@@ -282,6 +282,11 @@
                BorderBrush="{x:Null}"
                Background="{x:Null}" Grid.Row="1"/>
 
-
+        <Button Height="60" Width="400"
+                Content="Добавить сервис"
+                x:Name="Add" 
+                Margin="89,661,911,13"
+                Click="Add5"
+                Grid.Row="1"/>
     </Grid>
 </Page>
