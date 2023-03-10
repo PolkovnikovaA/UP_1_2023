@@ -32,6 +32,7 @@ namespace Zadanie_1_UP
         Navig sp = new Navig();
         List<Service> List_Service = new List<Service>();
         List<Users> users = new List<Users>();
+        List<Workers> workers = new List<Workers>();
         List<Histori> historys = new List<Histori>();
         int kolvo_zapice = 3;
 
@@ -62,6 +63,17 @@ namespace Zadanie_1_UP
             _timer.Interval = TimeSpan.FromMinutes(1d);
             _timer.Tick += new EventHandler(Timer_Tick);
             _timer.Start();
+
+            workers = Entities.GetContext().Workers.ToList();
+            int count = Entities.GetContext().Workers.Count();
+            for (int i = 0; i < count; i++)
+            {
+                if (workers[i].login == user && workers[i].dolg == "Лаборант")
+                {
+                    Image.Visibility= Visibility.Hidden;
+                }
+            }
+            
         }
 
         public int TickCounter
@@ -111,6 +123,12 @@ namespace Zadanie_1_UP
         private void Glavnaya_Nazad(object sender, MouseButtonEventArgs e)
         {
             frame1.Navigate(new Avtoriz(frame1));
+        }
+
+        private async void GlavnayaService_Click(object sender, MouseButtonEventArgs e)
+        {
+            object item = LViewTours.SelectedItem;
+            frame1.Navigate(new Zapis(frame1, item));
         }
 
         private void Update()

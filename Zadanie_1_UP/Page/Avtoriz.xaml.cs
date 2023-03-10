@@ -165,6 +165,7 @@ namespace Zadanie_1_UP
                 vx = 0;
                 vxod();
             }
+
         }
 
         private void Avtoriz_Zareg(object sender, MouseButtonEventArgs e)
