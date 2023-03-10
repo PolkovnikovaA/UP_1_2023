@@ -74,6 +74,7 @@ namespace Zadanie_1_UP
         public void Details_Service_Admin()
         {
             Delete.Visibility = Visibility.Visible;
+            Izm.Visibility = Visibility.Visible;
 
             services = Entities.GetContext().Service.ToList();
             for (int i = 0; i < services.Count; i++)
@@ -91,7 +92,6 @@ namespace Zadanie_1_UP
         {
             List<Service> ser = new List<Service> { };
             ser = Entities.GetContext().Service.ToList();
-
             try
             {
                 for (int i = 0; i < ser.Count; i++)
@@ -109,34 +109,30 @@ namespace Zadanie_1_UP
             {
                 MessageBox.Show("Вы не можете удалить данный анализ, пока не будет удален результат");
             }
+        }
 
-
-            
-
-
-
-
-
-
-
-
-            /*services = Entities.GetContext().Service.ToList();
-            for (int i = 0; i < services.Count; i++)
+        private void Zapis_Izm(object sender, RoutedEventArgs e)
+        {
+            List<Service> ser = new List<Service>();
+            ser = Entities.GetContext().Service.ToList();
+            try
             {
-                if (services[i].id == GetType())
+                for (int i = 0; i < ser.Count; i++)
                 {
-                    Entities.GetContext().Service.Remove(services[i]);
-                    Entities.GetContext().SaveChanges();
-                    frame1.Navigate(new Glavnaya(user, frame1));
-                    break;
+                    if (ser[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
+                    {
+                        ser[i].service1 = Text_service1.Text;
+                        //ser[i].price = Convert.ToInt32(Text_pric.Text);
+                        break;
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Произошла ошибка");
-                    break;
-                }
-            }*/
-
+                Entities.GetContext().SaveChanges();
+                frame1.Navigate(new Glavnaya(user, frame1));
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
         }
     }
 }

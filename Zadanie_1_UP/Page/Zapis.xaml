@@ -9,21 +9,21 @@
       Title="Zapis">
 
     <Grid Height="800" Width="1400">
-        <TextBlock Height="60" Width="400"
+        <TextBox Height="60" Width="400"
                    Background="White"
                    FontSize="50"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_service1" 
                    Margin="500,195,500,545"/>
 
-        <TextBlock Height="60" Width="400"
+        <TextBox Height="60" Width="400"
                    Background="White"
                    FontSize="50"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_pric" 
                    Margin="500,340,500,400"/>
 
-        <TextBlock Height="60" Width="400"
+        <TextBox Height="60" Width="400"
                    Background="White"
                    FontSize="50"
                    FontFamily="Monotype Corsiva"
@@ -36,5 +36,12 @@
                 x:Name="Delete" 
                 Click="Zapis_Delete"
                 Margin="875,668,125,72"/>
+
+        <Button Height="60" Width="400"
+                Content="Изменить"
+                Visibility="Hidden"
+                x:Name="Izm" 
+                Click="Zapis_Izm"
+                Margin="140,668,860,72"/>
     </Grid>
 </Page>
