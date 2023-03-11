@@ -18,9 +18,9 @@
                    Foreground="White" 
                    Cursor="Hand" 
                    Height="32" Width="84" 
-                   Margin="1306,10,10,758"
+                   Margin="1296,13,20,755"
                    MouseLeftButtonDown="Zapis_Nazad"/>
-        
+
         <Image Source="/Image/Analiz.png"
                        Name="Image"
                        Height="300" Width="300"
@@ -31,8 +31,8 @@
                    Foreground="White"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
-                   FontSize="60"
-                   Margin="869,134,307,594"/>
+                   FontSize="55"
+                   Margin="878,175,316,569"/>
 
         <TextBox Height="60"
                    Background="White"
@@ -40,14 +40,14 @@
                  TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_service1" 
-                   Margin="678,215,116,525"/>
+                   Margin="678,243,116,497"/>
 
         <TextBlock Text="Цена" TextAlignment="Right" 
                    Foreground="White"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
-                   FontSize="60"
-                   Margin="924,289,362,439"/>
+                   FontSize="55"
+                   Margin="927,309,365,432"/>
 
         <TextBox Height="60"
                    Background="White"
@@ -55,7 +55,7 @@
                  TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_pric" 
-                   Margin="678,370,116,370"/>
+                   Margin="678,382,116,358"/>
 
         <TextBlock x:Name="Zapiss"
                    Text="Записаться" 
@@ -74,8 +74,8 @@
                    Foreground="White"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
-                   FontSize="60"
-                   Margin="218,543,938,178"/>
+                   FontSize="55"
+                   Margin="229,543,949,194"/>
 
         <TextBox Height="60"
                    Background="White"
