@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -25,6 +26,7 @@ namespace Zadanie_1_UP
         public Frame frame1;
         string user;
         object Item;
+        Microsoft.Win32.OpenFileDialog img = new Microsoft.Win32.OpenFileDialog();
         List<Workers> workers = new List<Workers>();
         List<Service> services = new List<Service>();
         List<Users> users = new List<Users>();
@@ -80,6 +82,12 @@ namespace Zadanie_1_UP
         {
             Zapiss_Delete.Visibility = Visibility.Visible;
             Zapiss_Izm.Visibility = Visibility.Visible;
+            Text_service1.Visibility = Visibility.Visible;
+            Text_pric.Visibility = Visibility.Visible;
+            Text_lab.Visibility = Visibility.Visible;
+            Text_service12.Visibility = Visibility.Hidden;
+            Text_pric2.Visibility = Visibility.Hidden;
+            Text_lab2.Visibility = Visibility.Hidden;
             Zapiss.Visibility = Visibility.Hidden;
 
             services = Entities.GetContext().Service.ToList();
@@ -88,6 +96,39 @@ namespace Zadanie_1_UP
                 if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
                 {
                     Text_service1.Text = services[i].service1;
+                    Text_pric.Text = services[i].price.ToString();
+                    Text_lab.Text = services[i].Sotr.ToString();
+                    if (services[i].image != null)
+                    {
+                        var uriImageSource = new Uri(services[i].image, UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+
+
+                        //BitmapImage bmp = new BitmapImage();
+                        //MemoryStream mem = new MemoryStream();
+                        //bmp = new BitmapImage();
+                        //bmp.BeginInit();
+                        //bmp.CacheOption = BitmapCacheOption.OnLoad;
+                        //bmp.StreamSource = mem;
+                        //bmp.EndInit();
+                        //bmp.Freeze();
+
+                        /*if (services[i].image == "\\p*")
+                        {
+                            var uriImageSource = new Uri(@"/Zadanie_1_UP;component/" + services[i].image, UriKind.RelativeOrAbsolute);
+                            Image.Source = new BitmapImage(uriImageSource);
+                        }
+                        else
+                        {
+                            var uriImageSource = new Uri(services[i].image, UriKind.RelativeOrAbsolute);
+                            Image.Source = new BitmapImage(uriImageSource);
+                        }*/
+                    }
+                    else
+                    {
+                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/zagl.jpg", UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+                    }
                     break;
                 }
             }
@@ -101,10 +142,25 @@ namespace Zadanie_1_UP
             {
                 if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
                 {
-                    Text_service1.Text = services[i].service1;
-                    Text_pric.Text = services[i].price.ToString();
+                    Text_service12.Text = services[i].service1;
+                    Text_pric2.Text = services[i].price.ToString();
+                    Text_lab2.Text = services[i].Sotr.ToString();
                     break;
                 }
+            }
+        }
+
+        private void Image_Zapis(object sender, MouseButtonEventArgs e)
+        {
+            img.FileName = "Picture";
+            img.DefaultExt = ".jpg";
+            img.Filter = "Picture (.jpg)|*.jpg";
+
+            Nullable<bool> result = img.ShowDialog();
+            if (result != false)
+            {
+                var uriImageSource = new Uri(img.FileName, UriKind.RelativeOrAbsolute);
+                Image.Source = new BitmapImage(uriImageSource);
             }
         }
 
@@ -142,7 +198,18 @@ namespace Zadanie_1_UP
                     if (ser[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
                     {
                         ser[i].service1 = Text_service1.Text;
-                        //ser[i].price = Convert.ToInt32(Text_pric.Text);
+                        ser[i].price = Convert.ToInt32(Text_pric.Text);
+                        if (ser[i].image == "")
+                        {
+                            ser[i].image = null;
+                        }
+                        else
+                        {
+                            if (img.FileName != "")
+                            {
+                                ser[i].image = img.FileName;
+                            }
+                        }
                         break;
                     }
                 }

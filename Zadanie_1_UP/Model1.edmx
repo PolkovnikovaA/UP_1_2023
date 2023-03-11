@@ -36,6 +36,7 @@
           <Property Name="service" Type="nvarchar(max)" />
           <Property Name="price" Type="float" />
           <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="Sotr" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -172,6 +173,7 @@
           <Property Name="price" Type="Double" />
           <NavigationProperty Name="Result" Relationship="Self.FK_Result_Service" FromRole="Service" ToRole="Result" />
           <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sotr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -317,6 +319,7 @@
           <EntitySetMapping Name="Service">
             <EntityTypeMapping TypeName="P_Polkovnikova_UP1_2023Model.Service">
               <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Sotr" ColumnName="Sotr" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="service1" ColumnName="service" />

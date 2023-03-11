@@ -21,11 +21,20 @@
                    Margin="1296,13,20,755"
                    MouseLeftButtonDown="Zapis_Nazad"/>
 
-        <Image Source="/Image/Analiz.png"
-                       Name="Image"
-                       Height="300" Width="300"
-                       Margin="140,130,860,270"
-                       Cursor="Hand"/>
+        <Image Name="Image"
+               MouseLeftButtonDown="Image_Zapis"
+               Height="300" Width="300"
+               Margin="140,130,860,270"
+               Cursor="Hand">
+
+            <Image.Source>
+                <Binding>
+                    <Binding.TargetNullValue>
+                        <ImageSource>/Image/zagl.jpg</ImageSource>
+                    </Binding.TargetNullValue>
+                </Binding>
+            </Image.Source>
+        </Image>
 
         <TextBlock Text="Название" TextAlignment="Right" 
                    Foreground="White"
@@ -37,9 +46,18 @@
         <TextBox Height="60"
                    Background="White"
                    FontSize="50"
+                 Visibility="Hidden"
                  TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_service1" 
+                   Margin="678,243,116,497"/>
+
+        <TextBlock Height="60"
+                   Background="White"
+                   FontSize="50"
+                   TextAlignment="Center"
+                   FontFamily="Monotype Corsiva"
+                   x:Name="Text_service12" 
                    Margin="678,243,116,497"/>
 
         <TextBlock Text="Цена" TextAlignment="Right" 
@@ -53,8 +71,17 @@
                    Background="White"
                    FontSize="50"
                  TextAlignment="Center"
+                 Visibility="Hidden"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_pric" 
+                   Margin="678,382,116,358"/>
+
+        <TextBlock Height="60"
+                   Background="White"
+                   FontSize="50"
+                   TextAlignment="Center"
+                   FontFamily="Monotype Corsiva"
+                   x:Name="Text_pric2" 
                    Margin="678,382,116,358"/>
 
         <TextBlock x:Name="Zapiss"
@@ -71,19 +98,28 @@
                    FontFamily="Monotype Corsiva" 
                    Cursor="Hand"/>
 
-        <TextBlock Text="Лаборант" TextAlignment="Right" 
+        <TextBlock Text="Сотрудник" TextAlignment="Right" 
                    Foreground="White"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
                    FontSize="55"
-                   Margin="229,543,949,194"/>
+                   Margin="229,543,938,194"/>
 
-        <TextBox Height="60"
+        <TextBox Height="55"
                    Background="White"
-                   FontSize="50"
+                   FontSize="40"
                  TextAlignment="Center"
+                 Visibility="Hidden"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_lab" 
+                   Margin="76,629,796,111"/>
+
+        <TextBlock Height="55"
+                   Background="White"
+                   FontSize="40"
+                   TextAlignment="Center"
+                   FontFamily="Monotype Corsiva"
+                   x:Name="Text_lab2" 
                    Margin="76,629,796,111"/>
 
         <TextBlock x:Name="Zapiss_Delete"
