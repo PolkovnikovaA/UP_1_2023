@@ -29,7 +29,6 @@ namespace Zadanie_1_UP
         Microsoft.Win32.OpenFileDialog img = new Microsoft.Win32.OpenFileDialog();
         List<Workers> workers = new List<Workers>();
         List<Service> services = new List<Service>();
-        List<Users> users = new List<Users>();
 
         public Zapis(string User, Frame frame, object item)
         {
@@ -37,7 +36,6 @@ namespace Zadanie_1_UP
             frame1 = frame;
             Item = item;
             user = User;
-            
 
             workers = Entities.GetContext().Workers.ToList();
             int count = Entities.GetContext().Workers.Count();
@@ -56,6 +54,57 @@ namespace Zadanie_1_UP
                     Details_Service_User();
                 }
             }
+        }
+
+        public void Details_Service_Lab()
+        {
+            Sotr.Visibility = Visibility.Hidden;
+            Text_lab2.Visibility = Visibility.Hidden;
+
+            services = Entities.GetContext().Service.ToList();
+            for (int i = 0; i < services.Count; i++)
+            {
+                if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
+                {
+                    Text_service12.Text = services[i].service1;
+                    Text_pric2.Text = services[i].price.ToString();
+                    Text_lab2.Text = services[i].Sotr.ToString();
+                    if (services[i].Sotr == "Мулянов Андрей Александрович")
+                    {
+                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/Sotr1.png", UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+                    }
+                    else if (services[i].Sotr == "Алешкина Варвара Владимировна")
+                    {
+                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/Sotr2.png", UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+                    }
+                    else
+                    {
+                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/zagl.jpg", UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+                    }
+                    break;
+                }
+            }
+        }
+
+        private void Zapis_Nazad(object sender, MouseButtonEventArgs e)
+        {
+            frame1.Navigate(new Glavnaya(user, frame1));
+        }
+
+        public void Details_Service_Admin()
+        {
+            Image_Delete.Visibility = Visibility.Visible;
+            Image_Izm.Visibility = Visibility.Visible;
+            Text_service1.Visibility = Visibility.Visible;
+            Text_pric.Visibility = Visibility.Visible;
+            Text_lab.Visibility = Visibility.Visible;
+            Text_service12.Visibility = Visibility.Hidden;
+            Text_pric2.Visibility = Visibility.Hidden;
+            Text_lab2.Visibility = Visibility.Hidden;
+            Zapiss.Visibility = Visibility.Hidden;
 
             services = Entities.GetContext().Service.ToList();
             for (int i = 0; i < services.Count; i++)
@@ -84,42 +133,6 @@ namespace Zadanie_1_UP
                 }
             }
 
-
-        }
-
-        public void Details_Service_Lab()
-        {
-            services = Entities.GetContext().Service.ToList();
-            for (int i = 0; i < services.Count; i++)
-            {
-                if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
-                {
-                    Text_service1.Text = services[i].service1;
-                    Text_pric.Text = services[i].price.ToString();
-                    break;
-                }
-            }
-        }
-
-        private void Zapis_Nazad(object sender, MouseButtonEventArgs e)
-        {
-            frame1.Navigate(new Glavnaya(user, frame1));
-        }
-
-        public void Details_Service_Admin()
-        {
-            Zapiss_Delete.Visibility = Visibility.Visible;
-            Zapiss_Izm.Visibility = Visibility.Visible;
-            Text_service1.Visibility = Visibility.Visible;
-            Text_pric.Visibility = Visibility.Visible;
-            Text_lab.Visibility = Visibility.Visible;
-            Text_service12.Visibility = Visibility.Hidden;
-            Text_pric2.Visibility = Visibility.Hidden;
-            Text_lab2.Visibility = Visibility.Hidden;
-            Zapiss.Visibility = Visibility.Hidden;
-
-            
-            
         }
 
         public void Details_Service_User()
@@ -132,6 +145,21 @@ namespace Zadanie_1_UP
                     Text_service12.Text = services[i].service1;
                     Text_pric2.Text = services[i].price.ToString();
                     Text_lab2.Text = services[i].Sotr.ToString();
+                    if (services[i].Sotr == "Мулянов Андрей Александрович")
+                    {
+                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/Sotr1.png", UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+                    }
+                    else if (services[i].Sotr == "Алешкина Варвара Владимировна")
+                    {
+                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/Sotr2.png", UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+                    }
+                    else
+                    {
+                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/zagl.jpg", UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+                    }
                     break;
                 }
             }
@@ -186,6 +214,7 @@ namespace Zadanie_1_UP
                     {
                         ser[i].service1 = Text_service1.Text;
                         ser[i].price = Convert.ToInt32(Text_pric.Text);
+                        ser[i].Sotr = Text_lab.Text;
                         if (ser[i].image == "")
                         {
                             ser[i].image = null;

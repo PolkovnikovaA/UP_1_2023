@@ -70,6 +70,7 @@ namespace Zadanie_1_UP
             {
                 if (workers[i].login == user && workers[i].dolg == "Лаборант")
                 {
+                    Add.Visibility = Visibility.Visible;
                     //Image.Visibility= Visibility.Hidden;
                 }
                 if (workers[i].login == user && workers[i].dolg == "Администратор")

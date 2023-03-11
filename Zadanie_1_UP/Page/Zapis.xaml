@@ -100,6 +100,7 @@
 
         <TextBlock Text="Сотрудник" TextAlignment="Right" 
                    Foreground="White"
+                   Name="Sotr"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
                    FontSize="55"
@@ -122,33 +123,20 @@
                    x:Name="Text_lab2" 
                    Margin="76,629,796,111"/>
 
-        <TextBlock x:Name="Zapiss_Delete"
-                   Text="Удалить" 
-                   TextDecorations="Underline" 
-                   TextAlignment="Center"
-                   MouseLeftButtonDown="Zapis_Delete"
-                   HorizontalAlignment="Left"
-                   Width="306"
-                   Visibility="Hidden"
-                   FontWeight="Bold" 
-                   Foreground="White"
-                   FontSize="70"
-                   FontFamily="Monotype Corsiva" 
-                   Cursor="Hand" Margin="641,619,0,95"/>
+        <Image x:Name="Image_Delete"
+               Source="/Image/delete.png"
+               Visibility="Hidden"
+               MouseLeftButtonDown="Zapis_Delete"
+               Height="90" Width="80"
+               Margin="754,602,566,108"
+               Cursor="Hand"/>
 
-        <TextBlock x:Name="Zapiss_Izm"
-                   Text="Изменить" 
-                   TextDecorations="Underline" 
-                   TextAlignment="Center"
-                   Visibility="Hidden"
-                   TextWrapping="WrapWithOverflow"
-                   MouseLeftButtonDown="Zapis_Izm"
-                   HorizontalAlignment="Left"
-                   Width="336"
-                   FontWeight="Bold" 
-                   Foreground="White"
-                   FontSize="70" Margin="1026,619,0,95" 
-                   FontFamily="Monotype Corsiva" 
-                   Cursor="Hand"/>
+        <Image x:Name="Image_Izm"
+               Source="/Image/izmen.png"
+               Visibility="Hidden"
+               MouseLeftButtonDown="Zapis_Izm"
+               Height="90" Width="80"
+               Margin="1118,602,202,108"
+               Cursor="Hand"/>
     </Grid>
 </Page>
