@@ -78,8 +78,9 @@ namespace Zadanie_1_UP
 
         public void Details_Service_Admin()
         {
-            Delete.Visibility = Visibility.Visible;
-            Izm.Visibility = Visibility.Visible;
+            Zapiss_Delete.Visibility = Visibility.Visible;
+            Zapiss_Izm.Visibility = Visibility.Visible;
+            Zapiss.Visibility = Visibility.Hidden;
 
             services = Entities.GetContext().Service.ToList();
             for (int i = 0; i < services.Count; i++)
@@ -95,8 +96,6 @@ namespace Zadanie_1_UP
 
         public void Details_Service_User()
         {
-            Delete.Visibility = Visibility.Hidden;
-            Izm.Visibility = Visibility.Hidden;
 
             services = Entities.GetContext().Service.ToList();
             for (int i = 0; i < services.Count; i++)
@@ -104,6 +103,7 @@ namespace Zadanie_1_UP
                 if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
                 {
                     Text_service1.Text = services[i].service1;
+                    Text_pric.Text = services[i].price.ToString();
                     break;
                 }
             }
