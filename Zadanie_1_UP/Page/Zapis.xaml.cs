@@ -100,34 +100,13 @@ namespace Zadanie_1_UP
                     Text_lab.Text = services[i].Sotr.ToString();
                     if (services[i].image != null)
                     {
-                        var uriImageSource = new Uri(services[i].image, UriKind.RelativeOrAbsolute);
-                        Image.Source = new BitmapImage(uriImageSource);
+                        var ImageSource = new Uri(services[i].image, UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(ImageSource);
 
-
-                        //BitmapImage bmp = new BitmapImage();
-                        //MemoryStream mem = new MemoryStream();
-                        //bmp = new BitmapImage();
-                        //bmp.BeginInit();
-                        //bmp.CacheOption = BitmapCacheOption.OnLoad;
-                        //bmp.StreamSource = mem;
-                        //bmp.EndInit();
-                        //bmp.Freeze();
-
-                        /*if (services[i].image == "\\p*")
-                        {
-                            var uriImageSource = new Uri(@"/Zadanie_1_UP;component/" + services[i].image, UriKind.RelativeOrAbsolute);
-                            Image.Source = new BitmapImage(uriImageSource);
-                        }
-                        else
-                        {
-                            var uriImageSource = new Uri(services[i].image, UriKind.RelativeOrAbsolute);
-                            Image.Source = new BitmapImage(uriImageSource);
-                        }*/
                     }
                     else
                     {
-                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/zagl.jpg", UriKind.RelativeOrAbsolute);
-                        Image.Source = new BitmapImage(uriImageSource);
+
                     }
                     break;
                 }
