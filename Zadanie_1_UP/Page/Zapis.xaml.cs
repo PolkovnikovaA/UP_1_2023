@@ -57,6 +57,34 @@ namespace Zadanie_1_UP
                 }
             }
 
+            services = Entities.GetContext().Service.ToList();
+            for (int i = 0; i < services.Count; i++)
+            {
+                if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
+                {
+                    Text_service1.Text = services[i].service1;
+                    Text_pric.Text = services[i].price.ToString();
+                    Text_lab.Text = services[i].Sotr.ToString();
+                    if (services[i].Sotr == "Мулянов Андрей Александрович")
+                    {
+                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/Sotr1.png", UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+                    }
+                    else if (services[i].Sotr == "Алешкина Варвара Владимировна")
+                    {
+                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/Sotr2.png", UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+                    }
+                    else
+                    {
+                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/zagl.jpg", UriKind.RelativeOrAbsolute);
+                        Image.Source = new BitmapImage(uriImageSource);
+                    }
+                    break;
+                }
+            }
+
+
         }
 
         public void Details_Service_Lab()
@@ -90,27 +118,7 @@ namespace Zadanie_1_UP
             Text_lab2.Visibility = Visibility.Hidden;
             Zapiss.Visibility = Visibility.Hidden;
 
-            services = Entities.GetContext().Service.ToList();
-            for (int i = 0; i < services.Count; i++)
-            {
-                if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
-                {
-                    Text_service1.Text = services[i].service1;
-                    Text_pric.Text = services[i].price.ToString();
-                    Text_lab.Text = services[i].Sotr.ToString();
-                    if (services[i].image != null)
-                    {
-                        var ImageSource = new Uri(services[i].image, UriKind.RelativeOrAbsolute);
-                        Image.Source = new BitmapImage(ImageSource);
-
-                    }
-                    else
-                    {
-
-                    }
-                    break;
-                }
-            }
+            
             
         }
 

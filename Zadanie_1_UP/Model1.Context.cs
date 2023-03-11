@@ -26,7 +26,6 @@ namespace Zadanie_1_UP
             if (_instance == null) _instance = new Entities();
             return _instance;
         }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

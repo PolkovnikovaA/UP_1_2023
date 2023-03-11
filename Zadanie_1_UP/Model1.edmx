@@ -172,7 +172,7 @@
           <Property Name="service1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="price" Type="Double" />
           <NavigationProperty Name="Result" Relationship="Self.FK_Result_Service" FromRole="Service" ToRole="Result" />
-          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Sotr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">

@@ -21,10 +21,10 @@
                    Margin="1296,13,20,755"
                    MouseLeftButtonDown="Zapis_Nazad"/>
 
-        <Image Name="Image"
+        <Image x:Name="Image"
                MouseLeftButtonDown="Image_Zapis"
-               Height="300" Width="300"
-               Margin="140,130,860,270"
+               Height="450" Width="400"
+               Margin="140,84,860,266"
                Cursor="Hand">
 
             <Image.Source>
