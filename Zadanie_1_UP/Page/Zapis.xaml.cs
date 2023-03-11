@@ -96,7 +96,6 @@ namespace Zadanie_1_UP
 
         public void Details_Service_User()
         {
-
             services = Entities.GetContext().Service.ToList();
             for (int i = 0; i < services.Count; i++)
             {
@@ -107,7 +106,6 @@ namespace Zadanie_1_UP
                     break;
                 }
             }
-
         }
 
         private void Zapis_Delete(object sender, RoutedEventArgs e)
