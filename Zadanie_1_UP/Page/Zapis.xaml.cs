@@ -51,7 +51,7 @@ namespace Zadanie_1_UP
                 }
                 else
                 {
-                    Details_Service_Admin();
+                    Details_Service_User();
                 }
             }
 
@@ -71,6 +71,11 @@ namespace Zadanie_1_UP
             }
         }
 
+        private void Zapis_Nazad(object sender, MouseButtonEventArgs e)
+        {
+            frame1.Navigate(new Glavnaya(user, frame1));
+        }
+
         public void Details_Service_Admin()
         {
             Delete.Visibility = Visibility.Visible;
@@ -86,6 +91,23 @@ namespace Zadanie_1_UP
                 }
             }
             
+        }
+
+        public void Details_Service_User()
+        {
+            Delete.Visibility = Visibility.Hidden;
+            Izm.Visibility = Visibility.Hidden;
+
+            services = Entities.GetContext().Service.ToList();
+            for (int i = 0; i < services.Count; i++)
+            {
+                if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
+                {
+                    Text_service1.Text = services[i].service1;
+                    break;
+                }
+            }
+
         }
 
         private void Zapis_Delete(object sender, RoutedEventArgs e)

@@ -9,26 +9,81 @@
       Title="Zapis">
 
     <Grid Height="800" Width="1400">
-        <TextBox Height="60" Width="400"
+        <TextBlock x:Name="Back_Zapis"
+                   Text="Назад"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="30" 
+                   FontWeight="Bold" 
+                   TextDecorations="Underline"
+                   Foreground="White" 
+                   Cursor="Hand" 
+                   Height="32" Width="84" 
+                   Margin="1306,10,10,758"
+                   MouseLeftButtonDown="Zapis_Nazad"/>
+        
+        <Image Source="/Image/Analiz.png"
+                       Name="Image"
+                       Height="300" Width="300"
+                       Margin="140,130,860,270"
+                       Cursor="Hand"/>
+
+        <TextBlock Text="Название" TextAlignment="Right" 
+                   Foreground="White"
+                   FontStyle="Normal"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="60"
+                   Margin="869,134,307,594"/>
+
+        <TextBox Height="60"
                    Background="White"
                    FontSize="50"
+                 TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_service1" 
-                   Margin="500,195,500,545"/>
+                   Margin="678,215,116,525"/>
 
-        <TextBox Height="60" Width="400"
+        <TextBlock Text="Цена" TextAlignment="Right" 
+                   Foreground="White"
+                   FontStyle="Normal"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="60"
+                   Margin="924,289,362,439"/>
+
+        <TextBox Height="60"
                    Background="White"
                    FontSize="50"
+                 TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_pric" 
-                   Margin="500,340,500,400"/>
+                   Margin="678,370,116,370"/>
 
-        <TextBox Height="60" Width="400"
+        <TextBlock x:Name="Zapiss"
+                   Text="Записаться" 
+                   TextDecorations="Underline" 
+                   TextAlignment="Center"
+                   TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Left"
+                   Width="378"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   FontSize="70" Margin="792,619,0,95" 
+                   FontFamily="Monotype Corsiva" 
+                   Cursor="Hand"/>
+
+        <TextBlock Text="Лаборант" TextAlignment="Right" 
+                   Foreground="White"
+                   FontStyle="Normal"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="60"
+                   Margin="218,543,938,178"/>
+
+        <TextBox Height="60"
                    Background="White"
                    FontSize="50"
+                 TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_lab" 
-                   Margin="500,477,500,263"/>
+                   Margin="76,629,796,111"/>
 
         <Button Height="60" Width="400"
                 Content="Удалить"
