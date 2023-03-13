@@ -17,3 +17,6 @@
 ![image](https://user-images.githubusercontent.com/104072166/222164112-879b6e3d-d2f2-4b86-a6e9-f57f0024144a.png)
 
 [2.docx](https://github.com/PolkovnikovaA/UP_1_2023/files/10930438/2.docx)
+
+[3.docx](https://github.com/PolkovnikovaA/UP_1_2023/files/10953751/3.docx)
+
