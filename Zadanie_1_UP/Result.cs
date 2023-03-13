@@ -21,6 +21,7 @@ namespace Zadanie_1_UP
         public Nullable<System.DateTime> data { get; set; }
         public string login { get; set; }
         public Nullable<int> id_user1 { get; set; }
+        public string BarCodeR { get; set; }
     
         public virtual Service Service { get; set; }
         public virtual Workers Workers { get; set; }

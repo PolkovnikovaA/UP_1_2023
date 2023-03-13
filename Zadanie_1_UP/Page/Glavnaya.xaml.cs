@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Aspose.BarCode;
+using Aspose.BarCode.Generation;
+using Path = System.IO.Path;
 
 namespace Zadanie_1_UP
 {
@@ -79,6 +82,8 @@ namespace Zadanie_1_UP
                     //Image.Visibility = Visibility.Hidden;
                 }
             }
+
+            Generate_Code();
         }
 
         public int TickCounter
@@ -176,6 +181,39 @@ namespace Zadanie_1_UP
             List_Service = Entities.GetContext().Service.ToList();
             LViewTours.ItemsSource = Entities.GetContext().Service.ToList();
 
+            List<Service> services = new List<Service>();
+            services = Entities.GetContext().Service.ToList();
+
+
+            var imageType = "Png";
+
+            var imageFormat = (BarCodeImageFormat)Enum.Parse(typeof(BarCodeImageFormat), imageType.ToString());
+            var encodeType = EncodeTypes.Code128;
+            BarcodeGen barcode = new BarcodeGen();
+
+
+            
+
+
+            barcode.Text = all.;
+            barcode.BarcodeType = encodeType;
+            barcode.ImageType = imageFormat;
+
+            try
+            {
+                string imagePath = GenerateBarcode(barcode);
+
+
+                Uri fileUri = new Uri(Path.GetFullPath(imagePath));
+                imgDynamic.Source = new BitmapImage(fileUri);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
+
+
+
             sp.CountPageFlower = Entities.GetContext().Service.ToList().Count;
             DataContext = sp;
 
@@ -257,5 +295,61 @@ namespace Zadanie_1_UP
         {
             frame1.Navigate(new Add(user, frame1));
         }
+
+
+        //Штрих-код
+        public void Generate_Code()
+        {
+            var imageType = "Png";
+
+            var imageFormat = (BarCodeImageFormat)Enum.Parse(typeof(BarCodeImageFormat), imageType.ToString());
+            var encodeType = EncodeTypes.Code128;
+            BarcodeGen barcode = new BarcodeGen();
+
+            String allowchar = " ";
+            allowchar += "1,2,3,4,5,6,7,8,9,0";
+            char[] a = { ',' };
+            String[] ar = allowchar.Split(a);
+            String pwd = "";
+            string temp = "";
+            Random r = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                temp = ar[(r.Next(0, ar.Length))];
+                pwd += temp;
+            }
+            barcode.Text = pwd;
+        
+            barcode.BarcodeType = encodeType;
+            barcode.ImageType = imageFormat;
+
+            try
+            {
+                string imagePath = GenerateBarcode(barcode);
+                
+
+                Uri fileUri = new Uri(Path.GetFullPath(imagePath));
+                imgDynamic.Source = new BitmapImage(fileUri);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
+        }
+
+        private string GenerateBarcode(BarcodeGen barcode)
+        {
+            // Image path
+            string imagePath = "." + barcode.ImageType;
+
+            // Initilize barcode generator
+            BarcodeGenerator generator = new BarcodeGenerator(barcode.BarcodeType, barcode.Text);
+
+            // Save the image
+            generator.Save(imagePath, barcode.ImageType);
+
+            return imagePath;
+        }
+
     }
 }

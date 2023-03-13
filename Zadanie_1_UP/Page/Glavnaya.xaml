@@ -141,9 +141,10 @@
                                 <StackPanel Grid.Column="1"
                                         Margin="15"
                                         Orientation="Horizontal">
-                                    <Image Source="/Image/zagl.jpg"
-                                       Height="100" Width="160"
-                                       HorizontalAlignment="Left"/>
+                                    <Image Name="imgDynamic" 
+                                           Stretch="None" 
+                                           Grid.Row="1" />
+                                    
                                     <StackPanel Grid.Column="1"
                                             Margin="0"
                                             Orientation="Vertical">
@@ -161,6 +162,7 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            
         </ListView>
 
         <Grid Grid.Row="1" Margin="1088,575,10,87" Visibility="Hidden" x:Name="Str">
@@ -289,5 +291,8 @@
                 Margin="89,661,911,13"
                 Click="Add5"
                 Grid.Row="1"/>
+
+        <Image Name="imgDynamic" Margin="6,-6,7,6" Stretch="None" Grid.Row="1" />
+        
     </Grid>
 </Page>

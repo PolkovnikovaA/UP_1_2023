@@ -27,6 +27,7 @@
           <Property Name="result" Type="nchar" MaxLength="1" />
           <Property Name="data" Type="date" />
           <Property Name="id_user" Type="int" />
+          <Property Name="BarCodeR" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -37,6 +38,7 @@
           <Property Name="price" Type="float" />
           <Property Name="image" Type="nvarchar(max)" />
           <Property Name="Sotr" Type="nvarchar(max)" />
+          <Property Name="BarCode" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -163,6 +165,7 @@
           <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="id_user1" Type="Int32" />
           <NavigationProperty Name="Users1" Relationship="P_Polkovnikova_UP1_2023Model.FK_Result_Users1" FromRole="Result" ToRole="Users" />
+          <Property Name="BarCodeR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -174,6 +177,7 @@
           <NavigationProperty Name="Result" Relationship="Self.FK_Result_Service" FromRole="Service" ToRole="Result" />
           <Property Name="image" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Sotr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BarCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -306,6 +310,7 @@
           <EntitySetMapping Name="Result">
             <EntityTypeMapping TypeName="P_Polkovnikova_UP1_2023Model.Result">
               <MappingFragment StoreEntitySet="Result">
+                <ScalarProperty Name="BarCodeR" ColumnName="BarCodeR" />
                 <ScalarProperty Name="id_user1" ColumnName="id_user" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -319,6 +324,7 @@
           <EntitySetMapping Name="Service">
             <EntityTypeMapping TypeName="P_Polkovnikova_UP1_2023Model.Service">
               <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="BarCode" ColumnName="BarCode" />
                 <ScalarProperty Name="Sotr" ColumnName="Sotr" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="id" ColumnName="id" />
