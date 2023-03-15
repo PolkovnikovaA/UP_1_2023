@@ -22,7 +22,6 @@
                    MouseLeftButtonDown="Zapis_Nazad"/>
 
         <Image x:Name="Image"
-               MouseLeftButtonDown="Image_Zapis"
                Height="450" Width="400"
                Margin="140,84,860,266"
                Cursor="Hand">

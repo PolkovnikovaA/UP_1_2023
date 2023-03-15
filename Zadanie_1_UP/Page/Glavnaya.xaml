@@ -141,9 +141,9 @@
                                 <StackPanel Grid.Column="1"
                                         Margin="15"
                                         Orientation="Horizontal">
-                                    <Image Name="imgDynamic" 
-                                           Stretch="None" 
-                                           Grid.Row="1" />
+                                    <Image Source="{Binding image}" 
+                                           Height="100" Width="160"
+                                           HorizontalAlignment="Left" />
                                     
                                     <StackPanel Grid.Column="1"
                                             Margin="0"
@@ -292,7 +292,5 @@
                 Click="Add5"
                 Grid.Row="1"/>
 
-        <Image Name="imgDynamic" Margin="6,-6,7,6" Stretch="None" Grid.Row="1" />
-        
     </Grid>
 </Page>

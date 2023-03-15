@@ -15,6 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Aspose.BarCode.Generation;
+using Path = System.IO.Path;
+
 
 namespace Zadanie_1_UP
 {
@@ -202,6 +205,60 @@ namespace Zadanie_1_UP
             }
         }
 
+        //Штрих-код
+       /* public void Generate_Code()
+        {
+            var imageType = "Png";
+
+            var imageFormat = (BarCodeImageFormat)Enum.Parse(typeof(BarCodeImageFormat), imageType.ToString());
+            var encodeType = EncodeTypes.Code128;
+            BarcodeGen barcode = new BarcodeGen();
+
+            String allowchar = " ";
+            allowchar += "1,2,3,4,5,6,7,8,9,0";
+            char[] a = { ',' };
+            String[] ar = allowchar.Split(a);
+            String pwd = "";
+            string temp = "";
+            Random r = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                temp = ar[(r.Next(0, ar.Length))];
+                pwd += temp;
+            }
+            barcode.Text = pwd;
+
+            barcode.BarcodeType = encodeType;
+            barcode.ImageType = imageFormat;
+
+            try
+            {
+                string imagePath = GenerateBarcode(barcode);
+
+
+                Uri fileUri = new Uri(Path.GetFullPath(imagePath));
+               //imgDynamic.Source = new BitmapImage(fileUri);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
+        }
+
+        private string GenerateBarcode(BarcodeGen barcode)
+        {
+            // Image path
+            string imagePath = "." + barcode.ImageType;
+
+            // Initilize barcode generator
+            BarcodeGenerator generator = new BarcodeGenerator(barcode.BarcodeType, barcode.Text);
+
+            // Save the image
+            generator.Save(imagePath, barcode.ImageType);
+
+            return imagePath;
+        }*/
+
         private void Zapis_Izm(object sender, RoutedEventArgs e)
         {
             List<Service> ser = new List<Service>();
@@ -214,10 +271,33 @@ namespace Zadanie_1_UP
                     {
                         ser[i].service1 = Text_service1.Text;
                         ser[i].price = Convert.ToInt32(Text_pric.Text);
-                        ser[i].Sotr = Text_lab.Text;
-                        if (ser[i].image == "")
+                        
+                        if (ser[i].image == null)
                         {
-                            ser[i].image = null;
+                            String allowchar = " ";
+                            allowchar += "1,2,3,4,5,6,7,8,9,0";
+                            char[] a = { ',' };
+                            String[] ar = allowchar.Split(a);
+                            String pwd = "";
+                            string temp = "";
+                            Random r = new Random();
+                            for (int j = 0; j < 10; j++)
+                            {
+                                temp = ar[(r.Next(0, ar.Length))];
+                                pwd += temp;
+                            }
+
+                            BarcodeGenerator generator = new BarcodeGenerator(EncodeTypes.Code128, pwd);
+                            var imageType = "Png";
+
+                            string imagePath = "barcode" + pwd + ".Png";
+
+                            string path = System.IO.Path.GetFullPath(imagePath);
+
+                            generator.Save(imagePath, BarCodeImageFormat.Png);
+                            ser[i].image = path;
+
+
                         }
                         else
                         {
@@ -226,6 +306,7 @@ namespace Zadanie_1_UP
                                 ser[i].image = img.FileName;
                             }
                         }
+                        ser[i].Sotr = Text_lab.Text;
                         break;
                     }
                 }
