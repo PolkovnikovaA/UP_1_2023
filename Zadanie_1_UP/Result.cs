@@ -22,6 +22,10 @@ namespace Zadanie_1_UP
         public string login { get; set; }
         public Nullable<int> id_user1 { get; set; }
         public string BarCodeR { get; set; }
+        public string Name { get; set; }
+        public Nullable<System.DateTime> Hapi { get; set; }
+        public string Gra { get; set; }
+        public string Issled { get; set; }
     
         public virtual Service Service { get; set; }
         public virtual Workers Workers { get; set; }

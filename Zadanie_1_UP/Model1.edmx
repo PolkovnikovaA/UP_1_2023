@@ -28,6 +28,10 @@
           <Property Name="data" Type="date" />
           <Property Name="id_user" Type="int" />
           <Property Name="BarCodeR" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Hapi" Type="date" />
+          <Property Name="Gra" Type="nvarchar(max)" />
+          <Property Name="Issled" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -166,6 +170,10 @@
           <Property Name="id_user1" Type="Int32" />
           <NavigationProperty Name="Users1" Relationship="P_Polkovnikova_UP1_2023Model.FK_Result_Users1" FromRole="Result" ToRole="Users" />
           <Property Name="BarCodeR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hapi" Type="DateTime" Precision="0" />
+          <Property Name="Gra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Issled" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -310,6 +318,10 @@
           <EntitySetMapping Name="Result">
             <EntityTypeMapping TypeName="P_Polkovnikova_UP1_2023Model.Result">
               <MappingFragment StoreEntitySet="Result">
+                <ScalarProperty Name="Issled" ColumnName="Issled" />
+                <ScalarProperty Name="Gra" ColumnName="Gra" />
+                <ScalarProperty Name="Hapi" ColumnName="Hapi" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="BarCodeR" ColumnName="BarCodeR" />
                 <ScalarProperty Name="id_user1" ColumnName="id_user" />
                 <ScalarProperty Name="login" ColumnName="login" />

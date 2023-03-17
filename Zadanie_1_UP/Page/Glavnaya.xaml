@@ -201,7 +201,8 @@
                             CornerRadius="5">
 
                         <Grid Margin="0" 
-                              HorizontalAlignment="Stretch">
+                              HorizontalAlignment="Stretch"
+                              PreviewMouseLeftButtonUp="GlavnayaResult_Click" >
                             <Grid.ToolTip>
                                 <ToolTip>
                                     Перейти

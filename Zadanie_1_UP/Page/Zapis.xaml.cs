@@ -168,20 +168,6 @@ namespace Zadanie_1_UP
             }
         }
 
-        private void Image_Zapis(object sender, MouseButtonEventArgs e)
-        {
-            img.FileName = "Picture";
-            img.DefaultExt = ".jpg";
-            img.Filter = "Picture (.jpg)|*.jpg";
-
-            Nullable<bool> result = img.ShowDialog();
-            if (result != false)
-            {
-                var uriImageSource = new Uri(img.FileName, UriKind.RelativeOrAbsolute);
-                Image.Source = new BitmapImage(uriImageSource);
-            }
-        }
-
         private void Zapis_Delete(object sender, RoutedEventArgs e)
         {
             List<Service> ser = new List<Service> { };

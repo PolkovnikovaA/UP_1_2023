@@ -140,6 +140,12 @@ namespace Zadanie_1_UP
             frame1.Navigate(new Zapis(user, frame1, item));
         }
 
+        private async void GlavnayaResult_Click(object sender, MouseButtonEventArgs e)
+        {
+            object item = LViewResult.SelectedItem;
+            frame1.Navigate(new Rezult(user, frame1, item));
+        }
+
         private void Update()
         {
             var currentService = Entities.GetContext().Service.ToList();
@@ -205,22 +211,37 @@ namespace Zadanie_1_UP
         {
             List<Result> result = new List<Result>();
             List<Users> use = new List<Users>();
-            TBoxSearch.Text = "";
-            result = Entities.GetContext().Result.ToList();
-            use = Entities.GetContext().Users.ToList();
-            int counts1 = Entities.GetContext().Result.Count();
-            for (int i = 0; i < counts1; i++)
+
+            if (user == "Ad" || user == "Admin" || user == "ВласоваАС")
             {
-                if (result[i].login != user)
-                {
-                    result.RemoveAt(i);
-                    i--;
-                    counts1--;
-                }
+                TBoxSearch.Text = "";
+                result = Entities.GetContext().Result.ToList();
+                LViewResult.ItemsSource = result;
+                LViewTours.Visibility = Visibility.Hidden;
+                LViewResult.Visibility = Visibility.Visible;
             }
-            LViewResult.ItemsSource = result;
-            LViewTours.Visibility = Visibility.Hidden;
-            LViewResult.Visibility = Visibility.Visible;
+            else
+            {
+                TBoxSearch.Text = "";
+                result = Entities.GetContext().Result.ToList();
+                use = Entities.GetContext().Users.ToList();
+                int counts1 = Entities.GetContext().Result.Count();
+                for (int i = 0; i < counts1; i++)
+                {
+                    if (result[i].login != user)
+                    {
+                        result.RemoveAt(i);
+                        i--;
+                        counts1--;
+                    }
+                }
+                LViewResult.ItemsSource = result;
+                LViewTours.Visibility = Visibility.Hidden;
+                LViewResult.Visibility = Visibility.Visible;
+            }
+
+            
+            
             
         }
 
@@ -266,7 +287,6 @@ namespace Zadanie_1_UP
         {
             frame1.Navigate(new Add(user, frame1));
         }
-
 
         
 
