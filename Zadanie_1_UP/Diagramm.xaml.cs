@@ -74,12 +74,74 @@ namespace Zadanie_1_UP
         {
             chart.Clear();
 
-            Random random = new Random();
+            List<Result> result = new List<Result>();
+            result = Entities.GetContext().Result.ToList();
+            int count = Entities.GetContext().Result.Count();
 
-            for (int i = 0; i < random.Next(1, 25); i++)
+            for (int i = 0; i < count; i++)
             {
-                chart.AddValue(random.Next(0, 2001));
+                if (result[i].result1 != "+")
+                {
+
+                    result.RemoveAt(i);
+                    i--;
+                    count--;
+                }
+                else
+                {
+                    chart.AddValue(result.Count());
+                }
             }
+
+
+
+            /*for (int i = 0; i < count; i++)
+            {
+                if(i == count)
+                {
+                    if (result[i].result1 != "-")
+                    {
+
+                        result.RemoveAt(i);
+
+                    }
+                    else
+                    {
+                        chart.AddValue(count);
+                    }
+                    
+                }
+                if (i > count)
+                {
+                    if (result[i].result1 != "-")
+                    {
+
+                        result.RemoveAt(i);
+
+                    }
+                    else
+                    {
+                        chart.AddValue(count);
+                    }
+                }
+
+                //else
+                //{
+                //    result.RemoveAt(i);
+                //    i--;
+                //}
+
+
+            }*/
+
+
+
+            /* Random random = new Random();
+
+             for (int i = 0; i < random.Next(1, 25); i++)
+             {
+                 chart.AddValue(random.Next(0, 2001));
+             }*/
         }
     }
 }

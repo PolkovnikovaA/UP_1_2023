@@ -62,8 +62,8 @@ namespace Zadanie_1_UP
                 _ = ChartBackground.Children.Add(bar);
 
                 // Надпись над полосой.
-                Label title = CreateTitle(x, bar.Height, widthBar, val);
-                _ = ChartBackground.Children.Add(title);
+                //Label title = CreateTitle(x, bar.Height, widthBar, val);
+                //_ = ChartBackground.Children.Add(title);
             }
         }
 
