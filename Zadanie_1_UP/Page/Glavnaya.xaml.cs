@@ -288,7 +288,10 @@ namespace Zadanie_1_UP
             frame1.Navigate(new Add(user, frame1));
         }
 
-        
-
+        private void Diagramm(object sender, RoutedEventArgs e)
+        {
+            Diagramm d = new Diagramm();
+            d.Show();
+        }
     }
 }

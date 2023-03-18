@@ -293,5 +293,13 @@
                 Click="Add5"
                 Grid.Row="1"/>
 
+        <Button Height="60" Width="400"
+                Content="Диаграмма"
+                x:Name="Diagramma" 
+                Visibility="Visible"
+                Margin="567,661,433,13"
+                Click="Diagramm"
+                Grid.Row="1"/>
+
     </Grid>
 </Page>
