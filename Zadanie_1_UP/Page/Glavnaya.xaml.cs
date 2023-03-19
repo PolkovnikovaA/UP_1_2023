@@ -81,6 +81,10 @@ namespace Zadanie_1_UP
                     Add.Visibility = Visibility.Visible;
                     //Image.Visibility = Visibility.Hidden;
                 }
+                else
+                {
+                    Diagramma.Visibility = Visibility.Hidden;
+                }
             }
 
         }

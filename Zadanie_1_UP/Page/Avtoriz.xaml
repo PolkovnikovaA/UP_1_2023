@@ -9,11 +9,18 @@
       Title="Avtoriz">
 
     <Grid Height="800" Width="1400">
+
+        <Border Background="#77A8A3"
+                Height="600" Width="850" 
+                Margin="200,50,200,50"
+                CornerRadius="80"/>
+
+
         <Label Content="Логин" 
                FontSize="50"
                Height="60"
                Width="128"
-               Margin="0,179,0,561"
+               Margin="0,177,0,563"
                HorizontalAlignment="Center"
                Foreground="White" 
                FontWeight="Normal" 
@@ -25,7 +32,7 @@
                  Height="60"
                  FontFamily="Monotype Corsiva" 
                  Width="520" 
-                 Margin="440,244,440,496" 
+                 Margin="440,248,440,492" 
                  FontSize="50" 
                  TextAlignment="Left"/>
 
@@ -34,7 +41,7 @@
                Height="60"
                HorizontalAlignment="Center"
                Width="150" 
-               Margin="0,314,0,426"
+               Margin="0,319,0,421"
                Foreground="White" 
                FontFamily="Monotype Corsiva"/>
 
@@ -43,7 +50,7 @@
                      Height="60"
                      Width="520" 
                      FontFamily="Monotype Corsiva" 
-                     Margin="0,374,0,366" 
+                     Margin="0,390,0,350" 
                      FontSize="50" />
 
         <TextBox x:Name="password1" 
@@ -52,19 +59,19 @@
                  Visibility="Hidden"
                  Width="520" 
                  FontFamily="Monotype Corsiva" 
-                 Margin="0,374,0,366" 
+                 Margin="0,390,0,350" 
                  FontSize="50" />
 
         <Image Source="/Image/glaz_z.png" 
                x:Name="glaz_z"
                Height="46" Width="82"
-               Margin="876,381,442,373"
+               Margin="876,397,442,357"
                MouseLeftButtonDown="Avtoriz_Glaz_z"/>
 
         <Image Source="/Image/glaz_o.png" 
                x:Name="glaz_o"
                Height="46" Width="82"
-               Margin="876,381,442,373"
+               Margin="876,397,442,357"
                Visibility="Hidden"
                MouseLeftButtonDown="Avtoriz_Glaz_o"/>
 
@@ -77,7 +84,7 @@
                    Width="128"
                    FontWeight="Bold" 
                    Foreground="White"
-                   FontSize="60" Margin="0,457,0,279" 
+                   FontSize="60" Margin="0,471,0,265" 
                    FontFamily="Monotype Corsiva" 
                    Cursor="Hand"
                    MouseLeftButtonDown="Avtoriz_Vxod"/>
@@ -89,7 +96,7 @@
                    Width="339"
                    Foreground="White"
                    FontSize="40" 
-                   Margin="351,642,0,106" 
+                   Margin="351,612,0,136" 
                    FontFamily="Monotype Corsiva"/>
 
         <TextBlock x:Name="Reg"
@@ -101,7 +108,7 @@
                    Width="405"
                    FontWeight="Bold" 
                    Foreground="White"
-                   FontSize="40" Margin="671,642,0,106" 
+                   FontSize="40" Margin="671,612,0,136" 
                    FontFamily="Monotype Corsiva" 
                    Cursor="Hand" 
                    MouseLeftButtonDown="Avtoriz_Zareg"/>

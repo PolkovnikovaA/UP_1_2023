@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Zadanie_1_UP"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Медицинская лаборатория №20" Height="400" Width="400">
+        Title="Медицинская лаборатория №20" Height="400" Width="400" ResizeMode="NoResize">
 
     <Grid Background="#9eacc9" Height="400">
         <TextBlock x:Name="captha1" 
@@ -18,6 +18,11 @@
                    Margin="15,55,15,285" 
                    FontSize="50" 
                    TextAlignment="Left"/>
+
+        <Image Source="/Image/Avtoriz/shum.jpg" 
+               Margin="15,53,97,282"
+               Height="65" 
+               Opacity="0.75"/>
 
         <Image Source="/Image/Up.png" 
                Margin="339,68,26,298"

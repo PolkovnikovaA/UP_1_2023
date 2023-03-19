@@ -143,6 +143,8 @@ namespace Zadanie_1_UP
             if (vx == 0)
             {
                 MessageBox.Show("Неверный логин или пароль");
+                Captcha captcha = new Captcha();
+                captcha.Show();
                 error++;
             }
         }
@@ -156,7 +158,7 @@ namespace Zadanie_1_UP
         private void Avtoriz_Vxod(object sender, MouseButtonEventArgs e)
         {
             Captcha captcha = new Captcha();
-            if (error > 3)
+            if (error > 10)
             {
                 captcha.Show();
             }

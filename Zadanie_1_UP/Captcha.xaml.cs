@@ -36,7 +36,7 @@ namespace Zadanie_1_UP
             String pwd = "";
             string temp = "";
             Random r = new Random();
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 4; i++)
             {
                 temp = ar[(r.Next(0, ar.Length))];
                 pwd += temp;

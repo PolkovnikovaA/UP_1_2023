@@ -95,6 +95,52 @@ namespace Zadanie_1_UP
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           /* chart.Clear();
+            List<Results> results = new List<Results>();
+            results = Entities.GetContext().Results.ToList();
+            List<Workers> work = new List<Workers>();
+            work = Entities.GetContext().Workers.ToList();
+            int[] d = new int[work.Count];
+            string[] dd = new string[work.Count];
+            for (int i = 0; i < work.Count; i++)
+            {
+                d[i] = 0;
+            }
+            for (int i = 0; i < work.Count; i++)
+            {
+                for (int j = 0; j < results.Count; j++)
+                {
+                    if (work[i].name == results[j].Workers.name)
+                    {
+                        d[i] += 1;
+                    }
+                }
+            }
+            for (int i = 0; i < work.Count; i++)
+            {
+                dd[i] = work[i].name;
+            }
+            for (int i = 0; i < work.Count; i++)
+            {
+                chart.AddValue(d[i], dd[i]);
+            }
+
+
             /*for (int i = 0; i < count; i++)
             {
                 if(i == count)
@@ -123,7 +169,7 @@ namespace Zadanie_1_UP
                     {
                         chart.AddValue(count);
                     }
-                }
+                }*
 
                 //else
                 //{

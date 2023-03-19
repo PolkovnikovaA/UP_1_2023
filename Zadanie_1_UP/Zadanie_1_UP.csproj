@@ -241,6 +241,7 @@
     <Resource Include="Image\izmen.png" />
     <Resource Include="Image\pe.png" />
     <Resource Include="Image\ros.png" />
+    <Resource Include="Image\Avtoriz\shum.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

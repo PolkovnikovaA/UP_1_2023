@@ -9,27 +9,29 @@
       Title="Reg">
 
     <Grid Height="800" Width="1400">
+
+        <Border Background="#77A8A3"
+                Height="650" Width="850" 
+                Margin="200,50,200,50"
+                CornerRadius="80"/>
+
         <TextBox x:Name="login" 
-                 HorizontalAlignment="Center" 
-                 Margin="0,157,0,0" 
+                 Margin="0,185,0,0" 
                  TextWrapping="Wrap" 
                  Height="60" 
                  FontFamily="Monotype Corsiva" 
                  Width="520" 
                  FontSize="50" 
-                 VerticalAlignment="Top" 
-                 TextAlignment="Center" />
+                 VerticalAlignment="Top" />
 
         <TextBox x:Name="password" 
-                 HorizontalAlignment="Center" 
                  FontSize="50" 
-                 Margin="0,287,0,0" 
+                 Margin="0,315,0,0" 
                  FontFamily="Monotype Corsiva" 
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top" 
                  Height="60" 
-                 Width="520" 
-                 TextAlignment="Center" />
+                 Width="520" />
 
         <TextBlock x:Name="registration" 
                    Text="Зарегистрироваться" 
@@ -42,7 +44,7 @@
                    FontWeight="Bold" 
                    Foreground="White" 
                    FontSize="60" 
-                   Margin="0,514,0,120" 
+                   Margin="0,542,0,92" 
                    Cursor="Hand" 
                    MouseLeftButtonDown="Reg_Reg"/>
 
@@ -56,24 +58,22 @@
                    FontWeight="Bold" 
                    Foreground="White" 
                    FontSize="40" 
-                   Margin="940,685,0,70" 
+                   Margin="802,663,0,92" 
                    FontFamily="Monotype Corsiva" 
                    Cursor="Hand"
                    MouseLeftButtonDown="Reg_Nazad"/>
 
         <TextBox x:Name="password_Copy" 
-                 HorizontalAlignment="Center" 
                  FontSize="50" 
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top" 
                  Height="60" 
                  FontFamily="Monotype Corsiva"
                  Width="520" 
-                 Margin="0,411,0,0" 
-                 TextAlignment="Center"/>
+                 Margin="0,439,0,0" />
 
         <Label Content="Логин" 
-               Margin="0,97,0,0" 
+               Margin="0,125,0,0" 
                VerticalAlignment="Top" 
                FontSize="50" 
                Height="60" 
@@ -86,7 +86,7 @@
 
         <Label Content="Пароль" 
                HorizontalAlignment="Center" 
-               Margin="0,222,0,0" 
+               Margin="0,250,0,0" 
                VerticalAlignment="Top" 
                FontSize="50" 
                Height="60" 
@@ -105,7 +105,6 @@
                Foreground="White" 
                FontWeight="Normal" 
                FontStyle="Normal" 
-               FontFamily="Monotype Corsiva" 
-               Margin="0,351,0,0"/>
+               FontFamily="Monotype Corsiva" Margin="0,380,0,0"/>
     </Grid>
 </Page>
