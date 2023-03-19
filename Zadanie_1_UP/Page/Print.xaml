@@ -22,16 +22,16 @@
                    Margin="1272,13,44,755"
                    MouseLeftButtonDown="Zapis_Nazad"/>
 
-        <TextBlock x:Name="Print"
-                   Text="Печатать" 
+        <TextBlock x:Name="Print2"
+                   Text="Распечатать" 
                    TextDecorations="Underline" 
                    TextAlignment="Center"
                    TextWrapping="WrapWithOverflow"
                    HorizontalAlignment="Left"
-                   Width="292"
+                   Width="330"
                    FontWeight="Bold" 
                    Foreground="White"
-                   FontSize="60" Margin="1064,704,0,10" 
+                   FontSize="60" Margin="1047,723,0,16" 
                    FontFamily="Monotype Corsiva" 
                    Cursor="Hand"/>
 

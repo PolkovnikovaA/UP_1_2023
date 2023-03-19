@@ -46,7 +46,7 @@
                  Visibility="Hidden"
                  TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
-                   x:Name="Text_service1" 
+                   x:Name="Service" 
                    Margin="678,317,116,423"/>
 
         <TextBlock Height="60"
@@ -70,7 +70,7 @@
                  TextAlignment="Center"
                  Visibility="Hidden"
                    FontFamily="Monotype Corsiva"
-                   x:Name="Text_pric" 
+                   x:Name="Price" 
                    Margin="678,447,116,293"/>
 
         <TextBlock Height="60"
@@ -109,7 +109,7 @@
                  TextAlignment="Center"
                  Visibility="Hidden"
                    FontFamily="Monotype Corsiva"
-                   x:Name="Text_lab" 
+                   x:Name="Sotr1" 
                    Margin="678,185,116,557"/>
 
         <TextBlock Background="White"
@@ -119,20 +119,34 @@
                    x:Name="Sotr2" 
                    Margin="678,183,116,557"/>
 
-        <Image x:Name="Image_Delete"
-               Source="/Image/delete.png"
-               Visibility="Hidden"
-               MouseLeftButtonDown="Zapis_Delete"
-               Height="90" Width="80"
-               Margin="754,602,566,108"
-               Cursor="Hand"/>
+        <TextBlock x:Name="Delete"
+                   Text="Удалить" 
+                   TextDecorations="Underline" 
+                   TextAlignment="Center"
+                   Visibility="Hidden"
+                   TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Left"
+                   Width="288"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   FontSize="70" Margin="678,619,0,95" 
+                   FontFamily="Monotype Corsiva" 
+                   MouseLeftButtonDown="Zapis_Delete"
+                   Cursor="Hand"/>
 
-        <Image x:Name="Image_Izm"
-               Source="/Image/izmen.png"
-               Visibility="Hidden"
-               MouseLeftButtonDown="Zapis_Izm"
-               Height="90" Width="80"
-               Margin="1118,602,202,108"
-               Cursor="Hand"/>
+        <TextBlock x:Name="Izm"
+                   Text="Изменить" 
+                   TextDecorations="Underline" 
+                   TextAlignment="Center"
+                   Visibility="Hidden"
+                   TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Left"
+                   Width="288"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   FontSize="70" Margin="995,619,0,95" 
+                   FontFamily="Monotype Corsiva" 
+                   MouseLeftButtonDown="Zapis_Izm"
+                   Cursor="Hand"/>
     </Grid>
 </Page>
