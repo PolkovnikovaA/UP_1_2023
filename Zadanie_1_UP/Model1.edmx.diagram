@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="P_Polkovnikova_UP1_2023Model.Histori" Width="1.5" PointX="0.75" PointY="13.75" />
         <AssociationConnector Association="P_Polkovnikova_UP1_2023Model.FK_Users_Histori" />
         <AssociationConnector Association="P_Polkovnikova_UP1_2023Model.FK_Result_Users1" />
+        <AssociationConnector Association="P_Polkovnikova_UP1_2023Model.FK_Service_Workers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

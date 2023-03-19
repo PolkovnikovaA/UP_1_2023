@@ -61,9 +61,6 @@ namespace Zadanie_1_UP
 
         public void Details_Service_Lab()
         {
-            Sotr.Visibility = Visibility.Hidden;
-            Text_lab2.Visibility = Visibility.Hidden;
-            Zapiss.Visibility = Visibility.Hidden;
             Zapiss.Visibility = Visibility.Hidden;
 
             services = Entities.GetContext().Service.ToList();
@@ -71,24 +68,9 @@ namespace Zadanie_1_UP
             {
                 if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
                 {
-                    Text_service12.Text = services[i].service1;
-                    Text_pric2.Text = services[i].price.ToString();
-                    Text_lab2.Text = services[i].Sotr.ToString();
-                    if (services[i].Sotr == "Мулянов Андрей Александрович")
-                    {
-                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/Sotr1.png", UriKind.RelativeOrAbsolute);
-                        Image.Source = new BitmapImage(uriImageSource);
-                    }
-                    else if (services[i].Sotr == "Алешкина Варвара Владимировна")
-                    {
-                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/Sotr2.png", UriKind.RelativeOrAbsolute);
-                        Image.Source = new BitmapImage(uriImageSource);
-                    }
-                    else
-                    {
-                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/zagl.jpg", UriKind.RelativeOrAbsolute);
-                        Image.Source = new BitmapImage(uriImageSource);
-                    }
+                    Sotr2.Text = services[i].Workers.name;
+                    Service2.Text = services[i].service1.ToString();
+                    Price2.Text = Convert.ToString(services[i].price);
                     break;
                 }
             }
@@ -101,7 +83,7 @@ namespace Zadanie_1_UP
 
         public void Details_Service_Admin()
         {
-            Image_Delete.Visibility = Visibility.Visible;
+            /*Image_Delete.Visibility = Visibility.Visible;
             Image_Izm.Visibility = Visibility.Visible;
             Text_service1.Visibility = Visibility.Visible;
             Text_pric.Visibility = Visibility.Visible;
@@ -136,7 +118,7 @@ namespace Zadanie_1_UP
                     }
                     break;
                 }
-            }
+            }*/
 
         }
 
@@ -147,24 +129,9 @@ namespace Zadanie_1_UP
             {
                 if (services[i].service1 == Item.GetType().GetProperty("service1").GetValue(Item))
                 {
-                    Text_service12.Text = services[i].service1;
-                    Text_pric2.Text = services[i].price.ToString();
-                    Text_lab2.Text = services[i].Sotr.ToString();
-                    if (services[i].Sotr == "Мулянов Андрей Александрович")
-                    {
-                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/Sotr1.png", UriKind.RelativeOrAbsolute);
-                        Image.Source = new BitmapImage(uriImageSource);
-                    }
-                    else if (services[i].Sotr == "Алешкина Варвара Владимировна")
-                    {
-                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/Sotr2.png", UriKind.RelativeOrAbsolute);
-                        Image.Source = new BitmapImage(uriImageSource);
-                    }
-                    else
-                    {
-                        var uriImageSource = new Uri(@"/Zadanie_1_UP;component/Image/zagl.jpg", UriKind.RelativeOrAbsolute);
-                        Image.Source = new BitmapImage(uriImageSource);
-                    }
+                    Sotr2.Text = services[i].Workers.name;
+                    Service2.Text = services[i].service1.ToString();
+                    Price2.Text = Convert.ToString(services[i].price);
                     break;
                 }
             }
@@ -294,7 +261,7 @@ namespace Zadanie_1_UP
                                 ser[i].image = img.FileName;
                             }
                         }
-                        ser[i].Sotr = Text_lab.Text;
+                      //  ser[i].Sotr = Text_lab.Text;
                         break;
                     }
                 }

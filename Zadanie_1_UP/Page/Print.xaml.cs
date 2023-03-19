@@ -24,6 +24,8 @@ namespace Zadanie_1_UP
         object Item;
         string user;
 
+        List<Result> result = new List<Result>();
+
         public Print(string user, Frame frame, object item)
         {
             InitializeComponent();
@@ -34,8 +36,7 @@ namespace Zadanie_1_UP
             Vivod();
         }
 
-        List<Result> result = new List<Result>();
-
+        //вывод на печать
         public void Vivod()
         {
             result = Entities.GetContext().Result.ToList();
@@ -43,10 +44,10 @@ namespace Zadanie_1_UP
             {
                 if (result[i].result1 == Item.GetType().GetProperty("result1").GetValue(Item))
                 {
-                    Name.Text = result[i].Name;
+                    Name.Text = result[i].Users1.name;
                     Data.Text = Convert.ToString(result[i].Hapi);
                     Graz.Text = result[i].Gra;
-                    Iss.Text = result[i].Issled;
+                    Iss.Text = result[i].Service.service1;
                     if (result[i].result1 == "+")
                     {
                         Issledovanie.Text = "Положительный";
@@ -58,13 +59,11 @@ namespace Zadanie_1_UP
                     break;
                 }
             }
-
-
-
         }
 
-        
-
-
+        private void Zapis_Nazad(object sender, MouseButtonEventArgs e)
+        {
+            frame1.Navigate(new Result(user, frame1));
+        }
     }
 }

@@ -21,26 +21,24 @@
                    Margin="1296,13,20,755"
                    MouseLeftButtonDown="Zapis_Nazad"/>
 
-        <Image x:Name="Image"
-               Height="450" Width="400"
-               Margin="140,84,860,266"
-               Cursor="Hand">
+        <Image Height="450" Width="400"
+               Margin="140,108,860,242">
 
             <Image.Source>
                 <Binding>
                     <Binding.TargetNullValue>
-                        <ImageSource>/Image/zagl.jpg</ImageSource>
+                        <ImageSource>/Image/Zapis/Sotr.png</ImageSource>
                     </Binding.TargetNullValue>
                 </Binding>
             </Image.Source>
         </Image>
 
-        <TextBlock Text="Название" TextAlignment="Right" 
+        <TextBlock Text="Услуга" TextAlignment="Right" 
                    Foreground="White"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
                    FontSize="55"
-                   Margin="878,175,316,569"/>
+                   Margin="902,248,340,495"/>
 
         <TextBox Height="60"
                    Background="White"
@@ -49,22 +47,22 @@
                  TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_service1" 
-                   Margin="678,243,116,497"/>
+                   Margin="678,317,116,423"/>
 
         <TextBlock Height="60"
                    Background="White"
                    FontSize="50"
                    TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
-                   x:Name="Text_service12" 
-                   Margin="678,243,116,497"/>
+                   x:Name="Service2" 
+                   Margin="678,317,116,423"/>
 
-        <TextBlock Text="Цена" TextAlignment="Right" 
+        <TextBlock Text="Сумма" TextAlignment="Right" 
                    Foreground="White"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
                    FontSize="55"
-                   Margin="927,309,365,432"/>
+                   Margin="907,382,345,353"/>
 
         <TextBox Height="60"
                    Background="White"
@@ -73,15 +71,15 @@
                  Visibility="Hidden"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_pric" 
-                   Margin="678,382,116,358"/>
+                   Margin="678,447,116,293"/>
 
         <TextBlock Height="60"
                    Background="White"
                    FontSize="50"
                    TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
-                   x:Name="Text_pric2" 
-                   Margin="678,382,116,358"/>
+                   x:Name="Price2" 
+                   Margin="678,448,116,292"/>
 
         <TextBlock x:Name="Zapiss"
                    Text="Записаться" 
@@ -103,24 +101,23 @@
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
                    FontSize="55"
-                   Margin="229,543,938,194"/>
+                   Margin="864,109,302,628"/>
 
-        <TextBox Height="55"
+        <TextBox
                    Background="White"
-                   FontSize="40"
+                   FontSize="50"
                  TextAlignment="Center"
                  Visibility="Hidden"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_lab" 
-                   Margin="76,629,796,111"/>
+                   Margin="678,185,116,557"/>
 
-        <TextBlock Height="55"
-                   Background="White"
-                   FontSize="40"
+        <TextBlock Background="White"
+                   FontSize="50"
                    TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
-                   x:Name="Text_lab2" 
-                   Margin="76,629,796,111"/>
+                   x:Name="Sotr2" 
+                   Margin="678,183,116,557"/>
 
         <Image x:Name="Image_Delete"
                Source="/Image/delete.png"

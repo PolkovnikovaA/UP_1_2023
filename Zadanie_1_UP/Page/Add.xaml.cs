@@ -39,7 +39,7 @@ namespace Zadanie_1_UP
                 //services[0].id = count + 5;
                 services[0].service1 = Text_service1.Text;
                 services[0].price = Convert.ToDouble(Text_pric.Text);
-                services[0].Sotr = Text_lab.Text;
+              //  services[0].Sotr = Text_lab.Text;
                 
                 Entities.GetContext().Service.Add(services[0]);
                 Entities.GetContext().SaveChanges();

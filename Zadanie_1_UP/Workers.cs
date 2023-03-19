@@ -18,6 +18,7 @@ namespace Zadanie_1_UP
         public Workers()
         {
             this.Result = new HashSet<Result>();
+            this.Service = new HashSet<Service>();
         }
     
         public int id { get; set; }
@@ -31,5 +32,7 @@ namespace Zadanie_1_UP
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Result> Result { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Service> Service { get; set; }
     }
 }

@@ -24,10 +24,10 @@ namespace Zadanie_1_UP
         public string service1 { get; set; }
         public Nullable<double> price { get; set; }
         public string image { get; set; }
-        public string Sotr { get; set; }
-        public string BarCode { get; set; }
+        public Nullable<int> id_wokers { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Result> Result { get; set; }
+        public virtual Workers Workers { get; set; }
     }
 }

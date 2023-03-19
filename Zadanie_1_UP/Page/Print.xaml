@@ -9,6 +9,19 @@
       Title="Print">
 
     <Grid Height="800" Width="1400">
+
+        <TextBlock x:Name="Back_Zapis"
+                   Text="Назад"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="30" 
+                   FontWeight="Bold" 
+                   TextDecorations="Underline"
+                   Foreground="White" 
+                   Cursor="Hand" 
+                   Height="32" Width="84" 
+                   Margin="1272,13,44,755"
+                   MouseLeftButtonDown="Zapis_Nazad"/>
+
         <ScrollViewer Height="800" Width="1400">
             <Border Background="White"
                     Width="700">
@@ -31,7 +44,8 @@
                            FontSize="12"
                            TextAlignment="Center" Margin="30,-610,420,0"/>
 
-                    <Image Width="160" Margin="501,42,39,682"/>
+                    <Image Width="160" Margin="501,42,39,682"
+                           Name="Cod"/>
 
                     <TextBlock Text="ЗАКЛЮЧЕНИЕ"
                        Background="White"
@@ -59,7 +73,7 @@
                            TextAlignment="Center" 
                            Margin="150,247,150,529"/>
 
-                    <TextBlock Text="(фамилия, имя, отчество)"
+                    <TextBlock Text="(фамилия, имя, отчество пациента)"
                            Height="24" Width="250"
                            FontSize="12"
                            TextAlignment="Center" Margin="225,260,225,516"/>

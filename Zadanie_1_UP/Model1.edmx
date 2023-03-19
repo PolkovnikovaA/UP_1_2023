@@ -31,7 +31,6 @@
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="Hapi" Type="date" />
           <Property Name="Gra" Type="nvarchar(max)" />
-          <Property Name="Issled" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -41,8 +40,7 @@
           <Property Name="service" Type="nvarchar(max)" />
           <Property Name="price" Type="float" />
           <Property Name="image" Type="nvarchar(max)" />
-          <Property Name="Sotr" Type="nvarchar(max)" />
-          <Property Name="BarCode" Type="nvarchar(max)" />
+          <Property Name="id_wokers" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -115,6 +113,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Service_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="id_wokers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Users_Histori">
           <End Role="Histori" Type="Self.Histori" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -146,6 +156,10 @@
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Result" EntitySet="Result" />
           </AssociationSet>
+          <AssociationSet Name="FK_Service_Workers" Association="Self.FK_Service_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
           <AssociationSet Name="FK_Users_Histori" Association="Self.FK_Users_Histori">
             <End Role="Histori" EntitySet="Histori" />
             <End Role="Users" EntitySet="Users" />
@@ -173,7 +187,6 @@
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Hapi" Type="DateTime" Precision="0" />
           <Property Name="Gra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Issled" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -184,8 +197,8 @@
           <Property Name="price" Type="Double" />
           <NavigationProperty Name="Result" Relationship="Self.FK_Result_Service" FromRole="Service" ToRole="Result" />
           <Property Name="image" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Sotr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="BarCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_wokers" Type="Int32" />
+          <NavigationProperty Name="Workers" Relationship="P_Polkovnikova_UP1_2023Model.FK_Service_Workers" FromRole="Service" ToRole="Workers" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -224,6 +237,7 @@
           <Property Name="dolg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="analiz" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Result" Relationship="Self.FK_Result_Workers" FromRole="Workers" ToRole="Result" />
+          <NavigationProperty Name="Service" Relationship="P_Polkovnikova_UP1_2023Model.FK_Service_Workers" FromRole="Workers" ToRole="Service" />
         </EntityType>
         <Association Name="FK_Result_Service">
           <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
@@ -272,6 +286,10 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Result" EntitySet="Result" />
           </AssociationSet>
+          <AssociationSet Name="FK_Service_Workers" Association="P_Polkovnikova_UP1_2023Model.FK_Service_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Histori">
           <Key>
@@ -309,6 +327,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Service_Workers">
+          <End Type="P_Polkovnikova_UP1_2023Model.Workers" Role="Workers" Multiplicity="0..1" />
+          <End Type="P_Polkovnikova_UP1_2023Model.Service" Role="Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="id_wokers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -318,7 +348,6 @@
           <EntitySetMapping Name="Result">
             <EntityTypeMapping TypeName="P_Polkovnikova_UP1_2023Model.Result">
               <MappingFragment StoreEntitySet="Result">
-                <ScalarProperty Name="Issled" ColumnName="Issled" />
                 <ScalarProperty Name="Gra" ColumnName="Gra" />
                 <ScalarProperty Name="Hapi" ColumnName="Hapi" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -336,8 +365,7 @@
           <EntitySetMapping Name="Service">
             <EntityTypeMapping TypeName="P_Polkovnikova_UP1_2023Model.Service">
               <MappingFragment StoreEntitySet="Service">
-                <ScalarProperty Name="BarCode" ColumnName="BarCode" />
-                <ScalarProperty Name="Sotr" ColumnName="Sotr" />
+                <ScalarProperty Name="id_wokers" ColumnName="id_wokers" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="service1" ColumnName="service" />

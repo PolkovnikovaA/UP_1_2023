@@ -21,26 +21,12 @@
                    Margin="1296,13,20,755"
                    MouseLeftButtonDown="Zapis_Nazad"/>
 
-        <Image x:Name="Image"
-               Height="450" Width="400"
-               Margin="140,84,860,266"
-               Cursor="Hand">
-
-            <Image.Source>
-                <Binding>
-                    <Binding.TargetNullValue>
-                        <ImageSource>/Image/zagl.jpg</ImageSource>
-                    </Binding.TargetNullValue>
-                </Binding>
-            </Image.Source>
-        </Image>
-
-        <TextBlock Text="Название" TextAlignment="Right" 
+        <TextBlock Text="Лаборант" TextAlignment="Right" 
                    Foreground="White"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
                    FontSize="55"
-                   Margin="878,175,316,569"/>
+                   Margin="585,108,585,633"/>
 
         <TextBox Height="60"
                    Background="White"
@@ -48,23 +34,23 @@
                  Visibility="Hidden"
                  TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
-                   x:Name="Text_service1" 
-                   Margin="678,243,116,497"/>
+                   x:Name="Sotr" 
+                   Margin="397,175,397,565"/>
 
         <TextBlock Height="60"
                    Background="White"
                    FontSize="50"
                    TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
-                   x:Name="Text_service12" 
-                   Margin="678,243,116,497"/>
+                   x:Name="Sotr2" 
+                   Margin="397,175,397,565"/>
 
-        <TextBlock Text="Цена" TextAlignment="Right" 
+        <TextBlock Text="Услуга" TextAlignment="Right" 
                    Foreground="White"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
                    FontSize="55"
-                   Margin="927,309,365,432"/>
+                   Margin="625,240,625,500"/>
 
         <TextBox Height="60"
                    Background="White"
@@ -72,16 +58,64 @@
                  TextAlignment="Center"
                  Visibility="Hidden"
                    FontFamily="Monotype Corsiva"
-                   x:Name="Text_pric" 
-                   Margin="678,382,116,358"/>
+                   x:Name="Service" 
+                   Margin="397,309,397,431"/>
 
         <TextBlock Height="60"
                    Background="White"
                    FontSize="50"
                    TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
-                   x:Name="Text_pric2" 
-                   Margin="678,382,116,358"/>
+                   x:Name="Service2" 
+                   Margin="397,309,397,431"/>
+
+        <TextBlock Text="Сумма" TextAlignment="Right" 
+                   Foreground="White"
+                   FontStyle="Normal"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="55"
+                   Margin="625,369,625,371"/>
+
+        <TextBox Height="60"
+                   Background="White"
+                   FontSize="50"
+                 TextAlignment="Center"
+                 Visibility="Hidden"
+                   FontFamily="Monotype Corsiva"
+                   x:Name="Price" 
+                   Margin="397,431,397,309"/>
+
+        <TextBlock Height="60"
+                   Background="White"
+                   FontSize="50"
+                   TextAlignment="Center"
+                   FontFamily="Monotype Corsiva"
+                   x:Name="Price2" 
+                   Margin="397,433,397,307"/>
+
+        <TextBlock Text="Результат" TextAlignment="Right" 
+                   Foreground="White"
+                   FontStyle="Normal"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="55"
+                   Margin="625,496,625,244"/>
+
+        <TextBox Height="60"
+                   Background="White"
+                   FontSize="50"
+                 TextAlignment="Center"
+                 Visibility="Hidden"
+                   FontFamily="Monotype Corsiva"
+                   x:Name="Result" 
+                   Margin="397,563,397,177"/>
+
+        <TextBlock Height="60"
+                   Background="White"
+                   FontSize="50"
+                   TextAlignment="Center"
+                   FontFamily="Monotype Corsiva"
+                   x:Name="Result2" 
+                   Margin="397,563,397,177"/>
 
         <TextBlock x:Name="Zapiss"
                    Text="Записаться" 
@@ -89,59 +123,57 @@
                    TextAlignment="Center"
                    Visibility="Visible"
                    TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Center"
+                   Width="378"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   FontSize="70" Margin="0,672,0,42" 
+                   FontFamily="Monotype Corsiva" 
+                   Cursor="Hand"/>
+
+        <TextBlock x:Name="Print"
+                   Text="Распечатать" 
+                   TextDecorations="Underline" 
+                   TextAlignment="Center"
+                   Visibility="Hidden"
+                   TextWrapping="WrapWithOverflow"
                    HorizontalAlignment="Left"
                    Width="378"
                    FontWeight="Bold" 
                    Foreground="White"
-                   FontSize="70" Margin="792,619,0,95" 
+                   FontSize="70" Margin="10,13,0,701" 
                    FontFamily="Monotype Corsiva" 
+                   MouseLeftButtonDown="Rezult_Print"
                    Cursor="Hand"/>
 
-        <TextBlock Text="Сотрудник" TextAlignment="Right" 
-                   Foreground="White"
-                   Name="Sotr"
-                   FontStyle="Normal"
-                   FontFamily="Monotype Corsiva"
-                   FontSize="55"
-                   Margin="229,543,938,194"/>
-
-        <TextBox Height="55"
-                   Background="White"
-                   FontSize="40"
-                 TextAlignment="Center"
-                 Visibility="Hidden"
-                   FontFamily="Monotype Corsiva"
-                   x:Name="Text_lab" 
-                   Margin="76,629,796,111"/>
-
-        <TextBlock Height="55"
-                   Background="White"
-                   FontSize="40"
+        <TextBlock x:Name="Delete"
+                   Text="Удалить" 
+                   TextDecorations="Underline" 
                    TextAlignment="Center"
-                   FontFamily="Monotype Corsiva"
-                   x:Name="Text_lab2" 
-                   Margin="76,629,796,111"/>
+                   Visibility="Hidden"
+                   TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Left"
+                   Width="288"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   FontSize="70" Margin="397,672,0,42" 
+                   FontFamily="Monotype Corsiva" 
+                   MouseLeftButtonDown="Result_Delete"
+                   Cursor="Hand"/>
 
-        <Button Margin="1109,725,20,10"
-                Content="Печатать"
-                Name="print"
-                Click="Rezult_Print"
-                Visibility="Hidden"/>
-
-        <Image x:Name="Image_Delete"
-               Source="/Image/delete.png"
-               Visibility="Hidden"
-               MouseLeftButtonDown="Zapis_Delete"
-               Height="90" Width="80"
-               Margin="754,602,566,108"
-               Cursor="Hand"/>
-
-        <Image x:Name="Image_Izm"
-               Source="/Image/izmen.png"
-               Visibility="Hidden"
-               MouseLeftButtonDown="Zapis_Izm"
-               Height="90" Width="80"
-               Margin="1118,602,202,108"
-               Cursor="Hand"/>
+        <TextBlock x:Name="Izm"
+                   Text="Изменить" 
+                   TextDecorations="Underline" 
+                   TextAlignment="Center"
+                   Visibility="Hidden"
+                   TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Left"
+                   Width="288"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   FontSize="70" Margin="714,672,0,42" 
+                   FontFamily="Monotype Corsiva" 
+                   MouseLeftButtonDown="Result_Izm"
+                   Cursor="Hand"/>
     </Grid>
 </Page>

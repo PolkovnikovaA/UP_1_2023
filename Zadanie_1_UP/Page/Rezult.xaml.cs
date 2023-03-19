@@ -1,6 +1,7 @@
 ﻿using Aspose.BarCode.Generation;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,86 +41,111 @@ namespace Zadanie_1_UP
             {
                 if (workers[i].login == user && workers[i].dolg == "Лаборант")
                 {
-                    Details_Service_Lab();
+                    Details_Resulr_Lab();
                 }
                 if (workers[i].login == user && workers[i].dolg == "Администратор")
                 {
-                    Details_Service_Admin();
+                    Details_Rezult_Admin();
                 }
                 else
                 {
-                   // Details_Service_User();
+                    Details_Rezult_User();
                 }
             }
         }
 
-        public void Details_Service_Lab()
+        public void Details_Resulr_Lab()
         {
-            Sotr.Visibility = Visibility.Hidden;
-            Text_lab2.Visibility = Visibility.Hidden;
             Zapiss.Visibility = Visibility.Hidden;
 
-            results = Entities.GetContext().Result.ToList();
-            for (int i = 0; i < results.Count; i++)
-            {
-                if (results[i].Issled == Item.GetType().GetProperty("Issled").GetValue(Item))
-                {
-                    Text_service12.Text = results[i].Issled;
-                    if (results[i].result1 == "+")
-                    {
-                        Text_pric2.Text = "Положительный";
-                    }
-                    else
-                    {
-                        Text_pric2.Text = "Отрицательный";
-                    }
-                    //Text_lab2.Text = results[i].Sotr.ToString();
-                    
-                    break;
-                }
-            }
-            print.Visibility = Visibility.Visible;
-
-        }
-
-        public void Details_Service_Admin()
-        {
-            Image_Delete.Visibility = Visibility.Visible;
-            Image_Izm.Visibility = Visibility.Visible;
-            Text_service1.Visibility = Visibility.Visible;
-            Text_pric.Visibility = Visibility.Visible;
-            Text_lab.Visibility = Visibility.Visible;
-            Text_service12.Visibility = Visibility.Hidden;
-            Text_pric2.Visibility = Visibility.Hidden;
-            Text_lab2.Visibility = Visibility.Hidden;
-            Zapiss.Visibility = Visibility.Hidden;
-            Zapiss.Visibility = Visibility.Hidden;
+            Print.Visibility = Visibility.Visible;
 
             results = Entities.GetContext().Result.ToList();
             for (int i = 0; i < results.Count; i++)
             {
                 if (results[i].Name == Item.GetType().GetProperty("Name").GetValue(Item))
                 {
-                    Text_service1.Text = results[i].Name;
-                    Text_pric.Text = results[i].Issled;
-                    Text_lab.Text = results[i].result1.ToString();
+                    Sotr2.Text = results[i].Workers.name;
+                    Service2.Text = results[i].Service.service1;
+                    Price2.Text = Convert.ToString(results[i].Service.price);
+                    if (results[i].result1 == "+")
+                    {
+                        Result2.Text = "Пложительный";
+                    }
+                    if (results[i].result1 == "-")
+                    {
+                        Result2.Text = "Отрицательный";
+                    }
                     break;
                 }
             }
-
         }
 
-        private void Zapis_Delete(object sender, RoutedEventArgs e)
+        public void Details_Rezult_Admin()
         {
-            List<Result> ser = new List<Result> { };
-            ser = Entities.GetContext().Result.ToList();
+            Sotr.Visibility = Visibility.Visible;
+            Service.Visibility = Visibility.Visible;
+            Price.Visibility = Visibility.Visible;
+            Result.Visibility = Visibility.Visible;
+            Delete.Visibility = Visibility.Visible;
+            Izm.Visibility = Visibility.Visible;
+            Print.Visibility = Visibility.Visible;
+
+            Sotr2.Visibility = Visibility.Hidden;
+            Service2.Visibility = Visibility.Hidden;
+            Price2.Visibility = Visibility.Hidden;
+            Result2.Visibility = Visibility.Hidden;
+            Zapiss.Visibility = Visibility.Hidden;
+
+            results = Entities.GetContext().Result.ToList();
+            for (int i = 0; i < results.Count; i++)
+            {
+                if (results[i].result1 == Item.GetType().GetProperty("result1").GetValue(Item))
+                {
+                    Sotr.Text = results[i].Workers.name;
+                    Service.Text = results[i].Service.service1;
+                    Price.Text = Convert.ToString(results[i].Service.price);
+                    Result.Text = results[i].result1;
+                    break;
+                }
+            }
+        }
+
+        public void Details_Rezult_User()
+        {
+            results = Entities.GetContext().Result.ToList();
+            for (int i = 0; i < results.Count; i++)
+            {
+                if (results[i].Name == Item.GetType().GetProperty("Name").GetValue(Item))
+                {
+                    Sotr2.Text = results[i].Workers.name;
+                    Service2.Text = results[i].Service.service1;
+                    Price2.Text = Convert.ToString(results[i].Service.price);
+                    if (results[i].result1 == "+")
+                    {
+                        Result2.Text = "Пложительный";
+                    }
+                    if (results[i].result1 == "-")
+                    {
+                        Result2.Text = "Отрицательный";
+                    }
+                    break;
+                }
+            }
+        }
+
+        //удаление результатов (администратор)
+        private void Result_Delete(object sender, RoutedEventArgs e)
+        {
+            List<Result> results = new List<Result> { };
+            results = Entities.GetContext().Result.ToList();
             try
             {
-                for (int i = 0; i < ser.Count; i++)
+                for (int i = 0; i < results.Count; i++)
                 {
-                    if (ser[i].Name == Item.GetType().GetProperty("Name").GetValue(Item))
+                    if (results[i].result1 == Item.GetType().GetProperty("result1").GetValue(Item))
                     {
-                        Entities.GetContext().Result.Remove(ser[i]);
+                        Entities.GetContext().Result.Remove(results[i]);
                         Entities.GetContext().SaveChanges();
                         break;
                     }
@@ -132,19 +158,45 @@ namespace Zadanie_1_UP
             }
         }
 
-        private void Zapis_Izm(object sender, RoutedEventArgs e)
+        //изменение результатов (администратор)
+        private void Result_Izm(object sender, MouseButtonEventArgs e)
         {
-            List<Result> ser = new List<Result>();
-            ser = Entities.GetContext().Result.ToList();
+            List<Result> results = new List<Result>();
+            results = Entities.GetContext().Result.ToList();
             try
             {
-                for (int i = 0; i < ser.Count; i++)
+                for (int i = 0; i < results.Count; i++)
                 {
-                    if (ser[i].Name == Item.GetType().GetProperty("Name").GetValue(Item))
+                    if (results[i].result1 == Item.GetType().GetProperty("result1").GetValue(Item))
                     {
-                        Text_service1.Text = results[i].Name;
-                        Text_pric.Text = results[i].Issled.ToString();
-                        Text_lab.Text = results[i].result1.ToString();
+                        results[i].Workers.name = Sotr.Text;
+                        results[i].Service.service1 = Service.Text;
+                        results[i].Service.price = Convert.ToDouble(Price.Text);
+                        results[i].result1 = Result.Text;
+                        if (results[i].BarCodeR == null)
+                        {
+                            //рандом
+                            String allowchar = " ";
+                            allowchar += "1,2,3,4,5,6,7,8,9,0";
+                            char[] a = { ',' };
+                            String[] ar = allowchar.Split(a);
+                            String pwd = "";
+                            string temp = "";
+                            Random r = new Random();
+                            for (int j = 0; j < 10; j++)
+                            {
+                                temp = ar[(r.Next(0, ar.Length))];
+                                pwd += temp;
+                            }
+
+                            //генератор штрихкода
+                            BarcodeGenerator generator = new BarcodeGenerator(EncodeTypes.Code128, pwd);
+                            var imageType = "Png";
+                            string imagePath = "barcode" + pwd + ".Png";
+                            string path = System.IO.Path.GetFullPath(imagePath);
+                            generator.Save(imagePath, BarCodeImageFormat.Png);
+                            results[i].BarCodeR = path;
+                        }
                         break;
                     }
                 }
