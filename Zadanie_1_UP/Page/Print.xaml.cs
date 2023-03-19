@@ -63,7 +63,7 @@ namespace Zadanie_1_UP
 
         private void Zapis_Nazad(object sender, MouseButtonEventArgs e)
         {
-            frame1.Navigate(new Result(user, frame1));
+            frame1.Navigate(new Rezult(user, frame1, Item));
         }
     }
 }

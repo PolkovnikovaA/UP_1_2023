@@ -22,6 +22,19 @@
                    Margin="1272,13,44,755"
                    MouseLeftButtonDown="Zapis_Nazad"/>
 
+        <TextBlock x:Name="Print"
+                   Text="Печатать" 
+                   TextDecorations="Underline" 
+                   TextAlignment="Center"
+                   TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Left"
+                   Width="292"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   FontSize="60" Margin="1064,704,0,10" 
+                   FontFamily="Monotype Corsiva" 
+                   Cursor="Hand"/>
+
         <ScrollViewer Height="800" Width="1400">
             <Border Background="White"
                     Width="700">
@@ -43,9 +56,6 @@
                            Height="24" Width="250"
                            FontSize="12"
                            TextAlignment="Center" Margin="30,-610,420,0"/>
-
-                    <Image Width="160" Margin="501,42,39,682"
-                           Name="Cod"/>
 
                     <TextBlock Text="ЗАКЛЮЧЕНИЕ"
                        Background="White"
