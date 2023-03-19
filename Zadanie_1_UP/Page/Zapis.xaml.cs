@@ -63,6 +63,8 @@ namespace Zadanie_1_UP
         {
             Sotr.Visibility = Visibility.Hidden;
             Text_lab2.Visibility = Visibility.Hidden;
+            Zapiss.Visibility = Visibility.Hidden;
+            Zapiss.Visibility = Visibility.Hidden;
 
             services = Entities.GetContext().Service.ToList();
             for (int i = 0; i < services.Count; i++)

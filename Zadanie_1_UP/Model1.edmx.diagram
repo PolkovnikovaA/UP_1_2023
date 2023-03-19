@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ba063c67109d4f74b3f933a07ccab9cf" Name="Diagram1">
-        <EntityTypeShape EntityType="P_Polkovnikova_UP1_2023Model.Result" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Polkovnikova_UP1_2023Model.Result" Width="1.5" PointX="3.25" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="P_Polkovnikova_UP1_2023Model.Service" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="P_Polkovnikova_UP1_2023Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="P_Polkovnikova_UP1_2023Model.Users" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />

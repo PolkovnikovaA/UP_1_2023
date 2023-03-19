@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -39,33 +41,34 @@ namespace Zadanie_1_UP
         List<Histori> historys = new List<Histori>();
         int kolvo_zapice = 3;
 
+        List<string> filtr = new List<string>() { "Фильтрация", "До 500 руб." };
+
         public Glavnaya(string User, Frame frame)
         {
             InitializeComponent();
             frame1 = frame;
             user = User;
-            int count_hh = Entities.GetContext().Histori.Count();
-            historys = Entities.GetContext().Histori.ToList();
-            int time = 0;
-            for (int j = count_hh - 1; j >= 0; j--)
+
+            //сортировка
+            var allTypes = Entities.GetContext().Service.ToList();
+            allTypes.Insert(0, new Service
             {
-                if (historys[j].login == user)
-                {
-                    DateTime b = (DateTime)historys[j].blok;
-                    DateTime d = (DateTime)historys[j].dataZ;
-                    int h = b.Hour - d.Hour;
-                    int m = b.Minute - d.Minute;
-                    time = 60 * h + m;
-                    break;
-                }
-            }
-            DataContext = sp;
-            DateTime dateTime = DateTime.Now;
-            TickCounter = time;
-            _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromMinutes(1d);
-            _timer.Tick += new EventHandler(Timer_Tick);
-            _timer.Start();
+                service1 = "Все сервисы"
+            });
+            ComboType.ItemsSource = allTypes;
+            ComboType.SelectedIndex = 0;
+
+            //фильтрация
+            ComboType2.ItemsSource = filtr;
+            var allTypes2 = Entities.GetContext().Service.ToList();
+            allTypes.Insert(0, new Service
+            {
+                price = 500
+            });
+            ComboType2.ItemsSource = allTypes;
+            ComboType2.SelectedIndex = 0;
+
+            //ComboType2.SelectedIndex= 0;
 
             workers = Entities.GetContext().Workers.ToList();
             int count = Entities.GetContext().Workers.Count();
@@ -73,7 +76,31 @@ namespace Zadanie_1_UP
             {
                 if (workers[i].login == user && workers[i].dolg == "Лаборант")
                 {
-                    
+                    Time.Visibility = Visibility.Visible;
+                    Min.Visibility = Visibility.Visible;
+
+                    int count_hh = Entities.GetContext().Histori.Count();
+                    historys = Entities.GetContext().Histori.ToList();
+                    int time = 0;
+                    for (int j = count_hh - 1; j >= 0; j--)
+                    {
+                        if (historys[j].login == user)
+                        {
+                            DateTime b = (DateTime)historys[j].blok;
+                            DateTime d = (DateTime)historys[j].dataZ;
+                            int h = b.Hour - d.Hour;
+                            int m = b.Minute - d.Minute;
+                            time = 60 * h + m;
+                            break;
+                        }
+                    }
+                    DataContext = sp;
+                    DateTime dateTime = DateTime.Now;
+                    TickCounter = time;
+                    _timer = new DispatcherTimer();
+                    _timer.Interval = TimeSpan.FromMinutes(1d);
+                    _timer.Tick += new EventHandler(Timer_Tick);
+                    _timer.Start();
                     //Image.Visibility= Visibility.Hidden;
                 }
                 if (workers[i].login == user && workers[i].dolg == "Администратор")
@@ -150,14 +177,33 @@ namespace Zadanie_1_UP
             frame1.Navigate(new Rezult(user, frame1, item));
         }
 
+        //Поиск, сортировка, фильтрация
         private void Update()
         {
             var currentService = Entities.GetContext().Service.ToList();
+
+
+            if (ComboType2.SelectedIndex > 0)
+            {
+
+                for (int i = 0; i < currentService.Count; i++)
+                {
+                    
+
+
+                    if (currentService[i].price >= 150)
+                    {
+                        currentService.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+
+
             
             currentService = currentService.Where(p => p.service1.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
             LViewTours.ItemsSource = currentService.ToList();
-
-            var currentResult = Entities.GetContext().Result.ToList();
+            /*var currentResult = Entities.GetContext().Result.ToList();
 
                 for (int i = 0; i < currentResult.Count; i++)
                 {
@@ -168,13 +214,29 @@ namespace Zadanie_1_UP
                     }
                 }
             currentResult = currentResult.Where(p => p.result1.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
-            LViewResult.ItemsSource = currentResult.ToList();
+            LViewResult.ItemsSource = currentResult.ToList();*/
+
+            //
+
+
+
         }
 
-        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        /*private void Search_TextChanged(object sender, TextChangedEventArgs e)
         {
             Update();
         }
+
+        private async void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private async void ComboType2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await Task.Delay(100);
+            Update();
+        }*/
 
         private void Glavnaya_Analiz(object sender, MouseButtonEventArgs e)
         {
@@ -189,6 +251,16 @@ namespace Zadanie_1_UP
             TBoxSearch.Text = "";
             List_Service = Entities.GetContext().Service.ToList();
             LViewTours.ItemsSource = Entities.GetContext().Service.ToList();
+
+            //фильтрация
+            
+           /* var allTypes = Entities.GetContext().Service.ToList();
+            allTypes.Insert(0, new Service
+            {
+                price = 500
+            });
+            ComboType2.ItemsSource = allTypes;
+            ComboType2.SelectedIndex = 0;*/
 
             List<Service> services = new List<Service>();
             services = Entities.GetContext().Service.ToList();
@@ -210,6 +282,58 @@ namespace Zadanie_1_UP
             LViewTours.ItemsSource = List_Service.Skip(0).Take(sp.CountPageFlower).ToList();  // отображаем первые записи в том количестве, которое равно CountPage
             sp.CurrentPage = 1; // текущая страница - это страница 1
         }
+
+
+
+
+
+
+
+
+
+        private void UpdateMaski()
+        {
+            var currentService = Entities.GetContext().Service.ToList();
+            if (ComboType.SelectedIndex > 0)
+            {
+                for (int i = 0; i < currentService.Count; i++)
+                {
+                    if (currentService[i].service1 != ComboType.Text)
+                    {
+                        currentService.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+            currentService = currentService.Where(p => p.service1.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
+            LViewTours.ItemsSource = currentService.ToList();
+        }
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateMaski();
+        }
+
+        private async void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await Task.Delay(100);
+            UpdateMaski();
+        }
+
+        private async void ComboType2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            await Task.Delay(100);
+            UpdateMaski();
+        }
+
+
+
+
+
+
+
+
+
+
 
         private void Glavnaya_Rezultat(object sender, MouseButtonEventArgs e)
         {
@@ -297,5 +421,7 @@ namespace Zadanie_1_UP
             Diagramm d = new Diagramm();
             d.Show();
         }
+
+        
     }
 }

@@ -45,7 +45,8 @@
 
                 <ComboBox Width="207"
                           Name="ComboType"
-                          DisplayMemberPath="Title" Height="40"
+                          DisplayMemberPath="service1" Height="40"
+                          SelectionChanged="ComboType_SelectionChanged"
                           Margin="10,5,0,0"/>
 
                 <TextBlock Text="Фильтрация: "
@@ -57,8 +58,9 @@
 
                 <ComboBox Width="207"
                           Name="ComboType2"
-                          DisplayMemberPath="Title" Height="40"
-                          Margin="10,5,0,0"/>
+                          SelectionChanged="ComboType2_SelectionChanged"
+                          DisplayMemberPath="price" Height="40"
+                          Margin="10,5,0,0" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Width="284" Height="55">
@@ -152,7 +154,7 @@
                                                Name="Ser"
                                                FontFamily="Monotype Corsiva"
                                                FontSize="30"/>
-                                        <TextBlock Text="{Binding price}"
+                                        <TextBlock Text="{Binding price, StringFormat={}{0:N2} (руб.)}"
                                                FontFamily="Monotype Corsiva"
                                                FontSize="30"/>
                                     </StackPanel>
@@ -181,7 +183,7 @@
 
         <ListView Grid.Row="1"
                   x:Name="LViewResult"
-                  ItemsSource="{Binding Result}" 
+                  ItemsSource="{Binding Service}" 
                   Margin="0,0,0,87"
                   Visibility="Hidden"
                   Cursor="Hand">
@@ -224,11 +226,14 @@
                                 <StackPanel Grid.Column="1"
                                             Margin="0"
                                             Orientation="Vertical">
-                                    <TextBlock Text="{Binding id_lad}"
+                                    <TextBlock Text="{Binding Workers.name, StringFormat={}{0:N2} - лаборант}"
                                                Name="Ser"
                                                FontFamily="Monotype Corsiva"
                                                FontSize="30"/>
-                                    <TextBlock Text="{Binding id_service}"
+                                    <TextBlock Text="{Binding Users1.name, StringFormat={}{0:N2} - пациент}"
+                                               FontFamily="Monotype Corsiva"
+                                               FontSize="30"/>
+                                    <TextBlock Text="{Binding Service.service1}"
                                                FontFamily="Monotype Corsiva"
                                                FontSize="30"/>
                                     <TextBlock Text="{Binding result1}"
@@ -264,6 +269,7 @@
                  HorizontalAlignment="Left" 
                  Margin="1127,661,0,0" 
                  TextWrapping="Wrap" 
+                 Visibility="Hidden"
                  VerticalAlignment="Top" 
                  FontFamily="Monotype Corsiva"
                  FontSize="30" 
@@ -276,6 +282,8 @@
 
         <Label Content="Осталось минут"
                Margin="1184,659,0,0" 
+               Name="Min"
+               Visibility="Hidden"
                FontFamily="Monotype Corsiva"
                HorizontalAlignment="Left"  
                VerticalAlignment="Top"
