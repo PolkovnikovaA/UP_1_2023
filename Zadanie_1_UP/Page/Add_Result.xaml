@@ -1,0 +1,103 @@
+﻿<Page x:Class="Zadanie_1_UP.Add_Result"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Zadanie_1_UP"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1400"
+      Title="Add_Result">
+
+    <Grid Height="800" Width="1400">
+        <TextBlock x:Name="Back_Zapis"
+                   Text="Назад"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="30" 
+                   FontWeight="Bold" 
+                   TextDecorations="Underline"
+                   Foreground="White" 
+                   Cursor="Hand" 
+                   Height="32" Width="84" 
+                   Margin="1296,13,20,755"
+                   MouseLeftButtonDown="Add_Nazad"/>
+
+        <TextBlock Text="Лаборант" TextAlignment="Right" 
+                   Foreground="White"
+                   FontStyle="Normal"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="55"
+                   Margin="273,184,897,559"/>
+
+        <ComboBox Name="Sotr" 
+                  HorizontalAlignment="Left" 
+                  Margin="85,255,0,0" 
+                  FontSize="35" 
+                  VerticalAlignment="Top" 
+                  Width="606" Height="66"
+                  DisplayMemberPath="name" 
+                  FontFamily="Monotype Corsiva"/>
+
+        <TextBlock Text="Пациент" TextAlignment="Right" 
+                   Foreground="White"
+                   FontStyle="Normal"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="55"
+                   Margin="273,326,897,417"/>
+
+        <ComboBox Name="User2" 
+                  HorizontalAlignment="Left" 
+                  Margin="85,397,0,0" 
+                  FontSize="35" 
+                  VerticalAlignment="Top" 
+                  Width="606" Height="66"
+                  DisplayMemberPath="name" 
+                  FontFamily="Monotype Corsiva"/>
+
+        <TextBlock Text="Услуга" TextAlignment="Right" 
+                   Foreground="White"
+                   FontStyle="Normal"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="55"
+                   Margin="959,188,289,553"/>
+
+        <ComboBox Name="Service" 
+                  HorizontalAlignment="Left" 
+                  Margin="732,255,0,0" 
+                  FontSize="35" 
+                  VerticalAlignment="Top" 
+                  Width="606" Height="66"
+                  DisplayMemberPath="name" 
+                  FontFamily="Monotype Corsiva"/>
+
+        <TextBlock Text="Результат" TextAlignment="Right" 
+                   Foreground="White"
+                   FontStyle="Normal"
+                   FontFamily="Monotype Corsiva"
+                   FontSize="55"
+                   Margin="911,326,242,417"/>
+
+        <TextBox Height="60"
+                   Background="White"
+                   FontSize="50"
+                 Visibility="Visible"
+                 TextAlignment="Center"
+                   FontFamily="Monotype Corsiva"
+                   x:Name="Result" 
+                   Margin="732,400,62,340"/>
+
+        <TextBlock x:Name="AddResult"
+                   Text="Добавить" 
+                   TextDecorations="Underline" 
+                   TextAlignment="Center"
+                   Visibility="Visible"
+                   TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Left"
+                   Width="378"
+                   FontWeight="Bold" 
+                   MouseLeftButtonDown="Add_Res"
+                   Foreground="White"
+                   FontSize="70" Margin="526,556,0,158" 
+                   FontFamily="Monotype Corsiva" 
+                   Cursor="Hand"/>
+    </Grid>
+</Page>

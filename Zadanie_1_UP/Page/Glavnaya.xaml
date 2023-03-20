@@ -146,7 +146,7 @@
                                     <Image Source="{Binding BarCodeR}" 
                                            Height="100" Width="160"
                                            HorizontalAlignment="Left" />
-                                    
+
                                     <StackPanel Grid.Column="1"
                                             Margin="0"
                                             Orientation="Vertical">
@@ -164,7 +164,7 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            
+
         </ListView>
 
         <Grid Grid.Row="1" Margin="1088,575,10,87" Visibility="Hidden" x:Name="Str">
@@ -293,21 +293,49 @@
                BorderBrush="{x:Null}"
                Background="{x:Null}" Grid.Row="1"/>
 
-        <Button Height="60" Width="400"
-                Content="Добавить сервис"
+        <TextBlock Height="60"
+                Text="Диаграмма"
+                x:Name="Diagramma55" 
+                Visibility="Hidden"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   TextAlignment="Center"
+                   FontSize="50"
+                   TextDecorations="Underline" 
+                   FontFamily="Monotype Corsiva" 
+                Margin="10,643,1111,31"
+                MouseLeftButtonDown="Diagramm"
+                   Cursor="Hand"
+                Grid.Row="1"/>
+
+        <TextBlock
+                Text="Добавить сервис"
                 x:Name="Add" 
                 Visibility="Hidden"
-                Margin="89,661,911,13"
-                Click="Add5"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   TextAlignment="Center"
+                   FontSize="50"
+                   TextDecorations="Underline" 
+                   FontFamily="Monotype Corsiva" 
+                Margin="341,643,700,37"
+                MouseLeftButtonDown="Add5"
+                   Cursor="Hand"
                 Grid.Row="1"/>
 
-        <Button Height="60" Width="400"
-                Content="Диаграмма"
-                x:Name="Diagramma" 
-                Visibility="Visible"
-                Margin="567,661,433,13"
-                Click="Diagramm"
+        <TextBlock
+                Text="Добавить результат"
+                x:Name="Add2" 
+                Visibility="Hidden"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   TextAlignment="Center"
+                   FontSize="50"
+                   TextDecorations="Underline" 
+                   FontFamily="Monotype Corsiva" 
+                Margin="736,643,221,33"
+                MouseLeftButtonDown="Add_Result"
+                   Cursor="Hand"
                 Grid.Row="1"/>
-
     </Grid>
 </Page>

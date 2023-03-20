@@ -19,7 +19,7 @@
                    Foreground="White" 
                    Cursor="Hand" 
                    Height="32" Width="84" 
-                   Margin="1272,13,44,755"
+                   Margin="1278,13,38,755"
                    MouseLeftButtonDown="Zapis_Nazad"/>
 
         <TextBlock x:Name="Print2"
@@ -31,11 +31,11 @@
                    Width="330"
                    FontWeight="Bold" 
                    Foreground="White"
-                   FontSize="60" Margin="1047,723,0,16" 
+                   FontSize="60" Margin="1055,669,0,70" 
                    FontFamily="Monotype Corsiva" 
                    Cursor="Hand"/>
 
-        <ScrollViewer Height="800" Width="1400">
+        
             <Border Background="White"
                     Width="700">
 
@@ -215,6 +215,6 @@
                        TextAlignment="Center" Margin="155,520,502,264"/>
                 </Grid>
             </Border>
-        </ScrollViewer>
+        
     </Grid>
 </Page>

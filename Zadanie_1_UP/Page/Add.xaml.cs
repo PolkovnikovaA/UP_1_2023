@@ -36,11 +36,8 @@ namespace Zadanie_1_UP
             int count = Entities.GetContext().Service.Count();
             try
             {
-                //services[0].id = count + 5;
                 services[0].service1 = Text_service1.Text;
                 services[0].price = Convert.ToDouble(Text_pric.Text);
-              //  services[0].Sotr = Text_lab.Text;
-                
                 Entities.GetContext().Service.Add(services[0]);
                 Entities.GetContext().SaveChanges();
                 frame1.Navigate(new Glavnaya(user, frame1));
@@ -54,20 +51,6 @@ namespace Zadanie_1_UP
         private void Add_Nazad(object sender, MouseButtonEventArgs e)
         {
             frame1.Navigate(new Glavnaya(user, frame1));
-        }
-
-        private void Image_Zapis(object sender, MouseButtonEventArgs e)
-        {
-            img.FileName = "Picture";
-            img.DefaultExt = ".jpg";
-            img.Filter = "Picture (.jpg)|*.jpg";
-
-            Nullable<bool> result = img.ShowDialog();
-            if (result != false)
-            {
-                var uriImageSource = new Uri(img.FileName, UriKind.RelativeOrAbsolute);
-                Image.Source = new BitmapImage(uriImageSource);
-            }
         }
     }
 }

@@ -21,27 +21,12 @@
                    Margin="1296,13,20,755"
                    MouseLeftButtonDown="Add_Nazad"/>
 
-        <Image x:Name="Image"
-               MouseLeftButtonDown="Image_Zapis"
-               Height="450" Width="400"
-               Margin="140,84,860,266"
-               Cursor="Hand">
-
-            <Image.Source>
-                <Binding>
-                    <Binding.TargetNullValue>
-                        <ImageSource>/Image/zagl.jpg</ImageSource>
-                    </Binding.TargetNullValue>
-                </Binding>
-            </Image.Source>
-        </Image>
-
         <TextBlock Text="Название" TextAlignment="Right" 
                    Foreground="White"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
                    FontSize="55"
-                   Margin="878,175,316,569"/>
+                   Margin="597,193,597,551"/>
 
         <TextBox Height="60"
                    Background="White"
@@ -50,14 +35,14 @@
                  TextAlignment="Center"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_service1" 
-                   Margin="678,243,116,497"/>
+                   Margin="397,261,397,479"/>
 
-        <TextBlock Text="Цена" TextAlignment="Right" 
+        <TextBlock Text="Сумма" TextAlignment="Right" 
                    Foreground="White"
                    FontStyle="Normal"
                    FontFamily="Monotype Corsiva"
                    FontSize="55"
-                   Margin="927,309,365,432"/>
+                   Margin="626,326,626,409"/>
 
         <TextBox Height="60"
                    Background="White"
@@ -66,7 +51,7 @@
                  Visibility="Visible"
                    FontFamily="Monotype Corsiva"
                    x:Name="Text_pric" 
-                   Margin="678,382,116,358"/>
+                   Margin="397,400,397,340"/>
 
         <TextBlock x:Name="Zapiss"
                    Text="Добавить" 
@@ -74,30 +59,13 @@
                    TextAlignment="Center"
                    Visibility="Visible"
                    TextWrapping="WrapWithOverflow"
-                   HorizontalAlignment="Left"
+                   HorizontalAlignment="Center"
                    Width="378"
                    FontWeight="Bold" 
                    MouseLeftButtonDown="Add_Service2"
                    Foreground="White"
-                   FontSize="70" Margin="792,619,0,95" 
+                   FontSize="70" Margin="0,576,0,138" 
                    FontFamily="Monotype Corsiva" 
                    Cursor="Hand"/>
-
-        <TextBlock Text="Сотрудник" TextAlignment="Right" 
-                   Foreground="White"
-                   Name="Sotr"
-                   FontStyle="Normal"
-                   FontFamily="Monotype Corsiva"
-                   FontSize="55"
-                   Margin="229,543,938,194"/>
-
-        <TextBox Height="55"
-                   Background="White"
-                   FontSize="40"
-                 TextAlignment="Center"
-                 Visibility="Visible"
-                   FontFamily="Monotype Corsiva"
-                   x:Name="Text_lab" 
-                   Margin="76,629,796,111"/>
     </Grid>
 </Page>
