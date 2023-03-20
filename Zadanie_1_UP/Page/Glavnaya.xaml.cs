@@ -41,25 +41,23 @@ namespace Zadanie_1_UP
         List<Histori> historys = new List<Histori>();
         int kolvo_zapice = 3;
 
-        //List<string> filtr = new List<string>() { "Фильтрация", "До 500 руб." };
+        List<string> filtr = new List<string>() { "Фильтрация", "До 500 руб." };
 
         public Glavnaya(string User, Frame frame)
         {
             InitializeComponent();
             frame1 = frame;
             user = User;
-
-            //фильтрация
-            /*ComboType2.ItemsSource = filtr;
-            var allTypes2 = Entities.GetContext().Service.ToList();
-            allTypes.Insert(0, new Service
+            var all1 = Entities.GetContext().Service.ToList();
+            all1.Insert(0, new Service
             {
-                price = 500
+                service1 = "Услуги"
             });
-            ComboType2.ItemsSource = allTypes;
-            ComboType2.SelectedIndex = 0;*/
-
-            //ComboType2.SelectedIndex= 0;
+            ComboType2.ItemsSource = filtr;
+            var allTypes2 = Entities.GetContext().Service.ToList();
+            ComboType.ItemsSource = all1;
+            ComboType2.SelectedIndex = 0;
+            ComboType.SelectedIndex = 0;
 
             workers = Entities.GetContext().Workers.ToList();
             int count = Entities.GetContext().Workers.Count();
@@ -176,14 +174,26 @@ namespace Zadanie_1_UP
         }
 
         //Поиск, сортировка, фильтрация
-        private void Update()
+        private async void Update()
         {
             var currentService = Entities.GetContext().Service.ToList();
-            if (ComboType2.SelectedIndex > 0)
+            if (ComboType2.SelectedIndex == 1)
             {
                 for (int i = 0; i < currentService.Count; i++)
                 {
-                    if (currentService[i].price >= 150)
+                    if (currentService[i].price > 500)
+                    {
+                        currentService.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+            if (ComboType.SelectedIndex > 0)
+            {
+                for (int i = 0; i < currentService.Count; i++)
+                {
+                    await Task.Delay(100);
+                    if (currentService[i].service1 != ComboType.Text)
                     {
                         currentService.RemoveAt(i);
                         i--;
@@ -256,15 +266,9 @@ namespace Zadanie_1_UP
 
         private async void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //await Task.Delay(100);
-            //Update();
+            Update();
         }
 
-        private async void ComboType2_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            await Task.Delay(100);
-            //UpdateMaski();
-        }
 
         private void Glavnaya_Rezultat(object sender, MouseButtonEventArgs e)
         {
@@ -337,6 +341,11 @@ namespace Zadanie_1_UP
         {
             Histor hist = new Histor();
             hist.Show();
+        }
+
+        private void ComboType2_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            Update();
         }
     }
 }

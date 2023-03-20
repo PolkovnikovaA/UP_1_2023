@@ -58,8 +58,8 @@
 
                 <ComboBox Width="207"
                           Name="ComboType2"
-                          SelectionChanged="ComboType2_SelectionChanged"
-                          DisplayMemberPath="price" Height="40"
+                          SelectionChanged="ComboType2_SelectionChanged_1"
+                          Height="40"
                           Margin="10,5,0,0" />
             </StackPanel>
             

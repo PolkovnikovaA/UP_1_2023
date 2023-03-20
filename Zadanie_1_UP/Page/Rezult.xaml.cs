@@ -28,10 +28,10 @@ namespace Zadanie_1_UP
 
         List<Workers> workers = new List<Workers>();
         List<Result> results = new List<Result>();
-        public Rezult(string user, Frame frame, object item)
+        public Rezult(string User, Frame frame, object item)
         {
             InitializeComponent();
-            user = user;
+            user = User;
             frame1 = frame;
             Item = item;
 

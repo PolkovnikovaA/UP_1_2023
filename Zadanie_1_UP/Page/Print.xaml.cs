@@ -26,10 +26,10 @@ namespace Zadanie_1_UP
 
         List<Result> result = new List<Result>();
 
-        public Print(string user, Frame frame, object item)
+        public Print(string User, Frame frame, object item)
         {
             InitializeComponent();
-            user = user;
+            user = User;
             frame1 = frame;
             Item = item;
 

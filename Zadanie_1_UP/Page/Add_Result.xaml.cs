@@ -58,7 +58,6 @@ namespace Zadanie_1_UP
             try
             {
                 List<Result> results = new List<Result> { new Result() };
-               // results[0].Users1 = User2.SelectedIndex;
                 results[0].id_lad = Sotr.SelectedIndex;
                 results[0].id_service = Service.SelectedIndex;
                 results[0].result1 = Result.Text;
