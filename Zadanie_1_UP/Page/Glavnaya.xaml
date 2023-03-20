@@ -62,7 +62,7 @@
                           DisplayMemberPath="price" Height="40"
                           Margin="10,5,0,0" />
             </StackPanel>
-
+            
             <StackPanel Orientation="Horizontal" Width="284" Height="55">
                 <Image Source="/Image/Analiz.png"
                        Name="Image"
@@ -143,7 +143,7 @@
                                 <StackPanel Grid.Column="1"
                                         Margin="15"
                                         Orientation="Horizontal">
-                                    <Image Source="{Binding BarCodeR}" 
+                                    <Image Source="/Image/zagl.jpg" 
                                            Height="100" Width="160"
                                            HorizontalAlignment="Left" />
 
@@ -335,6 +335,21 @@
                    FontFamily="Monotype Corsiva" 
                 Margin="736,643,221,33"
                 MouseLeftButtonDown="Add_Result"
+                   Cursor="Hand"
+                Grid.Row="1"/>
+
+        <TextBlock
+                Text="История"
+                x:Name="Histor" 
+                Visibility="Hidden"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   TextAlignment="Center"
+                   FontSize="50"
+                   TextDecorations="Underline" 
+                   FontFamily="Monotype Corsiva" 
+                Margin="1195,643,10,37"
+                MouseLeftButtonDown="Histori"
                    Cursor="Hand"
                 Grid.Row="1"/>
     </Grid>

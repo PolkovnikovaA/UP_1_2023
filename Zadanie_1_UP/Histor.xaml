@@ -1,0 +1,24 @@
+﻿<Window x:Class="Zadanie_1_UP.Histor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadanie_1_UP"
+        mc:Ignorable="d"
+        Title="Histor" Height="450" Width="300">
+    <Grid>
+        <DataGrid x:Name="Dgrid" AutoGenerateColumns="False" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=10}" Width="325" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Логин" Binding="{Binding login}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Адрес компьютера" Binding="{Binding ip}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата и вермя входа" Binding="{Binding date}" ></DataGridTextColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

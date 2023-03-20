@@ -49,17 +49,8 @@ namespace Zadanie_1_UP
             frame1 = frame;
             user = User;
 
-            //сортировка
-            /*var allTypes = Entities.GetContext().Service.ToList();
-            allTypes.Insert(0, new Service
-            {
-                service1 = "Все сервисы"
-            });
-            ComboType.ItemsSource = allTypes;
-            ComboType.SelectedIndex = 0;
-
             //фильтрация
-            ComboType2.ItemsSource = filtr;
+            /*ComboType2.ItemsSource = filtr;
             var allTypes2 = Entities.GetContext().Service.ToList();
             allTypes.Insert(0, new Service
             {
@@ -103,11 +94,11 @@ namespace Zadanie_1_UP
                     _timer.Interval = TimeSpan.FromMinutes(1d);
                     _timer.Tick += new EventHandler(Timer_Tick);
                     _timer.Start();
-                    //Image.Visibility= Visibility.Hidden;
                 }
                 if (workers[i].login == user && workers[i].dolg == "Администратор")
                 {
                     Add.Visibility = Visibility.Visible;
+                    Histor.Visibility = Visibility.Visible;
                     Add2.Visibility = Visibility.Visible;
                     Diagramma55.Visibility = Visibility.Visible;
                     Add.Visibility = Visibility.Visible;
@@ -119,7 +110,6 @@ namespace Zadanie_1_UP
                 }
                 break;
             }
-
         }
 
         public int TickCounter
@@ -216,22 +206,6 @@ namespace Zadanie_1_UP
             LViewResult.ItemsSource = currentResult.ToList();
         }
 
-        /*private void Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Update();
-        }
-
-        private async void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
-
-        private async void ComboType2_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            await Task.Delay(100);
-            Update();
-        }*/
-
         private void Glavnaya_Analiz(object sender, MouseButtonEventArgs e)
         {
             var all = Entities.GetContext().Service.ToList();
@@ -275,38 +249,21 @@ namespace Zadanie_1_UP
             sp.CurrentPage = 1; // текущая страница - это страница 1
         }
 
-        private void UpdateMaski()
-        {
-            /*var currentService = Entities.GetContext().Service.ToList();
-            if (ComboType.SelectedIndex > 0)
-            {
-                for (int i = 0; i < currentService.Count; i++)
-                {
-                    if (currentService[i].service1 != ComboType.Text)
-                    {
-                        currentService.RemoveAt(i);
-                        i--;
-                    }
-                }
-            }
-            currentService = currentService.Where(p => p.service1.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
-            LViewTours.ItemsSource = currentService.ToList();*/
-        }
         private void Search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            UpdateMaski();
+            Update();
         }
 
         private async void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await Task.Delay(100);
-            UpdateMaski();
+            //await Task.Delay(100);
+            //Update();
         }
 
         private async void ComboType2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             await Task.Delay(100);
-            UpdateMaski();
+            //UpdateMaski();
         }
 
         private void Glavnaya_Rezultat(object sender, MouseButtonEventArgs e)
@@ -372,8 +329,14 @@ namespace Zadanie_1_UP
 
         private void Diagramm(object sender, RoutedEventArgs e)
         {
-            Diagramm d = new Diagramm();
-            d.Show();
+            Diagramm diagramm = new Diagramm();
+            diagramm.Show();
+        }
+
+        private void Histori(object sender, MouseButtonEventArgs e)
+        {
+            Histor hist = new Histor();
+            hist.Show();
         }
     }
 }
