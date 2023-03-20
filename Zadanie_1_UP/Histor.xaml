@@ -11,7 +11,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Логин" Binding="{Binding login}" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Адрес компьютера" Binding="{Binding ip}" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Дата и вермя входа" Binding="{Binding date}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата и вермя входа" Binding="{Binding dataZ}" ></DataGridTextColumn>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
